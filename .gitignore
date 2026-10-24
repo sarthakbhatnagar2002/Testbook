@@ -1,0 +1,29 @@
+# This repo only tracks the current stack: /backend (FastAPI) and /frontend
+# (React+Vite). The original Next.js app this project started from has been
+# superseded and is excluded entirely (backend/.gitignore and
+# frontend/.gitignore handle ignores within those two folders).
+
+/app/
+/components/
+/db/
+/lib/
+/scripts/
+/public/
+/node_modules/
+/.next/
+/package.json
+/package-lock.json
+/next.config.ts
+/next-env.d.ts
+/drizzle.config.ts
+/eslint.config.mjs
+/postcss.config.mjs
+/tsconfig.json
+/vitest.config.mts
+/.env
+/.env.example
+/dev.db
+/dev.db-journal
+
+.DS_Store
+*.pem
