@@ -11,7 +11,6 @@ export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState<Role>("student");
-  const [inviteCode, setInviteCode] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
@@ -20,7 +19,7 @@ export default function RegisterPage() {
     setError(null);
     setBusy(true);
     try {
-      const user = await register(name, email, password, role, inviteCode);
+      const user = await register(name, email, password, role);
       navigate(user.role === "teacher" ? "/teacher/tests" : "/tests");
     } catch (err) {
       setError(err instanceof ApiError ? err.message : "Something went wrong");
@@ -74,16 +73,6 @@ export default function RegisterPage() {
             Teacher
           </label>
         </fieldset>
-        {role === "teacher" && (
-          <label className="mb-4 block text-sm">
-            Teacher invite code
-            <input
-              value={inviteCode}
-              onChange={(e) => setInviteCode(e.target.value)}
-              className="mt-1 w-full rounded border border-gray-300 px-3 py-2"
-            />
-          </label>
-        )}
         <button
           type="submit"
           disabled={busy}

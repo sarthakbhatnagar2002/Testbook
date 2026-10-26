@@ -40,16 +40,27 @@ def decode_token(token: str) -> str | None:
 
 def set_session_cookie(response: Response, user_id: str) -> None:
     settings = get_settings()
+    # SameSite=None is required once the frontend and backend live on
+    # different origins (e.g. two separate Render services) — browsers then
+    # also require Secure on the cookie, which HTTPS-only Render satisfies.
+    samesite = settings.cookie_samesite
     response.set_cookie(
         key=COOKIE_NAME,
         value=create_token(user_id),
         httponly=True,
-        samesite="lax",
-        secure=settings.is_production,
+        samesite=samesite,
+        secure=settings.is_production or samesite == "none",
         path="/",
         max_age=MAX_AGE_SECONDS,
     )
 
 
 def clear_session_cookie(response: Response) -> None:
-    response.delete_cookie(key=COOKIE_NAME, path="/")
+    settings = get_settings()
+    samesite = settings.cookie_samesite
+    response.delete_cookie(
+        key=COOKIE_NAME,
+        path="/",
+        samesite=samesite,
+        secure=settings.is_production or samesite == "none",
+    )

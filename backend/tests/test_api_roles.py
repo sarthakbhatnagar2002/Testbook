@@ -1,7 +1,5 @@
-def register(client, name, email, role, invite_code=None):
+def register(client, name, email, role):
     body = {"name": name, "email": email, "password": "password123", "role": role}
-    if invite_code:
-        body["invite_code"] = invite_code
     r = client.post("/auth/register", json=body)
     assert r.status_code == 200, r.text
     return r.json()
@@ -81,16 +79,16 @@ def test_student_cannot_create_question(client):
 
 
 def test_teacher_cannot_delete_another_teachers_question(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     q = make_question(client)
 
-    register(client, "T2", "t2@x.com", "teacher", "teacher123")
+    register(client, "T2", "t2@x.com", "teacher")
     r = client.delete(f"/questions/{q['id']}")
     assert r.status_code == 404
 
 
 def test_question_used_in_a_section_cannot_be_deleted(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     make_test(client, question_texts=("Used question",))
     bank = client.get("/questions").json()
     qid = next(q["id"] for q in bank if q["text"] == "Used question")
@@ -100,7 +98,7 @@ def test_question_used_in_a_section_cannot_be_deleted(client):
 
 
 def test_student_cannot_see_unpublished_test(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     make_test(client, published=False)
 
     register(client, "Stu", "stu@x.com", "student")
@@ -110,7 +108,7 @@ def test_student_cannot_see_unpublished_test(client):
 
 
 def test_student_cannot_read_another_students_attempt(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     test = make_test(client)
 
     register(client, "S1", "s1@x.com", "student")
@@ -126,6 +124,6 @@ def test_student_cannot_read_another_students_attempt(client):
 
 
 def test_teacher_cannot_see_students_profile_endpoint(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     r = client.get("/profile")
     assert r.status_code == 403

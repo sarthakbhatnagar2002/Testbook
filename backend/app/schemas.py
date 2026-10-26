@@ -31,7 +31,6 @@ class RegisterIn(BaseModel):
     email: str
     password: str = Field(min_length=8)
     role: Role = "student"
-    invite_code: str | None = None
 
     @field_validator("name")
     @classmethod

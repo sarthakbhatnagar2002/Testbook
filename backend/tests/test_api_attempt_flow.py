@@ -4,7 +4,7 @@ from tests.test_api_roles import inline_question, join_test, make_test, make_tes
 
 
 def test_full_attempt_lifecycle(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     client.post(
         "/tests/with-questions",
         json={
@@ -89,7 +89,7 @@ def test_full_attempt_lifecycle(client):
 
 
 def test_cannot_submit_before_grading_wrong_question_ids(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     test, q1 = make_test_with_question(client, "Q1")
 
     register(client, "Stu", "stu@x.com", "student")
@@ -103,7 +103,7 @@ def test_cannot_submit_before_grading_wrong_question_ids(client):
 
 
 def test_upcoming_test_is_not_startable_yet(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     future = (datetime.now(timezone.utc) + timedelta(days=1)).isoformat()
     test, _ = make_test_with_question(client, "Q1", start_time=future)
 
@@ -117,7 +117,7 @@ def test_upcoming_test_is_not_startable_yet(client):
 
 
 def test_closed_test_cannot_be_started(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     past = (datetime.now(timezone.utc) - timedelta(days=1)).isoformat()
     test, _ = make_test_with_question(client, "Q1", end_time=past)
 
@@ -129,7 +129,7 @@ def test_closed_test_cannot_be_started(client):
 
 
 def test_total_duration_is_sum_of_sections(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     client.post(
         "/tests/with-questions",
         json={
@@ -154,7 +154,7 @@ def test_total_duration_is_sum_of_sections(client):
 
 
 def test_report_question(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     test, q1 = make_test_with_question(client, "Q1")
 
     register(client, "Stu", "stu@x.com", "student")
@@ -168,7 +168,7 @@ def test_report_question(client):
 
 
 def test_cannot_start_without_joining_first(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     test, _ = make_test_with_question(client, "Q1")
 
     register(client, "Stu", "stu@x.com", "student")
@@ -177,7 +177,7 @@ def test_cannot_start_without_joining_first(client):
 
 
 def test_join_with_wrong_key_fails(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     make_test_with_question(client, "Q1")
 
     register(client, "Stu", "stu@x.com", "student")
@@ -186,7 +186,7 @@ def test_join_with_wrong_key_fails(client):
 
 
 def test_join_is_case_insensitive(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     test, _ = make_test_with_question(client, "Q1")
 
     register(client, "Stu", "stu@x.com", "student")
@@ -195,7 +195,7 @@ def test_join_is_case_insensitive(client):
 
 
 def test_cannot_join_or_start_an_archived_test(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     test, _ = make_test_with_question(client, "Q1")
     client.patch(f"/tests/{test['id']}", json={"archived": True})
 
@@ -205,7 +205,7 @@ def test_cannot_join_or_start_an_archived_test(client):
 
 
 def test_archiving_after_joining_blocks_a_new_start(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     test, _ = make_test_with_question(client, "Q1")
 
     register(client, "Stu", "stu@x.com", "student")

@@ -3,7 +3,6 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from .. import models, schemas
-from ..config import get_settings
 from ..database import get_db
 from ..deps import get_current_user
 from ..security import clear_session_cookie, hash_password, set_session_cookie, verify_password
@@ -13,12 +12,6 @@ router = APIRouter(prefix="/auth", tags=["auth"])
 
 @router.post("/register", response_model=schemas.UserOut)
 def register(body: schemas.RegisterIn, response: Response, db: Session = Depends(get_db)):
-    settings = get_settings()
-    # If TEACHER_INVITE_CODE is set, only people who know it can sign up as teachers.
-    if body.role == "teacher" and settings.teacher_invite_code:
-        if body.invite_code != settings.teacher_invite_code:
-            raise HTTPException(status.HTTP_400_BAD_REQUEST, "Wrong teacher invite code")
-
     existing = db.execute(select(models.User).where(models.User.email == body.email)).scalar_one_or_none()
     if existing:
         raise HTTPException(status.HTTP_400_BAD_REQUEST, "That email is already registered")

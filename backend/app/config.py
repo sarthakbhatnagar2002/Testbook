@@ -8,10 +8,13 @@ class Settings(BaseSettings):
 
     database_url: str = "sqlite:///./dev.db"
     session_secret: str = ""
-    teacher_invite_code: str | None = "teacher123"
     frontend_origin: str = "http://localhost:5173"
     environment: str = "development"
     upload_dir: str = "./uploads"
+    # "lax" works when frontend and backend share a site (e.g. local dev).
+    # Set to "none" when they're on different origins (e.g. two separate
+    # Render services) or the browser will silently drop the session cookie.
+    cookie_samesite: str = "lax"
 
     @property
     def is_production(self) -> bool:

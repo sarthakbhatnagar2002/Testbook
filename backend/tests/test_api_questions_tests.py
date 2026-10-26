@@ -2,7 +2,7 @@ from tests.test_api_roles import inline_question, make_question, make_test, regi
 
 
 def test_question_needs_exactly_one_correct_option(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     r = client.post(
         "/questions",
         json={"text": "Q", "options": [{"text": "a", "is_correct": True}, {"text": "b", "is_correct": True}]},
@@ -17,7 +17,7 @@ def test_question_needs_exactly_one_correct_option(client):
 
 
 def test_option_with_only_an_image_is_allowed(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     r = client.post(
         "/questions",
         json={
@@ -33,7 +33,7 @@ def test_option_with_only_an_image_is_allowed(client):
 
 
 def test_option_with_neither_text_nor_image_is_rejected(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     r = client.post(
         "/questions",
         json={"text": "Q", "options": [{"text": "", "is_correct": True}, {"text": "b", "is_correct": False}]},
@@ -42,7 +42,7 @@ def test_option_with_neither_text_nor_image_is_rejected(client):
 
 
 def test_question_rejects_non_http_image_links(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     r = client.post(
         "/questions",
         json={
@@ -55,16 +55,16 @@ def test_question_rejects_non_http_image_links(client):
 
 
 def test_question_at_most_six_options(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     opts = [{"text": str(i), "is_correct": i == 0} for i in range(7)]
     r = client.post("/questions", json={"text": "Q", "options": opts})
     assert r.status_code == 422
 
 
 def test_question_bank_only_shows_own_questions(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     make_question(client, "T1 question")
-    register(client, "T2", "t2@x.com", "teacher", "teacher123")
+    register(client, "T2", "t2@x.com", "teacher")
     make_question(client, "T2 question")
 
     r = client.get("/questions")
@@ -72,7 +72,7 @@ def test_question_bank_only_shows_own_questions(client):
 
 
 def test_test_requires_sane_marking_scheme(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     r = client.post(
         "/tests/with-questions",
         json={
@@ -87,7 +87,7 @@ def test_test_requires_sane_marking_scheme(client):
 
 
 def test_publish_toggle_and_teacher_only_results(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     test = make_test(client, published=False)
     assert test["published"] is False
 
@@ -97,6 +97,6 @@ def test_publish_toggle_and_teacher_only_results(client):
     results = client.get(f"/tests/{test['id']}/results").json()
     assert results["attempt_count"] == 0
 
-    register(client, "T2", "t2@x.com", "teacher", "teacher123")
+    register(client, "T2", "t2@x.com", "teacher")
     assert client.get(f"/tests/{test['id']}/results").status_code == 404
     assert client.patch(f"/tests/{test['id']}", json={"published": False}).status_code == 404

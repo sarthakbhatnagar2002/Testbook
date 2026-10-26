@@ -2,7 +2,7 @@ from tests.test_api_roles import register
 
 
 def test_create_test_with_sections_and_inline_questions(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     r = client.post(
         "/tests/with-questions",
         json={
@@ -54,7 +54,7 @@ def test_create_test_with_sections_and_inline_questions(client):
 
 
 def test_with_questions_rejects_empty_section_list(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     r = client.post(
         "/tests/with-questions",
         json={
@@ -69,7 +69,7 @@ def test_with_questions_rejects_empty_section_list(client):
 
 
 def test_with_questions_rejects_section_with_no_questions(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     r = client.post(
         "/tests/with-questions",
         json={
@@ -84,7 +84,7 @@ def test_with_questions_rejects_section_with_no_questions(client):
 
 
 def test_with_questions_rejects_bad_option_shape(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     r = client.post(
         "/tests/with-questions",
         json={
@@ -110,7 +110,7 @@ def test_with_questions_rejects_bad_option_shape(client):
 
 
 def test_each_teacher_only_sees_their_own_questions_via_builder(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     client.post(
         "/tests/with-questions",
         json={
@@ -132,5 +132,5 @@ def test_each_teacher_only_sees_their_own_questions_via_builder(client):
             ],
         },
     )
-    register(client, "T2", "t2@x.com", "teacher", "teacher123")
+    register(client, "T2", "t2@x.com", "teacher")
     assert client.get("/questions").json() == []

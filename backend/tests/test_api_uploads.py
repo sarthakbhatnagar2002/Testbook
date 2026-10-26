@@ -9,7 +9,7 @@ TINY_PNG = bytes.fromhex(
 
 
 def test_teacher_can_upload_an_image(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     r = client.post("/uploads", files={"file": ("diagram.png", TINY_PNG, "image/png")})
     assert r.status_code == 201, r.text
     url = r.json()["url"]
@@ -27,20 +27,20 @@ def test_student_cannot_upload(client):
 
 
 def test_rejects_non_image_content_type(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     r = client.post("/uploads", files={"file": ("a.txt", b"hello", "text/plain")})
     assert r.status_code == 400
 
 
 def test_rejects_oversized_file(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     too_big = b"\0" * (5 * 1024 * 1024 + 1)
     r = client.post("/uploads", files={"file": ("big.png", too_big, "image/png")})
     assert r.status_code == 400
 
 
 def test_uploaded_url_accepted_as_question_image(client):
-    register(client, "T1", "t1@x.com", "teacher", "teacher123")
+    register(client, "T1", "t1@x.com", "teacher")
     url = client.post("/uploads", files={"file": ("a.png", TINY_PNG, "image/png")}).json()["url"]
     r = client.post(
         "/questions",

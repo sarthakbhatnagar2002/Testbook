@@ -10,22 +10,10 @@ def test_register_student_logs_them_in(client):
     assert me.json()["email"] == "stu@x.com"
 
 
-def test_register_teacher_needs_invite_code(client):
+def test_register_teacher_needs_no_invite_code(client):
     r = client.post(
         "/auth/register",
         json={"name": "T", "email": "t@x.com", "password": "password123", "role": "teacher"},
-    )
-    assert r.status_code == 400
-
-    r = client.post(
-        "/auth/register",
-        json={
-            "name": "T",
-            "email": "t@x.com",
-            "password": "password123",
-            "role": "teacher",
-            "invite_code": "teacher123",
-        },
     )
     assert r.status_code == 200
     assert r.json()["role"] == "teacher"

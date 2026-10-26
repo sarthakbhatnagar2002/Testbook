@@ -38,8 +38,8 @@ npm run dev                     # http://localhost:5173
 ```
 
 Demo logins after seeding (password `password123`): `teacher@example.com`,
-`student@example.com`. Signing up as a teacher needs `TEACHER_INVITE_CODE` from
-`backend/.env` (delete that line to allow anyone).
+`student@example.com`. Anyone can register as a teacher or student — no
+invite code required.
 
 ## What works
 
