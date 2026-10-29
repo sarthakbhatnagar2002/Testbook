@@ -16,8 +16,8 @@ export default function LoginPage() {
     setError(null);
     setBusy(true);
     try {
-      const user = await login(email, password);
-      navigate(user.role === "teacher" ? "/teacher/tests" : "/tests");
+      await login(email, password);
+      navigate("/subjects");
     } catch (err) {
       setError(err instanceof ApiError ? err.message : "Something went wrong");
     } finally {
@@ -26,40 +26,40 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50">
-      <form onSubmit={onSubmit} className="w-full max-w-sm rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
-        <h1 className="mb-6 text-xl font-semibold text-[#176b87]">Log in</h1>
-        {error && <p className="mb-4 rounded bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p>}
-        <label className="mb-3 block text-sm">
+    <div className="flex min-h-screen items-center justify-center bg-[#0b0f14] px-4">
+      <form onSubmit={onSubmit} className="w-full max-w-sm rounded-2xl border border-gray-800 bg-gray-900 p-8">
+        <p className="mb-6 text-sm text-gray-400">Log in to keep practicing.</p>
+        {error && <p className="mb-4 rounded-lg bg-red-950/40 px-4 py-2.5 text-sm text-red-300">{error}</p>}
+        <label className="mb-3 block text-sm text-gray-300">
           Email
           <input
             type="email"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 w-full rounded border border-gray-300 px-3 py-2"
+            className="mt-1 w-full rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-gray-100 outline-none transition-colors focus:border-[#20bcd8]"
           />
         </label>
-        <label className="mb-4 block text-sm">
+        <label className="mb-4 block text-sm text-gray-300">
           Password
           <input
             type="password"
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="mt-1 w-full rounded border border-gray-300 px-3 py-2"
+            className="mt-1 w-full rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-gray-100 outline-none transition-colors focus:border-[#20bcd8]"
           />
         </label>
         <button
           type="submit"
           disabled={busy}
-          className="w-full rounded bg-[#20bcd8] py-2 font-semibold text-white disabled:opacity-60"
+          className="w-full rounded-lg bg-[#20bcd8] py-2 font-semibold text-white transition-colors hover:bg-[#1ba8c2] disabled:opacity-60"
         >
           {busy ? "Logging in…" : "Log in"}
         </button>
-        <p className="mt-4 text-center text-sm text-gray-500">
+        <p className="mt-4 text-center text-sm text-gray-400">
           No account?{" "}
-          <Link to="/register" className="text-[#176b87] underline">
+          <Link to="/register" className="font-medium text-[#20bcd8] hover:underline">
             Register
           </Link>
         </p>

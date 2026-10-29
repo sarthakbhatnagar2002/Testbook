@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from .config import get_settings
-from .routers import auth, profile, questions, student, tests, uploads
+from .routers import auth, practice, profile, questions, subjects, uploads
 
 settings = get_settings()
 
@@ -20,9 +20,9 @@ app.add_middleware(
 )
 
 app.include_router(auth.router)
+app.include_router(subjects.router)
 app.include_router(questions.router)
-app.include_router(tests.router)
-app.include_router(student.router)
+app.include_router(practice.router)
 app.include_router(profile.router)
 # Registered before the static mount below: an exact-path POST route is tried
 # before Starlette falls through to the path-prefix Mount.

@@ -1,4 +1,4 @@
-from tests.test_api_roles import register
+from tests.helpers import make_subject, register
 
 # Smallest possible valid 1x1 PNG.
 TINY_PNG = bytes.fromhex(
@@ -8,8 +8,8 @@ TINY_PNG = bytes.fromhex(
 )
 
 
-def test_teacher_can_upload_an_image(client):
-    register(client, "T1", "t1@x.com", "teacher")
+def test_any_signed_in_user_can_upload_an_image(client):
+    register(client, "A", "a@x.com")
     r = client.post("/uploads", files={"file": ("diagram.png", TINY_PNG, "image/png")})
     assert r.status_code == 201, r.text
     url = r.json()["url"]
@@ -20,31 +20,32 @@ def test_teacher_can_upload_an_image(client):
     assert fetched.headers["content-type"] == "image/png"
 
 
-def test_student_cannot_upload(client):
-    register(client, "Stu", "stu@x.com", "student")
+def test_upload_requires_login(client):
     r = client.post("/uploads", files={"file": ("a.png", TINY_PNG, "image/png")})
-    assert r.status_code == 403
+    assert r.status_code == 401
 
 
 def test_rejects_non_image_content_type(client):
-    register(client, "T1", "t1@x.com", "teacher")
+    register(client, "A", "a@x.com")
     r = client.post("/uploads", files={"file": ("a.txt", b"hello", "text/plain")})
     assert r.status_code == 400
 
 
 def test_rejects_oversized_file(client):
-    register(client, "T1", "t1@x.com", "teacher")
+    register(client, "A", "a@x.com")
     too_big = b"\0" * (5 * 1024 * 1024 + 1)
     r = client.post("/uploads", files={"file": ("big.png", too_big, "image/png")})
     assert r.status_code == 400
 
 
-def test_uploaded_url_accepted_as_question_image(client):
-    register(client, "T1", "t1@x.com", "teacher")
+def test_uploaded_url_accepted_as_question_image(client, db_session):
+    a = register(client, "A", "a@x.com")
+    subject = make_subject(db_session, a["id"])
     url = client.post("/uploads", files={"file": ("a.png", TINY_PNG, "image/png")}).json()["url"]
     r = client.post(
         "/questions",
         json={
+            "subject_id": subject["id"],
             "text": "Q",
             "image_url": url,
             "options": [

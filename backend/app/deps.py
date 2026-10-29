@@ -22,15 +22,3 @@ def require_user(user: models.User | None = Depends(get_current_user)) -> models
     if not user:
         raise HTTPException(status.HTTP_401_UNAUTHORIZED, "Not signed in")
     return user
-
-
-def require_teacher(user: models.User = Depends(require_user)) -> models.User:
-    if user.role != "teacher":
-        raise HTTPException(status.HTTP_403_FORBIDDEN, "Teachers only")
-    return user
-
-
-def require_student(user: models.User = Depends(require_user)) -> models.User:
-    if user.role != "student":
-        raise HTTPException(status.HTTP_403_FORBIDDEN, "Students only")
-    return user

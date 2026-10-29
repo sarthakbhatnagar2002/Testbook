@@ -1,15 +1,13 @@
-# MCQ Platform
+# QBank
 
-Teachers build question banks and tests; students practise, take timed tests in a
-full-screen exam interface, and review results.
+A fixed set of subject-wise MCQ practice question banks (Physics, Chemistry,
+Mathematics — pre-seeded, nobody can create more). Pick a bank and practice: pick an
+answer, see the correct option and an explanation immediately, then move to the next
+question. A profile page tracks what you've solved, where you're weakest, what you're
+currently working through, and a GitHub-style heatmap of your daily activity.
 
 **Stack:** React + Vite + TypeScript + Tailwind (`/frontend`) · FastAPI + SQLAlchemy 2 +
 Alembic + SQLite (`/backend`) · JWT in an httpOnly cookie · pytest + Vitest
-
-This replaces the original single-codebase Next.js app (see "History" below). The
-Next.js app (`app/`, `components/`, `db/`, `lib/`, `scripts/`) has been superseded by
-the two folders above and can be removed once you've verified the new stack works for
-you.
 
 ## Run it
 
@@ -24,7 +22,8 @@ python -m venv .venv
 pip install -r requirements.txt
 cp .env.example .env            # then set SESSION_SECRET (openssl rand -base64 32)
 alembic upgrade head            # creates dev.db from the SQLAlchemy models
-python seed.py                  # optional demo data
+python seed.py                  # creates demo@example.com + the 3 subjects (a few sample Qs each)
+python bulk_questions.py        # tops each subject up to 100+ questions (safe to re-run; skips dupes)
 uvicorn app.main:app --reload   # http://localhost:8000
 ```
 
@@ -37,82 +36,94 @@ cp .env.example .env            # VITE_API_URL defaults to http://localhost:8000
 npm run dev                     # http://localhost:5173
 ```
 
-Demo logins after seeding (password `password123`): `teacher@example.com`,
-`student@example.com`. Anyone can register as a teacher or student — no
-invite code required.
+Demo login after seeding (password `password123`): `demo@example.com`. Anyone can
+register — there's a single account type, no roles or invite codes.
 
 ## What works
 
-- **Teacher:** create questions (text, subject/topic, rating, up to 6 options, optional
-  image links, explanation), build tests with duration, a marking scheme
-  (correct / wrong / skipped), an optional start/end availability window, publish or
-  unpublish, see attempts and scores per test.
-- **Student:** a full-screen timed-test exam interface (palette sidebar, per-question
-  stopwatch, mark-for-review, save & next, question-paper/instructions modals, question
-  reporting) with a server-side clock, autosave every 5 seconds, resume with the exact
-  palette state restored, and a results review with correct answers and explanations.
-  A **Tests** page lists upcoming/open tests (with Start/Resume) and previous attempts.
-  A **Profile** page shows a performance summary: tests taken, average score, overall
-  accuracy, accuracy by subject/topic, recent scores, and a weak-topics list (lowest
-  accuracy topics with 5+ answered questions).
-- **Difficulty:** based on each student's first answered attempt only. Until a question
-  has 10 first attempts it shows the teacher's rating marked "(est.)". Cut-offs: fail
-  rate under 30% easy, 30-60% medium, over 60% hard (`backend/app/difficulty.py`).
-- **Scoring:** one function (`backend/app/scoring.py`). The marking scheme is copied
-  onto each attempt, so editing a test later never changes old scores.
-- **Expired attempts:** graded lazily (plus a 30s grace period) from the last autosave
-  the next time anyone opens them. No job queue.
-- **Role checks on every route:** teachers only read/edit their own questions, tests and
-  results; students can't see unpublished tests or another student's attempt.
+- **Subjects (banks):** a fixed, pre-seeded set — Physics, Chemistry, Mathematics.
+  There is no create-subject endpoint or UI; nobody (not even via the API) can add a
+  new one. Each subject's card on the Subjects page shows a progress bar
+  (solved/total) and accuracy.
+- **Questions:** any signed-in user can add a question to an existing subject — text
+  with an optional diagram (uploaded from the device, not a URL), 2-6 options each
+  with optional text and/or an image (an image-only option with empty text is
+  allowed), and an optional explanation shown after answering. You can delete a
+  question you created, but not once anyone has attempted it, and not one someone
+  else created.
+- **Practice:** pick an option, submit, and immediately see whether you were right,
+  which option was correct, and the explanation (if the question has one). Next/Previous
+  buttons move through the subject's questions in order. Retries are always allowed —
+  each attempt is recorded, and a question's status (not attempted / correct /
+  incorrect) always reflects your most recent attempt on it.
+- **Profile:** total solved, total attempted, overall accuracy, a GitHub-style
+  contribution heatmap of correctly-solved questions per day over the last year, a
+  "currently solving" card for whichever subject you most recently practiced,
+  per-subject progress bars, and a recent-activity feed of your last 15 attempts.
+
+## Content
+
+`backend/bulk_questions.py` adds 100+ original, self-authored MCQs to each subject
+(310 total as shipped: 105 Physics, 102 Chemistry, 103 Mathematics) — standard
+textbook-level facts and problems, written from scratch, not copied from any book,
+exam paper, or question-bank site. It's idempotent: re-running it skips any question
+whose exact text already exists in that subject, so it's safe to run again after
+adding more questions to the script.
 
 ## Layout
 
 ```
 backend/app/
-  models.py            SQLAlchemy tables (users, questions, options, tests,
-                        test_questions, test_attempts, attempts, question_reports)
-  scoring.py            marks + timer            (ported from lib/scoring.ts)
-  difficulty.py          tiers                     (ported from lib/difficulty.ts)
-  attempts_logic.py      grading + counters, transactional (ported from lib/attempts.ts)
-  security.py / deps.py  JWT cookie auth, role guards
-  routers/                auth, questions, tests, student (attempts/history/reports), profile
+  models.py            SQLAlchemy tables (users, subjects, questions, options, attempts)
+  schemas.py            Pydantic request/response models
+  security.py / deps.py JWT cookie auth (single account type, no roles)
+  routers/
+    auth.py              register / login / logout / me
+    subjects.py           list subjects, with per-user progress (no create route)
+    questions.py          create / delete a question
+    practice.py            list a subject's questions, fetch one to answer, submit an answer
+    profile.py             the profile dashboard + GET /profile/activity (daily solve counts)
+    uploads.py              image upload for diagrams/options
   alembic/                migrations
-  seed.py                 demo data
-  tests/                  pytest (unit + integration + API-level role checks)
+  seed.py                 demo user + the 3 subjects with a few sample questions
+  bulk_questions.py       idempotent script: tops each subject up to 100+ questions
+  tests/                  pytest, one file per router + helpers.py
 
 frontend/src/
-  lib/api.ts              fetch wrapper (credentials: include)
+  lib/api.ts              fetch wrapper (credentials: include) + image upload helper
   lib/types.ts             TS types mirroring backend/app/schemas.py
-  lib/examStatus.ts        pure palette-tile status derivation (unit tested)
-  context/AuthContext.tsx  session state
-  pages/student/           Tests, ExamPage (the exam screen), Results, Profile
-  pages/teacher/           Questions, NewQuestion, TeacherTests, NewTest, TeacherTestResults
+  lib/subjectColors.ts     deterministic accent color per subject name
+  lib/questionFilter.ts    pure filter for the subject question list (unit tested)
+  lib/timeAgo.ts            relative-time formatting for the activity feed (unit tested)
+  lib/activityGrid.ts        pure date-count-map -> contribution-grid builder (unit tested)
+  components/ActivityHeatmap.tsx  renders the grid from lib/activityGrid.ts
+  pages/
+    SubjectsPage.tsx         bank cards (read-only list, no creation UI)
+    SubjectQuestionsPage.tsx question list with status filter tabs
+    PracticeQuestionPage.tsx the answer -> instant feedback -> next flow
+    AddQuestionPage.tsx      add a question to a subject
+    ProfilePage.tsx           the dashboard described above, including the heatmap
 ```
 
-Correct answers are never sent to the browser while a question is unanswered or a test
-is in progress. API datetimes are stored as naive UTC and serialized with an explicit
-UTC offset, so the frontend converts to the user's local timezone with a plain
-`new Date(isoString)`.
+Correct answers are never sent to the browser until a question has been answered —
+`GET /questions/{id}/practice` omits `is_correct` entirely; it only appears in the
+`POST /questions/{id}/answer` response. API datetimes are stored as naive UTC and
+serialized with an explicit UTC offset, so the frontend converts to the user's local
+timezone with a plain `new Date(isoString)`.
 
 ## Tests
 
 ```bash
-# Backend: unit (scoring, difficulty) + integration (first-attempt counting, scoring,
-# idempotent submit, lazy expiry) + API-level (auth, role checks, full attempt lifecycle)
-cd backend && pytest
-
-# Frontend: the palette status-derivation function
-cd frontend && npm test
+cd backend && pytest    # auth, subjects (no create), questions, practice flow, profile, activity
+cd frontend && npm test # questionFilter, timeAgo, and activityGrid pure functions
 ```
 
-38 backend tests and 7 frontend tests pass as of this change.
+36 backend tests and 18 frontend tests pass as of this change.
 
 ## Not built yet
 
-Image upload (links only for now), rich text and KaTeX, Ask AI explanations, question
-editing, retake limits, rate limiting, question versioning. Bookmarks and the practice
-mode/difficulty filters from the original plan were intentionally dropped per the
-current scope (see "Decisions" below) — only the single timed-test flow remains.
+Rich text and KaTeX for formulas, editing an existing question, rate limiting, bulk
+import, question versioning, search/sort on the subject question list.
 
 ## Moving to Postgres later
 
@@ -121,14 +132,17 @@ Change `DATABASE_URL` in `backend/.env` to a Postgres URL and rerun
 features, except: `DateTime` columns are stored and compared as **naive UTC**
 throughout the backend (see `backend/app/time_utils.py`) because SQLite has no
 timezone-aware storage. Postgres supports `TIMESTAMPTZ` properly, so if you want to use
-it, switch the columns to timezone-aware and drop the naive-UTC convention — just make
-sure every comparison (`_availability`, `finalize_if_expired`, etc.) stays consistent
-about aware vs. naive.
+it, switch the columns to timezone-aware and drop the naive-UTC convention. The daily
+activity aggregation in `profile.py` uses `func.date(...)`, which works the same way on
+Postgres.
 
 ## History
 
-The original brief asked for a single Next.js codebase (App Router, Drizzle ORM,
-cookie sessions via `jose`). A later round of changes specified: (1) a full-screen
-Testbook-style exam interface, (2) splitting into a React + FastAPI stack, and
-(3) trimming student navigation down to just Profile and Tests (dropping Practice,
-bookmarks, and difficulty filters for now). This repo now reflects that second round.
+This app went through two earlier, substantially different shapes before landing here:
+a single-codebase Next.js app with teacher-authored tests, then a React + FastAPI split
+with a Testbook-style full-screen timed exam (sections, room keys, archiving). Both were
+dropped in favor of a subject-wise practice bank with instant feedback — the
+`588ec57f6dc0` Alembic migration is the one that made that cut, dropping all test/exam
+tables and the teacher/student role split in one pass; downgrading past it isn't
+supported. A later round removed the ability to create new subjects entirely (the three
+banks are now fixed) and added the activity heatmap.

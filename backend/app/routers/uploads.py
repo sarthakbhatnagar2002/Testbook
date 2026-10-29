@@ -5,7 +5,7 @@ from fastapi import APIRouter, Depends, HTTPException, UploadFile, status
 
 from .. import models
 from ..config import get_settings
-from ..deps import require_teacher
+from ..deps import require_user
 
 router = APIRouter(prefix="/uploads", tags=["uploads"])
 
@@ -19,7 +19,7 @@ ALLOWED_TYPES = {
 
 
 @router.post("", status_code=status.HTTP_201_CREATED)
-async def upload_image(file: UploadFile, _teacher: models.User = Depends(require_teacher)):
+async def upload_image(file: UploadFile, _user: models.User = Depends(require_user)):
     ext = ALLOWED_TYPES.get(file.content_type or "")
     if not ext:
         raise HTTPException(status.HTTP_400_BAD_REQUEST, "Only PNG, JPEG, WebP or GIF images are allowed")

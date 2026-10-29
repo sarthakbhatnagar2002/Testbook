@@ -20,7 +20,6 @@ def register(body: schemas.RegisterIn, response: Response, db: Session = Depends
         name=body.name,
         email=body.email,
         password_hash=hash_password(body.password),
-        role=body.role,
     )
     db.add(user)
     db.commit()
