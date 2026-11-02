@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Annotated, Literal
 
-from pydantic import BaseModel, Field, PlainSerializer, field_validator, model_validator
+from pydantic import BaseModel, Field, PlainSerializer, field_validator
 
 from .time_utils import to_utc_iso
 
@@ -9,15 +9,6 @@ from .time_utils import to_utc_iso
 # explicit UTC offset so the frontend can convert to the user's local time
 # unambiguously, e.g. with `new Date(isoString)`.
 UtcDateTime = Annotated[datetime, PlainSerializer(to_utc_iso, return_type=str, when_used="json")]
-
-
-def _valid_image_url(v: str | None) -> str | None:
-    """Accepts an absolute http(s) URL or a path returned by POST /uploads."""
-    if not v:
-        return None
-    if not (v.startswith("http://") or v.startswith("https://") or v.startswith("/uploads/")):
-        raise ValueError("Invalid image reference")
-    return v
 
 
 # ---------- auth ----------
@@ -68,21 +59,20 @@ class SubjectOut(BaseModel):
     accuracy: float
 
 
+# ---------- chapters ----------
+
+
+class ChapterOut(BaseModel):
+    id: str
+    subject_id: str
+    name: str
+    position: int
+    question_count: int
+    solved_count: int
+    accuracy: float
+
+
 # ---------- questions ----------
-
-
-class OptionIn(BaseModel):
-    text: str = ""
-    image_url: str | None = None
-    is_correct: bool = False
-
-    _v = field_validator("image_url")(_valid_image_url)
-
-    @model_validator(mode="after")
-    def text_or_image_required(self) -> "OptionIn":
-        if not self.text.strip() and not self.image_url:
-            raise ValueError("Each option needs text or an image")
-        return self
 
 
 class OptionOut(BaseModel):
@@ -96,35 +86,6 @@ class OptionOut(BaseModel):
 
 class OptionOutWithAnswer(OptionOut):
     is_correct: bool
-
-
-class QuestionCreateIn(BaseModel):
-    subject_id: str
-    text: str
-    image_url: str | None = None
-    explanation: str | None = None
-    options: list[OptionIn]
-
-    _v = field_validator("image_url")(_valid_image_url)
-
-    @field_validator("text")
-    @classmethod
-    def not_blank(cls, v: str) -> str:
-        v = v.strip()
-        if not v:
-            raise ValueError("Question text is required")
-        return v
-
-    @field_validator("options")
-    @classmethod
-    def options_valid(cls, v: list[OptionIn]) -> list[OptionIn]:
-        if len(v) < 2:
-            raise ValueError("Add at least two options")
-        if len(v) > 6:
-            raise ValueError("At most 6 options")
-        if sum(1 for o in v if o.is_correct) != 1:
-            raise ValueError("Pick exactly one correct option")
-        return v
 
 
 QuestionStatus = Literal["not_attempted", "correct", "incorrect"]
@@ -145,6 +106,8 @@ class QuestionPracticeOut(BaseModel):
     id: str
     subject_id: str
     subject_name: str
+    chapter_id: str
+    chapter_name: str
     text: str
     image_url: str | None
     options: list[OptionOut]

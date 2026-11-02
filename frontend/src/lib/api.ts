@@ -43,21 +43,10 @@ export const api = {
   get: <T>(path: string) => request<T>(path),
   post: <T>(path: string, body?: unknown) =>
     request<T>(path, { method: "POST", body: body !== undefined ? JSON.stringify(body) : undefined }),
-  postForm: <T>(path: string, form: FormData) => request<T>(path, { method: "POST", body: form }),
-  patch: <T>(path: string, body?: unknown) =>
-    request<T>(path, { method: "PATCH", body: body !== undefined ? JSON.stringify(body) : undefined }),
-  delete: <T>(path: string) => request<T>(path, { method: "DELETE" }),
 };
 
-/** Prefixes a relative /uploads/... path returned by POST /uploads with the API origin. */
+/** Prefixes a relative /uploads/... path (from questions seeded before this era) with the API origin. */
 export function resolveImageUrl(url: string | null | undefined): string | undefined {
   if (!url) return undefined;
   return url.startsWith("/") ? `${BASE_URL}${url}` : url;
-}
-
-export async function uploadImage(file: File): Promise<string> {
-  const form = new FormData();
-  form.append("file", file);
-  const { url } = await api.postForm<{ url: string }>("/uploads", form);
-  return url;
 }

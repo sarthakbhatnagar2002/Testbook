@@ -30,19 +30,19 @@ def _user_outcomes(db: Session, user_id: str, question_ids: list[str]) -> dict[s
     return outcomes
 
 
-@router.get("/subjects/{subject_id}/questions", response_model=list[schemas.QuestionListItemOut])
-def list_subject_questions(
-    subject_id: str,
+@router.get("/chapters/{chapter_id}/questions", response_model=list[schemas.QuestionListItemOut])
+def list_chapter_questions(
+    chapter_id: str,
     user: models.User = Depends(require_user),
     db: Session = Depends(get_db),
 ):
-    subject = db.get(models.Subject, subject_id)
-    if not subject:
-        raise HTTPException(status.HTTP_404_NOT_FOUND, "Subject not found")
+    chapter = db.get(models.Chapter, chapter_id)
+    if not chapter:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "Chapter not found")
 
     questions = db.execute(
         select(models.Question)
-        .where(models.Question.subject_id == subject_id)
+        .where(models.Question.chapter_id == chapter_id)
         .order_by(models.Question.created_at)
     ).scalars().all()
     outcomes = _user_outcomes(db, user.id, [q.id for q in questions])
@@ -55,11 +55,11 @@ def list_subject_questions(
     ]
 
 
-def _ordered_question_ids(db: Session, subject_id: str) -> list[str]:
+def _ordered_question_ids(db: Session, chapter_id: str) -> list[str]:
     return list(
         db.execute(
             select(models.Question.id)
-            .where(models.Question.subject_id == subject_id)
+            .where(models.Question.chapter_id == chapter_id)
             .order_by(models.Question.created_at)
         ).scalars()
     )
@@ -75,8 +75,9 @@ def get_question_for_practice(
     if not question:
         raise HTTPException(status.HTTP_404_NOT_FOUND, "Question not found")
     subject = db.get(models.Subject, question.subject_id)
+    chapter = db.get(models.Chapter, question.chapter_id)
 
-    ordered_ids = _ordered_question_ids(db, question.subject_id)
+    ordered_ids = _ordered_question_ids(db, question.chapter_id)
     idx = ordered_ids.index(question.id)
     prev_id = ordered_ids[idx - 1] if idx > 0 else None
     next_id = ordered_ids[idx + 1] if idx < len(ordered_ids) - 1 else None
@@ -87,6 +88,8 @@ def get_question_for_practice(
         id=question.id,
         subject_id=question.subject_id,
         subject_name=subject.name,
+        chapter_id=question.chapter_id,
+        chapter_name=chapter.name,
         text=question.text,
         image_url=question.image_url,
         options=[schemas.OptionOut.model_validate(o) for o in question.options],

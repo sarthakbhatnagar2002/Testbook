@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { api, ApiError, resolveImageUrl } from "../lib/api";
 import { filterQuestions, type QuestionFilter } from "../lib/questionFilter";
-import type { QuestionListItem, QuestionStatus, Subject } from "../lib/types";
+import type { Chapter, QuestionListItem, QuestionStatus } from "../lib/types";
 
 const STATUS_BADGE: Record<QuestionStatus, string> = {
   not_attempted: "bg-gray-800 text-gray-400",
@@ -23,54 +23,46 @@ const TABS: { key: QuestionFilter; label: string }[] = [
   { key: "incorrect", label: "Incorrect" },
 ];
 
-export default function SubjectQuestionsPage() {
-  const { subjectId } = useParams();
+export default function ChapterQuestionsPage() {
+  const { subjectId, chapterId } = useParams();
   const navigate = useNavigate();
-  const [subject, setSubject] = useState<Subject | null>(null);
+  const [chapter, setChapter] = useState<Chapter | null>(null);
   const [questions, setQuestions] = useState<QuestionListItem[] | null>(null);
   const [filter, setFilter] = useState<QuestionFilter>("all");
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!subjectId) return;
+    if (!subjectId || !chapterId) return;
     api
-      .get<Subject[]>("/subjects")
-      .then((all) => setSubject(all.find((s) => s.id === subjectId) ?? null));
+      .get<Chapter[]>(`/subjects/${subjectId}/chapters`)
+      .then((all) => setChapter(all.find((c) => c.id === chapterId) ?? null));
     api
-      .get<QuestionListItem[]>(`/subjects/${subjectId}/questions`)
+      .get<QuestionListItem[]>(`/chapters/${chapterId}/questions`)
       .then(setQuestions)
       .catch((err) => setError(err instanceof ApiError ? err.message : "Failed to load questions"));
-  }, [subjectId]);
+  }, [subjectId, chapterId]);
 
   const visible = useMemo(() => filterQuestions(questions ?? [], filter), [questions, filter]);
 
   function startPractice(startId?: string) {
     const id = startId ?? visible[0]?.id ?? questions?.[0]?.id;
-    if (id) navigate(`/subjects/${subjectId}/practice/${id}`);
+    if (id) navigate(`/subjects/${subjectId}/chapters/${chapterId}/practice/${id}`);
   }
 
   return (
     <div className="mx-auto max-w-3xl p-6 sm:p-8">
-      <Link to="/subjects" className="text-sm font-medium text-[#20bcd8] hover:underline">
-        ← All subjects
+      <Link to={`/subjects/${subjectId}`} className="text-sm font-medium text-[#20bcd8] hover:underline">
+        ← Chapters
       </Link>
       <div className="mb-5 mt-2 flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-2xl font-bold tracking-tight text-gray-100">{subject?.name ?? "Subject"}</h1>
-        <div className="flex gap-2">
-          <button
-            onClick={() => startPractice()}
-            disabled={!questions || questions.length === 0}
-            className="rounded-lg bg-[#20bcd8] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#1ba8c2] disabled:opacity-50"
-          >
-            Start practicing
-          </button>
-          <Link
-            to={`/subjects/${subjectId}/questions/new`}
-            className="rounded-lg border border-[#20bcd8] px-4 py-2 text-sm font-medium text-[#20bcd8] transition-colors hover:bg-[#20bcd8]/10"
-          >
-            + Add question
-          </Link>
-        </div>
+        <h1 className="text-2xl font-bold tracking-tight text-gray-100">{chapter?.name ?? "Chapter"}</h1>
+        <button
+          onClick={() => startPractice()}
+          disabled={!questions || questions.length === 0}
+          className="rounded-lg bg-[#20bcd8] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#1ba8c2] disabled:opacity-50"
+        >
+          Start practicing
+        </button>
       </div>
 
       {error && <p className="mb-4 rounded-lg bg-red-950/40 px-4 py-2.5 text-sm text-red-300">{error}</p>}

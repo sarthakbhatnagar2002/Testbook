@@ -15,7 +15,7 @@ def test_empty_activity(client):
 def test_activity_only_counts_correct_attempts(client, db_session):
     a = register(client, "A", "a@x.com")
     subject = make_subject(db_session, a["id"])
-    q = make_question(client, subject["id"])
+    q = make_question(db_session, subject["id"], a["id"])
 
     practice = client.get(f"/questions/{q['id']}/practice").json()
     wrong_id = next(o["id"] for o in practice["options"] if o["text"] == "wrong")
@@ -27,8 +27,8 @@ def test_activity_only_counts_correct_attempts(client, db_session):
 def test_activity_groups_by_day_across_multiple_days(client, db_session):
     a = register(client, "A", "a@x.com")
     subject = make_subject(db_session, a["id"])
-    q1 = make_question(client, subject["id"], "Q1")
-    q2 = make_question(client, subject["id"], "Q2")
+    q1 = make_question(db_session, subject["id"], a["id"], "Q1")
+    q2 = make_question(db_session, subject["id"], a["id"], "Q2")
 
     # Today: one correct attempt via the real API.
     practice = client.get(f"/questions/{q1['id']}/practice").json()
@@ -62,7 +62,7 @@ def test_activity_groups_by_day_across_multiple_days(client, db_session):
 def test_activity_isolated_per_user(client, db_session):
     a = register(client, "A", "a@x.com")
     subject = make_subject(db_session, a["id"])
-    q = make_question(client, subject["id"])
+    q = make_question(db_session, subject["id"], a["id"])
     practice = client.get(f"/questions/{q['id']}/practice").json()
     right_id = next(o["id"] for o in practice["options"] if o["text"] == "right")
     client.post(f"/questions/{q['id']}/answer", json={"selected_option_id": right_id})

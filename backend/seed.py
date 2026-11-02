@@ -90,9 +90,15 @@ def main() -> None:
             db.commit()
             db.refresh(subject)
 
+            chapter = models.Chapter(subject_id=subject.id, name="Sample Questions", position=0)
+            db.add(chapter)
+            db.commit()
+            db.refresh(chapter)
+
             for item in questions:
                 question = models.Question(
                     subject_id=subject.id,
+                    chapter_id=chapter.id,
                     created_by=user.id,
                     text=item["text"],
                     explanation=item["explanation"],

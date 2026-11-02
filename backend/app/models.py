@@ -33,14 +33,36 @@ class Subject(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow, nullable=False)
 
     questions: Mapped[list["Question"]] = relationship(back_populates="subject")
+    chapters: Mapped[list["Chapter"]] = relationship(back_populates="subject", order_by="Chapter.position")
+
+
+class Chapter(Base):
+    """A topic grouping of questions within a subject, e.g. Kinematics under Physics."""
+
+    __tablename__ = "chapters"
+    __table_args__ = (Index("chapters_subject_idx", "subject_id"),)
+
+    id: Mapped[str] = mapped_column(String, primary_key=True, default=gen_id)
+    subject_id: Mapped[str] = mapped_column(String, ForeignKey("subjects.id", ondelete="CASCADE"), nullable=False)
+    name: Mapped[str] = mapped_column(String, nullable=False)
+    position: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+
+    subject: Mapped[Subject] = relationship(back_populates="chapters")
+    questions: Mapped[list["Question"]] = relationship(back_populates="chapter", order_by="Question.created_at")
 
 
 class Question(Base):
     __tablename__ = "questions"
-    __table_args__ = (Index("questions_subject_idx", "subject_id"),)
+    __table_args__ = (
+        Index("questions_subject_idx", "subject_id"),
+        Index("questions_chapter_idx", "chapter_id"),
+    )
 
     id: Mapped[str] = mapped_column(String, primary_key=True, default=gen_id)
     subject_id: Mapped[str] = mapped_column(String, ForeignKey("subjects.id", ondelete="CASCADE"), nullable=False)
+    chapter_id: Mapped[str | None] = mapped_column(
+        String, ForeignKey("chapters.id", ondelete="CASCADE"), nullable=True
+    )
     created_by: Mapped[str] = mapped_column(String, ForeignKey("users.id"), nullable=False)
     text: Mapped[str] = mapped_column(Text, nullable=False)
     image_url: Mapped[str | None] = mapped_column(String, nullable=True)
@@ -48,6 +70,7 @@ class Question(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow, nullable=False)
 
     subject: Mapped[Subject] = relationship(back_populates="questions")
+    chapter: Mapped[Chapter | None] = relationship(back_populates="questions")
     options: Mapped[list["Option"]] = relationship(
         back_populates="question", cascade="all, delete-orphan", order_by="Option.position"
     )

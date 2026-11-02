@@ -15,6 +15,16 @@ export interface Subject {
   accuracy: number;
 }
 
+export interface Chapter {
+  id: string;
+  subject_id: string;
+  name: string;
+  position: number;
+  question_count: number;
+  solved_count: number;
+  accuracy: number;
+}
+
 export interface Option {
   id: string;
   text: string;
@@ -35,6 +45,8 @@ export interface QuestionPractice {
   id: string;
   subject_id: string;
   subject_name: string;
+  chapter_id: string;
+  chapter_name: string;
   text: string;
   image_url: string | null;
   options: Option[];

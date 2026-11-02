@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from .config import get_settings
-from .routers import auth, practice, profile, questions, subjects, uploads
+from .routers import auth, chapters, practice, profile, subjects
 
 settings = get_settings()
 
@@ -21,13 +21,13 @@ app.add_middleware(
 
 app.include_router(auth.router)
 app.include_router(subjects.router)
-app.include_router(questions.router)
+app.include_router(chapters.router)
 app.include_router(practice.router)
 app.include_router(profile.router)
-# Registered before the static mount below: an exact-path POST route is tried
-# before Starlette falls through to the path-prefix Mount.
-app.include_router(uploads.router)
 
+# Questions carry no uploaded images anymore (content is fixed, pre-seeded
+# text MCQs) -- this mount only serves any images uploaded by the earlier
+# user-generated-content era, kept so old links don't 404.
 upload_dir = Path(settings.upload_dir)
 upload_dir.mkdir(parents=True, exist_ok=True)
 app.mount("/uploads", StaticFiles(directory=upload_dir), name="uploads_static")

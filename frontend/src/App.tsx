@@ -2,12 +2,12 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Nav from "./components/Nav";
 import RequireAuth from "./components/RequireAuth";
 import { useAuth } from "./context/AuthContext";
-import AddQuestionPage from "./pages/AddQuestionPage";
+import ChapterQuestionsPage from "./pages/ChapterQuestionsPage";
+import ChaptersPage from "./pages/ChaptersPage";
 import LoginPage from "./pages/LoginPage";
 import PracticeQuestionPage from "./pages/PracticeQuestionPage";
 import ProfilePage from "./pages/ProfilePage";
 import RegisterPage from "./pages/RegisterPage";
-import SubjectQuestionsPage from "./pages/SubjectQuestionsPage";
 import SubjectsPage from "./pages/SubjectsPage";
 
 function Home() {
@@ -24,9 +24,12 @@ function WithNav() {
         <Route element={<RequireAuth />}>
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/subjects" element={<SubjectsPage />} />
-          <Route path="/subjects/:subjectId" element={<SubjectQuestionsPage />} />
-          <Route path="/subjects/:subjectId/questions/new" element={<AddQuestionPage />} />
-          <Route path="/subjects/:subjectId/practice/:questionId" element={<PracticeQuestionPage />} />
+          <Route path="/subjects/:subjectId" element={<ChaptersPage />} />
+          <Route path="/subjects/:subjectId/chapters/:chapterId" element={<ChapterQuestionsPage />} />
+          <Route
+            path="/subjects/:subjectId/chapters/:chapterId/practice/:questionId"
+            element={<PracticeQuestionPage />}
+          />
         </Route>
       </Routes>
     </>

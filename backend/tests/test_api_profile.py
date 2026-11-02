@@ -23,9 +23,9 @@ def test_profile_tracks_progress_across_subjects(client, db_session):
     a = register(client, "A", "a@x.com")
     physics = make_subject(db_session, a["id"], "Physics")
     chemistry = make_subject(db_session, a["id"], "Chemistry")
-    p1 = make_question(client, physics["id"], "P1")
-    p2 = make_question(client, physics["id"], "P2")
-    c1 = make_question(client, chemistry["id"], "C1")
+    p1 = make_question(db_session, physics["id"], a["id"], "P1")
+    p2 = make_question(db_session, physics["id"], a["id"], "P2")
+    c1 = make_question(db_session, chemistry["id"], a["id"], "C1")
 
     answer(client, p1["id"], want_correct=True)
     answer(client, p2["id"], want_correct=False)
@@ -51,7 +51,7 @@ def test_profile_tracks_progress_across_subjects(client, db_session):
 def test_profile_isolated_per_user(client, db_session):
     a = register(client, "A", "a@x.com")
     subject = make_subject(db_session, a["id"], "Physics")
-    q = make_question(client, subject["id"])
+    q = make_question(db_session, subject["id"], a["id"])
     answer(client, q["id"], want_correct=True)
 
     register(client, "B", "b@x.com")

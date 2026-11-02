@@ -32,8 +32,8 @@ def test_pre_seeded_subjects_are_visible_to_any_user(client, db_session):
 def test_subject_counts_questions_and_progress(client, db_session):
     a = register(client, "A", "a@x.com")
     subject = make_subject(db_session, a["id"], "Physics")
-    q1 = make_question(client, subject["id"], "Q1")
-    make_question(client, subject["id"], "Q2")
+    q1 = make_question(db_session, subject["id"], a["id"], "Q1")
+    make_question(db_session, subject["id"], a["id"], "Q2")
 
     before = client.get("/subjects").json()[0]
     assert before["question_count"] == 2

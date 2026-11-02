@@ -24,7 +24,11 @@ depends_on: Union[str, Sequence[str], None] = None
 
 def upgrade() -> None:
     # Test/exam infrastructure, no longer part of the app.
+    # `attempts` must drop before `test_attempts`: its test_attempt_id FK
+    # references test_attempts, and Postgres enforces that (SQLite doesn't,
+    # which is why this order went unnoticed until running against Postgres).
     op.drop_table("question_reports")
+    op.drop_table("attempts")
     op.drop_table("test_access")
     op.drop_table("test_questions")
     op.drop_table("test_attempts")
@@ -32,7 +36,6 @@ def upgrade() -> None:
     op.drop_index("ix_tests_room_key", table_name="tests")
     op.drop_table("tests")
 
-    op.drop_table("attempts")
     op.drop_table("options")
     op.drop_table("questions")
 

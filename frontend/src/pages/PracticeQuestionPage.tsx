@@ -11,7 +11,7 @@ interface FeedItem {
 }
 
 export default function PracticeQuestionPage() {
-  const { subjectId, questionId } = useParams();
+  const { subjectId, chapterId, questionId } = useParams();
   const [items, setItems] = useState<FeedItem[]>([]);
   const [initialLoading, setInitialLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
@@ -76,8 +76,11 @@ export default function PracticeQuestionPage() {
 
   return (
     <div className="mx-auto max-w-2xl p-6 sm:p-8">
-      <Link to={`/subjects/${subjectId}`} className="text-sm font-medium text-[#20bcd8] hover:underline">
-        ← {items[0]?.question.subject_name ?? "Back"}
+      <Link
+        to={`/subjects/${subjectId}/chapters/${chapterId}`}
+        className="text-sm font-medium text-[#20bcd8] hover:underline"
+      >
+        ← {items[0]?.question.chapter_name ?? "Back"}
       </Link>
 
       {initialLoading ? (
@@ -100,7 +103,7 @@ export default function PracticeQuestionPage() {
 
       {loadingMore && <p className="py-4 text-center text-sm text-gray-500">Loading more…</p>}
       {!initialLoading && !loadingMore && !nextId && items.length > 0 && (
-        <p className="py-6 text-center text-sm text-gray-500">You've reached the end of this subject.</p>
+        <p className="py-6 text-center text-sm text-gray-500">You've reached the end of this chapter.</p>
       )}
       {error && items.length > 0 && <p className="py-2 text-center text-sm text-red-300">{error}</p>}
     </div>
