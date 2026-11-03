@@ -1,5 +1,5 @@
 """
-Adds 100+ original MCQs, organized into chapters, to each of the Physics,
+Adds original MCQs, organized into chapters, to each of the Physics,
 Chemistry, Mathematics, Biology, Computer Science and English subjects. Safe
 to re-run: skips any question whose exact text already exists in that
 subject, and backfills chapter_id on any pre-existing row that predates the
@@ -31,6 +31,9 @@ PHYSICS = [
         ('What is the SI unit of frequency?', ['Hertz', 'Watt', 'Joule', 'Newton'], 0, 'Frequency, the number of cycles per second, is measured in hertz (Hz).'),
         ('What is the SI base unit of mass?', ['Gram', 'Kilogram', 'Pound', 'Newton'], 1, 'The kilogram is the SI base unit of mass.'),
         ('What is the SI base unit of temperature?', ['Celsius', 'Fahrenheit', 'Kelvin', 'Rankine'], 2, 'The kelvin is the SI base unit of thermodynamic temperature.'),
+        ('The dimensional formula for energy is', ['MLT^-2', 'ML^2T^-1', 'ML^2T^-2', 'MLT^-1'], 2, 'Energy equals work done, which is force times distance: (MLT^-2)(L) = ML^2T^-2.'),
+        ('How many fundamental (base) quantities are defined in the SI system?', ['5', '6', '7', '8'], 2, 'The SI system defines seven base quantities: length, mass, time, electric current, temperature, amount of substance, and luminous intensity.'),
+        ('The number of significant figures in the measurement 0.00620 m is', ['2', '3', '4', '5'], 1, 'Leading zeros are not significant, but 6, 2, and the trailing zero are significant, giving 3 significant figures.'),
     ]),
     ('Kinematics', [
         ('A car starts from rest and accelerates at 2 m/s^2. What is its speed after 5 seconds?', ['5 m/s', '8 m/s', '10 m/s', '20 m/s'], 2, 'v = u + at = 0 + 2(5) = 10 m/s.'),
@@ -40,6 +43,10 @@ PHYSICS = [
         ("The slope of a displacement-time graph gives the object's", ['acceleration', 'velocity', 'force', 'momentum'], 1, 'Slope = change in displacement / change in time = velocity.'),
         ("The area under a velocity-time graph gives the object's", ['acceleration', 'force', 'displacement', 'momentum'], 2, 'Integrating velocity over time gives displacement, which equals the area under the graph.'),
         ("Near Earth's surface, a freely falling object accelerates at approximately", ['4.9 m/s^2', '9.8 m/s^2', '6.7 m/s^2', '3.0 m/s^2'], 1, "The acceleration due to gravity near Earth's surface is about 9.8 m/s^2."),
+        ('A ball is thrown vertically upward with an initial speed of 20 m/s. Taking g = 10 m/s^2, the time taken to reach maximum height is', ['1 s', '2 s', '3 s', '4 s'], 1, 'At maximum height the final velocity is zero, so t = u/g = 20/10 = 2 s.'),
+        ('Which of the following is a vector quantity?', ['Speed', 'Distance', 'Displacement', 'Mass'], 2, 'Displacement has both magnitude and direction, making it a vector quantity, unlike speed, distance, and mass, which are scalars.'),
+        ("The slope of a velocity-time graph represents the object's", ['Displacement', 'Distance', 'Acceleration', 'Speed'], 2, 'The slope of a velocity-time graph gives the rate of change of velocity, which is acceleration.'),
+        ('A train travels 100 km in the first 2 hours and 60 km in the next 1 hour. What is its average speed for the whole journey?', ['50 km/h', '53.3 km/h', '60 km/h', '80 km/h'], 1, 'Average speed = total distance / total time = (100 + 60)/(2 + 1) = 160/3 ≈ 53.3 km/h.'),
     ]),
     ('Laws of Motion', [
         ("Newton's first law of motion is also known as the law of", ['momentum', 'inertia', 'gravitation', 'energy'], 1, 'An object stays at rest or in uniform motion unless acted on by a net force -- this is inertia.'),
@@ -49,6 +56,9 @@ PHYSICS = [
         ('The rate of change of momentum of a body equals the', ['net force acting on it', 'mass of the body', 'velocity of the body', 'work done on it'], 0, "Newton's second law in its general form: net force = rate of change of momentum."),
         ('An object with a larger mass has', ['less inertia', 'more inertia', 'no inertia', 'the same inertia as any object'], 1, "Inertia is a body's resistance to a change in motion, and it increases with mass."),
         ('Frictional force on a moving object acts', ['in the direction of motion', 'opposite to the relative motion', 'perpendicular to motion', 'in no particular direction'], 1, 'Friction always opposes the relative sliding motion between two surfaces.'),
+        ('The coefficient of friction between two surfaces mainly depends on', ['Area of contact', 'Nature of the two surfaces in contact', 'Mass of the body alone', 'Applied force'], 1, 'The coefficient of friction depends on the roughness or nature of the two surfaces in contact, not on the apparent area of contact.'),
+        ("A rocket moves forward by expelling exhaust gases backward. This is best explained by Newton's", ['First law', 'Second law', 'Third law', 'Zeroth law'], 2, "The backward force on the expelled gas and the resulting forward reaction on the rocket illustrate Newton's third law of motion."),
+        ('A block of mass 5 kg is pulled by a horizontal force of 20 N on a frictionless surface. What is its acceleration?', ['2 m/s^2', '4 m/s^2', '5 m/s^2', '10 m/s^2'], 1, 'Using F = ma, acceleration a = F/m = 20/5 = 4 m/s^2.'),
     ]),
     ('Work, Energy, Power', [
         ('What is the SI unit of energy?', ['Watt', 'Newton', 'Joule', 'Pascal'], 2, 'Energy and work are both measured in joules.'),
@@ -58,6 +68,9 @@ PHYSICS = [
         ('Power is defined as work done divided by', ['distance', 'force', 'time', 'mass'], 2, 'Power is the rate of doing work, i.e. work done per unit time.'),
         ('One watt is equal to one joule per', ['minute', 'hour', 'second', 'kilogram'], 2, 'By definition, 1 W = 1 J/s.'),
         ('The law of conservation of energy states that energy', ['always increases over time', 'can be created but not destroyed', 'cannot be created or destroyed, only transformed', 'is always lost as heat'], 2, 'Total energy in an isolated system remains constant; it only changes form.'),
+        ('A body of mass 2 kg moving with a velocity of 3 m/s has kinetic energy equal to', ['3 J', '6 J', '9 J', '18 J'], 2, 'KE = (1/2)mv^2 = 0.5 × 2 × 3^2 = 9 J.'),
+        ('Work done by a force on an object is zero when the force is', ['Parallel to displacement', 'Opposite to displacement', 'Perpendicular to displacement', 'Along the displacement'], 2, 'Work = Fd cosθ; when the force is perpendicular to displacement, θ = 90° and cosθ = 0, so the work done is zero.'),
+        ('An elastic collision is one in which', ['Kinetic energy is conserved', 'Momentum is not conserved', 'Objects stick together after collision', 'Only potential energy is conserved'], 0, 'In an elastic collision, both momentum and total kinetic energy are conserved, unlike in inelastic collisions where kinetic energy is lost.'),
     ]),
     ('Gravitation', [
         ('The universal law of gravitation was proposed by', ['Galileo', 'Newton', 'Einstein', 'Kepler'], 1, 'Isaac Newton formulated the universal law of gravitation.'),
@@ -66,6 +79,9 @@ PHYSICS = [
         ("The escape velocity from Earth's surface is approximately", ['7.9 km/s', '9.8 km/s', '11.2 km/s', '15 km/s'], 2, "Earth's escape velocity, ignoring air resistance, is about 11.2 km/s."),
         ("A satellite orbiting very close to Earth's surface moves at approximately", ['3.0 km/s', '7.9 km/s', '11.2 km/s', '20 km/s'], 1, 'The orbital velocity for a near-surface circular orbit around Earth is about 7.9 km/s.'),
         ('The weight of an object is best described as', ['its mass', 'the product of its mass and gravitational acceleration', 'its volume times density', 'a constant independent of location'], 1, 'Weight = mass x g, which is why weight varies with the local gravitational field.'),
+        ('The value of acceleration due to gravity at the center of the Earth is', ['Maximum', 'Zero', 'Same as at the surface', 'Infinite'], 1, "At the Earth's center, gravitational pulls from all directions cancel out, making the net value of g zero."),
+        ("According to Kepler's third law, the square of a planet's orbital period is proportional to", ['The orbital radius', 'The square of the orbital radius', 'The cube of the orbital radius', 'The square root of the orbital radius'], 2, "Kepler's third law states that T^2 is proportional to r^3, where r is the semi-major axis of the orbit."),
+        ("As altitude above Earth's surface increases, the acceleration due to gravity", ['Increases', 'Decreases', 'Remains constant', 'First decreases then increases'], 1, "As distance from Earth's center increases with altitude, gravitational acceleration g decreases."),
     ]),
     ('Properties of Matter', [
         ("Pascal's law applies to", ['gases only', 'solids only', 'enclosed fluids', 'vacuum'], 2, "Pascal's law states pressure applied to an enclosed fluid is transmitted equally in all directions."),
@@ -73,6 +89,9 @@ PHYSICS = [
         ("Archimedes' principle is most directly related to", ['buoyancy', 'friction', 'magnetism', 'refraction'], 0, "Archimedes' principle explains the buoyant force on an object submerged in a fluid."),
         ("Viscosity is best described as a fluid's", ['density', 'resistance to flow', 'surface area', 'boiling point'], 1, "Viscosity measures a fluid's internal resistance to flow."),
         ('Surface tension is responsible for', ['water droplets forming spherical shapes', 'objects sinking in water', 'gases expanding to fill containers', 'metals conducting electricity'], 0, 'Surface tension minimizes surface area, which is why free droplets tend to be spherical.'),
+        ("Young's modulus of a material is a measure of its", ['Elasticity in response to tensile or compressive stress', 'Resistance to fluid flow', 'Force per unit length on a surface', 'Density'], 0, "Young's modulus measures a solid's stiffness, defined as the ratio of tensile stress to tensile strain."),
+        ('Stress in a deformed material is defined as', ['Force per unit area', 'Force per unit volume', 'Change in length per unit length', 'Force per unit length'], 0, 'Stress is the internal restoring force developed per unit cross-sectional area of a material under deformation.'),
+        ('The rise of water in a narrow capillary tube is mainly caused by', ['Viscosity', 'Surface tension', 'Atmospheric pressure alone', 'Gravity'], 1, 'Surface tension creates adhesive forces between the liquid and tube walls, pulling the liquid upward in a narrow capillary.'),
     ]),
     ('Thermodynamics', [
         ('0 degrees Celsius is approximately equal to', ['0 K', '100 K', '273 K', '373 K'], 2, 'The conversion is K = C + 273.15, so 0 C is about 273 K.'),
@@ -80,6 +99,9 @@ PHYSICS = [
         ('The zeroth law of thermodynamics concerns', ['energy conservation', 'thermal equilibrium', 'entropy increase', 'absolute zero'], 1, 'The zeroth law establishes the concept of thermal equilibrium and temperature.'),
         ('The first law of thermodynamics is a statement of', ['conservation of energy', 'conservation of momentum', 'increase of entropy', 'conservation of mass'], 0, 'The first law says the change in internal energy equals heat added minus work done, i.e. energy is conserved.'),
         ('An adiabatic process is one in which there is', ['no change in volume', 'no change in pressure', 'no heat exchange with surroundings', 'no change in temperature'], 2, 'In an adiabatic process, the system is thermally insulated, so no heat enters or leaves.'),
+        ('In an isothermal process, which quantity remains constant?', ['Temperature', 'Pressure', 'Volume', 'Entropy'], 0, 'An isothermal process, by definition, occurs at constant temperature.'),
+        ('The second law of thermodynamics is primarily concerned with', ['Entropy and the direction of heat flow', 'Conservation of mechanical energy only', 'The ideal gas equation', 'Equality of temperature at thermal equilibrium'], 0, 'The second law of thermodynamics deals with entropy, stating that heat flows spontaneously from hot to cold bodies and total entropy tends to increase.'),
+        ('An isochoric process occurs at constant', ['Volume', 'Pressure', 'Temperature', 'Entropy'], 0, 'An isochoric process is one that takes place at constant volume.'),
     ]),
     ('Oscillations & Waves', [
         ('Frequency and time period of a wave are related as', ['directly proportional', 'reciprocals of each other', 'unrelated', 'always equal'], 1, 'Time period T and frequency f satisfy T = 1/f.'),
@@ -88,6 +110,9 @@ PHYSICS = [
         ('Light waves are classified as', ['longitudinal waves', 'transverse waves', 'sound waves', 'matter waves only'], 1, 'Light is an electromagnetic wave whose oscillations are perpendicular to its direction of travel.'),
         ('Sound generally travels fastest through', ['gases', 'liquids', 'solids', 'a vacuum'], 2, 'Sound travels fastest in solids due to their closely packed, strongly interacting particles.'),
         ('The bending of waves around obstacles or through openings is called', ['reflection', 'refraction', 'diffraction', 'polarization'], 2, 'Diffraction describes waves bending around obstacles or spreading through apertures.'),
+        ('The time period of a simple pendulum (for small oscillations) depends on', ['The length of the pendulum and g', 'The mass of the bob', 'The amplitude of swing', 'The material of the bob'], 0, "For small oscillations, T = 2π√(L/g), so the time period depends only on the pendulum's length and the local value of g."),
+        ('Resonance occurs when the frequency of an external periodic force matches the', ['Natural frequency of the system', 'Amplitude of the system', 'Wavelength of the system', 'Phase of the system'], 0, "Resonance occurs when an externally applied periodic force has a frequency equal to the system's natural frequency, producing maximum amplitude oscillations."),
+        ('The periodic variation in loudness heard when two sound waves of slightly different frequencies superpose is called', ['Beats', 'Resonance', 'Diffraction', 'Polarization'], 0, 'Beats are the regular rise and fall in loudness produced by the superposition of two waves of slightly different frequencies.'),
     ]),
     ('Electrostatics', [
         ('Like electric charges', ['attract each other', 'repel each other', 'have no interaction', 'always cancel out'], 1, 'Two charges of the same sign exert a repulsive force on each other.'),
@@ -95,6 +120,9 @@ PHYSICS = [
         ("Coulomb's law describing the force between two charges was formulated by", ['Faraday', 'Coulomb', 'Ampere', 'Ohm'], 1, 'Charles-Augustin de Coulomb formulated the law of electrostatic force.'),
         ('What is the SI unit of electric potential?', ['Ampere', 'Ohm', 'Volt', 'Coulomb'], 2, 'Electric potential (and potential difference) is measured in volts.'),
         ('A device specifically designed to store electric charge is called a', ['resistor', 'capacitor', 'inductor', 'diode'], 1, 'A capacitor stores electric charge and energy in an electric field between its plates.'),
+        ('Electric field lines around an isolated positive point charge point', ['Radially outward', 'Radially inward', 'Circularly around the charge', 'Tangentially to the charge'], 0, 'Electric field lines originate from a positive point charge and extend radially outward in all directions.'),
+        ('The SI unit of electric field intensity is', ['N/C', 'C/N', 'J/C', 'C/J'], 0, 'Electric field intensity is force per unit charge, so its SI unit is newton per coulomb (N/C).'),
+        ('Electrostatic shielding is based on the principle that, in electrostatic equilibrium, the electric field inside a conductor is', ['Zero', 'Maximum', 'Equal to the external field', 'Infinite'], 0, 'In electrostatic equilibrium, the electric field inside a conductor is zero, which forms the basis of electrostatic shielding (Faraday cage effect).'),
     ]),
     ('Current Electricity', [
         ('What is the SI unit of electric current?', ['Volt', 'Ohm', 'Ampere', 'Watt'], 2, 'Electric current is measured in amperes (A).'),
@@ -103,6 +131,9 @@ PHYSICS = [
         ('In a series circuit, the current through each component is', ['different for each', 'the same throughout', 'zero', 'dependent only on voltage'], 1, 'In a series circuit there is only one path, so the same current flows through every component.'),
         ('In a parallel circuit, the voltage across each branch is', ['different for each branch', 'the same across each branch', 'always zero', 'equal to the total current'], 1, 'Parallel branches share the same two end points, so they all have the same voltage across them.'),
         ('A device that converts chemical energy into electrical energy is a', ['motor', 'generator', 'battery', 'transformer'], 2, 'A battery (electrochemical cell) converts stored chemical energy into electrical energy.'),
+        ('The resistance of a conductor depends on', ['Its length only', 'Its cross-sectional area only', 'Its resistivity only', 'Its length, cross-sectional area, and resistivity'], 3, "Resistance is given by R = ρL/A, so it depends jointly on the conductor's length, cross-sectional area, and resistivity."),
+        ('Two resistors of 2 ohm and 3 ohm are connected in series. The equivalent resistance is', ['1.2 ohm', '5 ohm', '6 ohm', '0.5 ohm'], 1, 'In series, resistances simply add: R = 2 + 3 = 5 ohm.'),
+        ('Electrical power dissipated in a circuit element can be calculated using', ['P = VI', 'P = V/I', 'P = I/V', 'P = V + I'], 0, 'Electrical power is the product of voltage and current, P = VI.'),
     ]),
     ('Magnetism', [
         ('What is the SI unit of magnetic field strength?', ['Weber', 'Tesla', 'Henry', 'Gauss (SI)'], 1, 'The tesla is the SI unit of magnetic flux density.'),
@@ -110,6 +141,9 @@ PHYSICS = [
         ('Unlike magnetic poles (a north and a south pole)', ['attract each other', 'repel each other', 'have no interaction', 'cancel out completely'], 0, 'Opposite magnetic poles attract each other.'),
         ('A moving electric charge produces a', ['gravitational field only', 'magnetic field', 'sound wave', 'chemical reaction'], 1, 'Moving charges (currents) generate magnetic fields, as described by electromagnetism.'),
         ("A compass needle in Earth's magnetic field tends to point roughly towards", ['the equator', 'geographic north', 'straight up', 'straight down'], 1, "Earth's magnetic field causes a freely suspended compass needle to align roughly north-south."),
+        ('The region around a magnet where its magnetic influence can be detected is called the', ['Magnetic field', 'Electric field', 'Gravitational field', 'Magnetic flux'], 0, 'The magnetic field is the region of space around a magnet within which its magnetic effects can be experienced.'),
+        ('A straight current-carrying conductor produces magnetic field lines that form', ['Concentric circles around the wire', 'Straight lines parallel to the wire', 'Radial lines from the wire', 'Random closed loops'], 0, 'The magnetic field around a straight current-carrying conductor consists of concentric circular field lines centered on the wire.'),
+        ('The direction of force on a current-carrying conductor placed in a magnetic field is given by', ["Fleming's left-hand rule", "Fleming's right-hand rule", 'Right-hand thumb rule', "Lenz's rule"], 0, "Fleming's left-hand rule gives the direction of the force experienced by a current-carrying conductor in a magnetic field."),
     ]),
     ('Electromagnetic Induction', [
         ('Electromagnetic induction was discovered by', ['Isaac Newton', 'Michael Faraday', 'James Watt', 'Nikola Tesla'], 1, 'Michael Faraday discovered that a changing magnetic field induces an electric current.'),
@@ -117,6 +151,9 @@ PHYSICS = [
         ("Lenz's law states that an induced current flows in a direction that", ['supports the change that caused it', 'opposes the change that caused it', 'is unrelated to the cause', 'is always clockwise'], 1, "Lenz's law is a consequence of energy conservation: the induced current opposes the change in flux."),
         ('A generator is a device that converts', ['electrical energy into mechanical energy', 'mechanical energy into electrical energy', 'heat into light', 'chemical energy into heat'], 1, 'A generator uses electromagnetic induction to turn mechanical motion into electrical energy.'),
         ('An electric motor converts', ['mechanical energy into electrical energy', 'electrical energy into mechanical energy', 'light into electricity', 'heat into electricity'], 1, 'A motor uses current in a magnetic field to produce mechanical motion.'),
+        ("Faraday's law of electromagnetic induction states that the induced EMF is proportional to the", ['Rate of change of magnetic flux', 'Magnitude of the magnetic field alone', 'Area of the coil alone', 'Resistance of the coil'], 0, "Faraday's law states that induced EMF equals the rate of change of magnetic flux linked with the circuit."),
+        ('Eddy currents are induced currents that circulate within', ['The bulk of a conductor due to changing magnetic flux', 'Only thin connecting wires', 'Insulating materials', 'Permanent magnets only'], 0, 'Eddy currents are closed loops of current induced within the bulk of a conductor when it experiences a changing magnetic flux.'),
+        ('A transformer operates on the principle of', ['Mutual induction', 'Self induction', 'Electrostatic induction', 'Thermoelectric effect'], 0, 'A transformer works by mutual induction, where a changing current in the primary coil induces an EMF in the secondary coil.'),
     ]),
     ('Optics', [
         ('The speed of light in a vacuum is approximately', ['3 x 10^5 m/s', '3 x 10^6 m/s', '3 x 10^8 m/s', '3 x 10^10 m/s'], 2, 'Light travels at approximately 3 x 10^8 metres per second in a vacuum.'),
@@ -126,6 +163,10 @@ PHYSICS = [
         ('A concave lens is also known as a', ['converging lens', 'diverging lens', 'plane lens', 'convex lens'], 1, 'A concave lens spreads parallel rays of light apart, so it is called a diverging lens.'),
         ('What is the SI unit of the power of a lens?', ['Watt', 'Dioptre', 'Candela', 'Lux'], 1, 'Lens power, the reciprocal of focal length in metres, is measured in dioptres.'),
         ('The splitting of white light into its component colors is called', ['reflection', 'refraction', 'dispersion', 'absorption'], 2, 'Dispersion separates white light into its spectrum of colors, as seen in a prism or rainbow.'),
+        ('The focal length of a plane mirror is', ['Infinite', 'Zero', 'Equal to its radius of curvature', 'Negative'], 0, 'A plane mirror can be treated as a spherical mirror with an infinite radius of curvature, so its focal length is infinite.'),
+        ('Total internal reflection occurs when', ['Light travels from a denser to a rarer medium at an angle greater than the critical angle', 'Light travels from a rarer to a denser medium', 'Light travels from a denser to a rarer medium at an angle less than the critical angle', 'Light travels through a vacuum'], 0, 'Total internal reflection occurs when light passes from a denser to a rarer medium and strikes the boundary at an angle greater than the critical angle.'),
+        ('When an object is placed within the focal length of a convex lens (as in a simple magnifying glass), the image formed is', ['Virtual, erect, and magnified', 'Real, inverted, and diminished', 'Real, erect, and diminished', 'Virtual, inverted, and diminished'], 0, 'A convex lens forms a virtual, erect, and magnified image when the object lies within its focal length, which is the basis of a simple magnifier.'),
+        ('The power of a lens (in dioptres) is related to its focal length f (in metres) by', ['P = 1/f', 'P = f', 'P = f^2', 'P = 1/f^2'], 0, 'The power of a lens is defined as the reciprocal of its focal length measured in metres, P = 1/f.'),
     ]),
     ('Modern Physics', [
         ('The smallest particle of an element that retains its chemical properties is a(n)', ['electron', 'atom', 'molecule', 'ion'], 1, 'An atom is the basic unit of an element that keeps its chemical identity.'),
@@ -135,6 +176,9 @@ PHYSICS = [
         ('The energy of a photon is given by E = hf, where h is', ['the speed of light', "Planck's constant", "the photon's wavelength", "the photon's mass"], 1, "Planck's constant h relates a photon's energy to its frequency f."),
         ('A radioactive decay in which a nucleus emits a helium nucleus is called', ['beta decay', 'gamma decay', 'alpha decay', 'fission'], 2, 'Alpha decay involves the emission of an alpha particle, which is a helium-4 nucleus.'),
         ('The subatomic particle with no electric charge is the', ['proton', 'electron', 'neutron', 'positron'], 2, 'The neutron is electrically neutral, unlike the proton (positive) and electron (negative).'),
+        ('The spontaneous emission of radiation from unstable atomic nuclei is called', ['Radioactivity', 'Photoelectric effect', 'Nuclear fusion', 'Ionization'], 0, 'Radioactivity is the spontaneous process by which unstable nuclei emit radiation to become more stable.'),
+        ('In beta decay, a nucleus emits', ['An electron', 'A helium nucleus', 'A neutron', 'A photon'], 0, 'In beta decay, a neutron converts into a proton within the nucleus, releasing an electron (beta particle) and an antineutrino.'),
+        ('The process by which two light nuclei combine to form a heavier nucleus, releasing large amounts of energy, is called', ['Nuclear fusion', 'Nuclear fission', 'Radioactive decay', 'Ionization'], 0, 'Nuclear fusion is the combination of two light nuclei into a heavier nucleus, releasing energy, as occurs in stars.'),
     ]),
     ('Semiconductors', [
         ('Silicon and germanium are well-known examples of', ['conductors', 'insulators', 'semiconductors', 'superconductors'], 2, 'Silicon and germanium are classic semiconductor materials used in electronics.'),
@@ -144,6 +188,9 @@ PHYSICS = [
         ('A p-n junction device commonly used to rectify alternating current is a', ['transistor', 'diode', 'resistor', 'capacitor'], 1, 'Diodes are widely used in rectifier circuits to convert AC to DC.'),
         ('In an n-type semiconductor, the majority charge carriers are', ['holes', 'electrons', 'protons', 'ions'], 1, 'N-type semiconductors have an excess of free electrons as majority carriers.'),
         ('In a p-type semiconductor, the majority charge carriers are', ['electrons', 'holes', 'protons', 'neutrons'], 1, 'P-type semiconductors have an excess of holes (electron vacancies) as majority carriers.'),
+        ('Which of the following has a small energy gap (typically less than about 3 eV) between its valence and conduction bands?', ['Semiconductors', 'Conductors', 'Insulators', 'Superconductors'], 0, 'Semiconductors have a small but nonzero energy gap between the valence and conduction bands, unlike insulators, which have a much larger gap.'),
+        ('A Zener diode is primarily used as a', ['Voltage regulator', 'Rectifier', 'Amplifier', 'Oscillator'], 0, 'Operated in reverse breakdown, a Zener diode maintains a nearly constant voltage across it, making it useful as a voltage regulator.'),
+        ('In a forward-biased p-n junction diode, the width of the depletion region', ['Decreases', 'Increases', 'Remains unchanged', 'Becomes infinite'], 0, 'Forward biasing reduces the potential barrier at the junction, narrowing the depletion region and allowing current to flow easily.'),
     ]),
     ('Rotational motion & simple machines', [
         ('The rotational analogue of mass, describing resistance to angular acceleration, is called', ['torque', 'angular velocity', 'moment of inertia', 'angular momentum'], 2, 'Moment of inertia plays the same role for rotation that mass plays for linear motion.'),
@@ -156,6 +203,9 @@ PHYSICS = [
         ('The center of mass of a uniform rigid rod lies at its', ['one end', 'midpoint', 'quarter length', 'outside the rod'], 1, 'For a uniform rod, mass is evenly distributed, placing the center of mass at the midpoint.'),
         ('A body in rotational equilibrium has', ['zero net torque acting on it', 'zero mass', 'infinite angular velocity', 'constantly changing moment of inertia'], 0, 'Rotational equilibrium requires the net torque on the body to be zero.'),
         ('The angular velocity of a rotating object is measured in', ['metres per second', 'radians per second', 'newtons per second', 'joules per second'], 1, 'Angular velocity describes the rate of rotation and is measured in radians per second.'),
+        ('The moment of inertia of a rigid body depends on', ['Mass distribution relative to the axis of rotation', 'Total mass only', 'Shape only, regardless of mass', 'Angular velocity of the body'], 0, 'Moment of inertia depends on both the mass of the body and how that mass is distributed with respect to the axis of rotation.'),
+        ('A flywheel is used in engines mainly to', ['Maintain uniform rotational speed by storing rotational kinetic energy', 'Increase torque indefinitely', 'Reduce the mass of the engine', 'Generate electricity directly'], 0, "A flywheel stores rotational kinetic energy and releases it to smooth out fluctuations in rotational speed during an engine's power cycle."),
+        ('The velocity ratio of an inclined plane used as a simple machine equals the ratio of', ['Length of the incline to its vertical height', 'Height to length of the incline', 'Effort to load', 'Load to effort'], 0, 'For an inclined plane, the velocity ratio is the length of the slope divided by its vertical height.'),
     ]),
 ]
 
@@ -166,6 +216,9 @@ CHEMISTRY = [
         ('The electron was discovered by', ['Ernest Rutherford', 'J. J. Thomson', 'James Chadwick', 'Niels Bohr'], 1, 'J. J. Thomson discovered the electron through his cathode ray experiments.'),
         ('The atomic nucleus was discovered through experiments conducted by', ['J. J. Thomson', 'John Dalton', 'Ernest Rutherford', 'Dmitri Mendeleev'], 2, "Rutherford's gold foil experiment revealed a small, dense, positively charged nucleus."),
         ('Isotopes of the same element have the same number of protons but a different number of', ['electrons', 'neutrons', 'protons', 'valence shells'], 1, 'Isotopes share the same atomic number (protons) but differ in neutron count, giving different mass numbers.'),
+        ('Which quantum number determines the shape of an atomic orbital?', ['Principal quantum number', 'Azimuthal (angular momentum) quantum number', 'Magnetic quantum number', 'Spin quantum number'], 1, 'The azimuthal quantum number (l) determines the subshell type (s, p, d, f) and hence the shape of the orbital.'),
+        ('The maximum number of electrons that can occupy the third principal shell (n = 3) is', ['8', '10', '18', '32'], 2, 'The maximum electron capacity of a shell is given by 2n^2; for n = 3 this equals 2(3)^2 = 18.'),
+        ("According to the Heisenberg uncertainty principle, it is impossible to simultaneously determine with perfect precision a particle's", ['mass and volume', 'position and momentum', 'charge and spin', 'temperature and pressure'], 1, 'The uncertainty principle states that the position and momentum of a microscopic particle cannot both be known exactly at the same time.'),
     ]),
     ('Periodic table', [
         ('The modern periodic table arranges elements in order of increasing', ['atomic mass', 'atomic number', 'number of isotopes', 'density'], 1, "Mendeleev's original table used atomic mass, but the modern table is ordered by atomic number."),
@@ -173,6 +226,8 @@ CHEMISTRY = [
         ('Moving left to right across a period, atomic radius generally', ['increases', 'decreases', 'stays constant', 'becomes negative'], 1, 'Increasing nuclear charge across a period pulls electrons closer, decreasing atomic radius.'),
         ('Moving left to right across a period, ionization energy generally', ['decreases', 'increases', 'stays constant', 'becomes zero'], 1, 'Greater nuclear charge across a period makes it harder to remove an electron, increasing ionization energy.'),
         ('Among all elements, the one with the highest electronegativity is', ['Oxygen', 'Chlorine', 'Fluorine', 'Nitrogen'], 2, 'Fluorine is the most electronegative element on the periodic table.'),
+        ('Electron affinity is best defined as the', ['energy released when a neutral gaseous atom gains an electron', 'energy required to remove the outermost electron', 'energy required to form a cation from a neutral atom', 'energy released when a bond is formed'], 0, 'Electron affinity is the energy change (usually released) when an isolated neutral atom in the gas phase accepts an additional electron.'),
+        ('Metallic character of elements generally ___ on moving down a group.', ['increases', 'decreases', 'remains unchanged', 'fluctuates randomly'], 0, 'Down a group, atomic size increases and ionization energy decreases, making it easier to lose electrons, so metallic character increases.'),
     ]),
     ('Chemical bonding', [
         ('A chemical bond formed by the sharing of electron pairs between atoms is called a(n)', ['ionic bond', 'covalent bond', 'metallic bond', 'hydrogen bond'], 1, 'Covalent bonds form when atoms share electron pairs.'),
@@ -180,6 +235,9 @@ CHEMISTRY = [
         ('The bonds between hydrogen and oxygen in a water molecule are', ['ionic', 'covalent', 'metallic', 'purely van der Waals'], 1, 'Water molecules are held together internally by polar covalent O-H bonds.'),
         ('Sodium chloride (NaCl) is a classic example of a(n)', ['covalent compound', 'ionic compound', 'metallic alloy', 'noble gas compound'], 1, 'NaCl forms through electron transfer from sodium to chlorine, making it an ionic compound.'),
         ('The molecular shape of methane (CH4) is best described as', ['linear', 'trigonal planar', 'tetrahedral', 'octahedral'], 2, "Methane's four C-H bonds arrange themselves tetrahedrally to minimize electron repulsion."),
+        ('Considering the lone pair on nitrogen, the molecular shape of ammonia (NH3) is best described as', ['trigonal planar', 'pyramidal', 'linear', 'tetrahedral'], 1, 'NH3 has three bonding pairs and one lone pair around nitrogen, giving a trigonal pyramidal molecular geometry.'),
+        ('Which of the following solids is held together primarily by weak van der Waals forces?', ['Diamond', 'Sodium chloride', 'Solid carbon dioxide (dry ice)', 'Copper metal'], 2, 'Dry ice is a molecular solid in which discrete CO2 molecules are held together by weak van der Waals (London dispersion) forces.'),
+        ('Based on molecular orbital theory, the bond order of the nitrogen molecule (N2) is', ['1', '2', '3', '4'], 2, 'N2 has a triple bond; molecular orbital theory gives a bond order of 3, consistent with its high bond dissociation energy.'),
     ]),
     ('States of matter', [
         ('The direct change of a solid into a gas, without passing through the liquid state, is called', ['evaporation', 'condensation', 'sublimation', 'deposition'], 2, 'Sublimation is the direct solid-to-gas phase transition, as seen with dry ice.'),
@@ -187,6 +245,8 @@ CHEMISTRY = [
         ('At constant temperature, the relationship between the pressure and volume of a fixed amount of gas is described by', ["Charles's law", "Boyle's law", "Avogadro's law", "Gay-Lussac's law"], 1, "Boyle's law states that pressure and volume are inversely proportional at constant temperature."),
         ('At constant pressure, the relationship between the volume and temperature of a fixed amount of gas is described by', ["Boyle's law", "Charles's law", "Dalton's law", "Graham's law"], 1, "Charles's law states that volume is directly proportional to temperature at constant pressure."),
         ('What is the SI unit commonly used to express gas pressure?', ['Joule', 'Pascal', 'Mole', 'Kelvin'], 1, 'Gas pressure, like all pressure, is measured in pascals in SI units.'),
+        ('In the van der Waals equation of state, the correction term added to the observed pressure to account for intermolecular attraction is proportional to', ['V', '1/V', '1/V^2', 'V^2'], 2, 'The van der Waals equation is (P + an^2/V^2)(V - nb) = nRT, where the pressure correction term an^2/V^2 varies as 1/V^2.'),
+        ('At a given temperature and pressure, a real gas behaves closest to an ideal gas when its molecules have', ['strong intermolecular forces and large size', 'weak intermolecular forces and small size', 'high molar mass', 'high boiling point'], 1, 'Ideal gas behavior is approached when intermolecular attractions are negligible and the molecular volume is small compared to the container volume.'),
     ]),
     ('Thermodynamics', [
         ('The branch of chemistry concerned with heat changes during chemical reactions is called', ['electrochemistry', 'thermochemistry', 'photochemistry', 'stereochemistry'], 1, 'Thermochemistry studies the heat absorbed or released during chemical reactions.'),
@@ -194,6 +254,9 @@ CHEMISTRY = [
         ('A chemical reaction that absorbs heat from its surroundings is called', ['exothermic', 'endothermic', 'isothermic', 'spontaneous only'], 1, 'Endothermic reactions take in energy from the surroundings, often cooling them.'),
         ('Which thermodynamic quantity measures the disorder or randomness of a system?', ['Enthalpy', 'Entropy', 'Internal energy', 'Molarity'], 1, 'Entropy quantifies the degree of disorder or randomness in a system.'),
         ('Enthalpy change of a reaction is most commonly expressed in units of', ['mol/L', 'J/mol', 'atm', 'g/mL'], 1, 'Enthalpy change is typically reported as energy per mole of reaction, in J/mol or kJ/mol.'),
+        ('A thermodynamic process carried out at constant temperature is called', ['isobaric', 'isothermal', 'isochoric', 'adiabatic'], 1, 'An isothermal process is one in which the temperature of the system remains constant throughout.'),
+        ('A process in which no heat is exchanged between the system and its surroundings is called', ['isothermal', 'isobaric', 'adiabatic', 'isochoric'], 2, 'An adiabatic process is defined by q = 0, meaning no heat transfer occurs between the system and surroundings.'),
+        ('For a spontaneous process occurring at constant temperature and pressure, the Gibbs free energy change (ΔG) must be', ['positive', 'negative', 'zero', 'infinite'], 1, 'A process is spontaneous at constant temperature and pressure only when ΔG is negative.'),
     ]),
     ('Equilibrium', [
         ('At chemical equilibrium, the rate of the forward reaction', ['is zero', 'equals the rate of the reverse reaction', 'is always greater than the reverse reaction', 'stops entirely'], 1, 'At equilibrium, forward and reverse reaction rates are equal, so concentrations stay constant.'),
@@ -201,6 +264,8 @@ CHEMISTRY = [
         ('The equilibrium constant of a reaction is commonly denoted by the symbol', ['pH', 'K', 'R', 'N'], 1, 'The equilibrium constant is usually written as K (or Kc, Kp depending on context).'),
         ('An aqueous solution with a pH less than 7 is considered', ['basic', 'neutral', 'acidic', 'amphoteric'], 2, 'A pH below 7 indicates a higher concentration of H+ ions, making the solution acidic.'),
         ('An aqueous solution with a pH greater than 7 is considered', ['acidic', 'neutral', 'basic', 'always unstable'], 2, 'A pH above 7 indicates a lower concentration of H+ ions relative to OH-, making it basic.'),
+        ('For the equilibrium N2(g) + 3H2(g) ⇌ 2NH3(g), increasing the total pressure on the system shifts the equilibrium', ['towards the reactants', 'towards the products', 'it has no effect on the position of equilibrium', 'only temperature can shift this equilibrium'], 1, 'Increasing pressure shifts equilibrium toward the side with fewer moles of gas; NH3 formation reduces 4 moles of gas to 2, so the equilibrium shifts toward products.'),
+        ('A buffer solution is characterized by its ability to resist changes in', ['temperature', 'pH', 'volume', 'color'], 1, 'A buffer solution maintains a nearly constant pH despite small additions of acid or base.'),
     ]),
     ('Redox & electrochemistry', [
         ('Oxidation is best defined as the', ['gain of electrons', 'loss of electrons', 'gain of protons', 'loss of neutrons'], 1, 'Oxidation involves the loss of electrons by a species (remember: OIL - Oxidation Is Loss).'),
@@ -208,6 +273,9 @@ CHEMISTRY = [
         ('A device that generates electricity directly from a spontaneous redox reaction is called a', ['electrolytic cell', 'galvanic (voltaic) cell', 'fuel injector', 'capacitor'], 1, 'A galvanic or voltaic cell converts chemical energy from a redox reaction into electrical energy.'),
         ('In an electrochemical cell, oxidation occurs at the', ['cathode', 'anode', 'salt bridge', 'separator'], 1, 'By convention, oxidation always occurs at the anode in an electrochemical cell.'),
         ('In an electrochemical cell, reduction occurs at the', ['anode', 'cathode', 'salt bridge', 'membrane'], 1, 'By convention, reduction always occurs at the cathode in an electrochemical cell.'),
+        ('In the reaction Zn(s) + CuSO4(aq) → ZnSO4(aq) + Cu(s), the zinc metal is', ['oxidized', 'reduced', 'neither oxidized nor reduced', 'acting as the oxidizing agent'], 0, 'Zinc loses electrons to form Zn2+ ions, so it undergoes oxidation while copper ions are reduced to copper metal.'),
+        ('By convention, the standard reduction potential of the standard hydrogen electrode is taken as', ['+1 V', '-1 V', '0 V', '+0.5 V'], 2, 'The standard hydrogen electrode is assigned a reference potential of exactly 0 V, against which all other electrode potentials are measured.'),
+        ("Faraday's first law of electrolysis states that the mass of a substance deposited at an electrode is directly proportional to the", ['time of electrolysis only', 'quantity of electricity passed through the electrolyte', 'temperature of the electrolyte', 'surface area of the electrode'], 1, "Faraday's first law states that mass deposited is proportional to the total charge (quantity of electricity) passed, m = ZQ."),
     ]),
     ('Kinetics', [
         ('The branch of chemistry that studies the rates of chemical reactions is called', ['chemical kinetics', 'thermodynamics', 'stoichiometry', 'spectroscopy'], 0, 'Chemical kinetics is the study of reaction rates and the factors affecting them.'),
@@ -215,6 +283,8 @@ CHEMISTRY = [
         ("A substance that increases a reaction's rate without being permanently consumed is called a(n)", ['inhibitor', 'catalyst', 'solvent', 'oxidizer'], 1, 'Catalysts speed up reactions by lowering activation energy, without being used up.'),
         ('The minimum energy required for reactant molecules to successfully react is called', ['bond energy', 'activation energy', 'ionization energy', 'lattice energy'], 1, 'Activation energy is the energy barrier that must be overcome for a reaction to proceed.'),
         ('Reaction rate is typically expressed in units of', ['concentration per unit time', 'mass per unit volume', 'energy per mole', 'pressure per unit area'], 0, 'Reaction rate is usually given as the change in concentration of a reactant or product per unit time.'),
+        ('A reaction whose rate depends on the concentration of a single reactant raised to the first power is classified as', ['zero order', 'first order', 'second order', 'third order'], 1, 'In a first-order reaction, the rate is directly proportional to the concentration of one reactant raised to the power one.'),
+        ('The rate constant of a zero-order reaction has the same units as', ['concentration', 'the reaction rate', 'time', 'concentration divided by time squared'], 1, 'For a zero-order reaction, rate = k, so the rate constant carries the same units as the rate itself, typically mol L^-1 s^-1.'),
     ]),
     ('Solutions', [
         ('A solution that contains the maximum amount of solute it can dissolve at a given temperature is called', ['dilute', 'saturated', 'supersaturated', 'unsaturated'], 1, 'A saturated solution holds the maximum dissolved solute possible at that temperature.'),
@@ -222,12 +292,16 @@ CHEMISTRY = [
         ('In a typical solution, the component present in the largest amount is called the', ['solute', 'solvent', 'precipitate', 'catalyst'], 1, 'The solvent is the substance present in greater quantity, dissolving the solute.'),
         ('Dissolving a non-volatile solute in a solvent typically causes the boiling point to', ['decrease', 'increase', 'stay the same', 'become undefined'], 1, 'This is boiling point elevation, a colligative property of solutions.'),
         ('Dissolving a solute in a solvent typically causes the freezing point to', ['increase', 'decrease', 'stay the same', 'double'], 1, 'This is freezing point depression, a colligative property of solutions.'),
+        ("Henry's law relates the solubility of a gas in a liquid to the", ['temperature of the liquid alone', 'partial pressure of the gas above the liquid', 'volume of the container', 'density of the liquid'], 1, "Henry's law states that the solubility of a gas in a liquid is directly proportional to the partial pressure of that gas above the solution."),
+        ("A solution that obeys Raoult's law over the entire range of concentration is called a(n)", ['ideal solution', 'colloidal solution', 'saturated solution', 'buffer solution'], 0, "An ideal solution is one in which the vapor pressure of each component follows Raoult's law at all concentrations, with no net enthalpy or volume change on mixing."),
     ]),
     ('Surface chemistry', [
         ('The accumulation of molecules of a substance on the surface of another is called', ['absorption', 'adsorption', 'diffusion', 'osmosis'], 1, 'Adsorption refers to particles adhering to a surface, as opposed to absorption throughout a bulk material.'),
         ('Colloidal particles generally have sizes in the range of', ['less than 1 nm', 'roughly 1 to 1000 nm', 'more than 1 mm', 'exactly 1 m'], 1, 'Colloidal particles are larger than true solution particles but smaller than visible suspended particles, roughly 1-1000 nm.'),
         ('Milk is a common everyday example of a', ['true solution', 'colloid', 'pure compound', 'element'], 1, 'Milk is an emulsion, a type of colloid, of fat droplets dispersed in water.'),
         ('A catalyst that exists in the same phase as the reactants is called a', ['heterogeneous catalyst', 'homogeneous catalyst', 'biocatalyst', 'inert catalyst'], 1, 'When catalyst and reactants share the same phase (e.g. all gases), the catalysis is homogeneous.'),
+        ('Physical adsorption (physisorption) is typically characterized by', ['high enthalpy of adsorption and irreversibility', 'low enthalpy of adsorption and easy reversibility', 'formation of strong new chemical bonds', 'occurring only at very high temperatures'], 1, 'Physisorption involves weak van der Waals forces between adsorbate and adsorbent, giving low enthalpy of adsorption and making the process easily reversible.'),
+        ('According to the Freundlich adsorption isotherm, the extent of adsorption (x/m) varies with equilibrium pressure P as', ['x/m = kP', 'x/m = kP^(1/n)', 'x/m is independent of P', 'x/m = k/P'], 1, 'The Freundlich isotherm is an empirical relation x/m = kP^(1/n), where k and n are constants depending on the adsorbent-adsorbate system.'),
     ]),
     ('General organic chemistry', [
         ('Organic chemistry is primarily the study of compounds containing', ['silicon', 'carbon', 'sulfur', 'phosphorus'], 1, 'Organic chemistry focuses on carbon-containing compounds, especially those with C-H bonds.'),
@@ -235,6 +309,9 @@ CHEMISTRY = [
         ('Hydrocarbons containing at least one carbon-carbon double bond are called', ['alkanes', 'alkenes', 'alkynes', 'alcohols'], 1, 'Alkenes are unsaturated hydrocarbons characterized by a C=C double bond.'),
         ('Hydrocarbons containing at least one carbon-carbon triple bond are called', ['alkanes', 'alkenes', 'alkynes', 'aromatic compounds'], 2, 'Alkynes are unsaturated hydrocarbons characterized by a C triple-bond C.'),
         ('The functional group -OH, characteristic of alcohols, is called the', ['carbonyl group', 'hydroxyl group', 'carboxyl group', 'amine group'], 1, 'The -OH group is known as the hydroxyl group, defining alcohols.'),
+        ('A reaction intermediate in which a carbon atom bears a positive charge and only six electrons in its valence shell is called a', ['carbanion', 'carbocation', 'free radical', 'carbene'], 1, 'A carbocation is an electron-deficient carbon species carrying a positive charge with six valence electrons, typically sp2 hybridized.'),
+        ('The inductive effect in an organic molecule refers to the', ['permanent displacement of sigma-bond electrons along a chain due to electronegativity differences', 'delocalization of pi electrons through resonance', 'temporary polarization caused by an approaching reagent', 'formation of a new covalent bond'], 0, 'The inductive effect is a permanent electron displacement through sigma bonds caused by differences in electronegativity between atoms in a chain.'),
+        ('Compounds having the same molecular formula but differing in the arrangement or connectivity of their atoms are called', ['conformers', 'structural isomers', 'geometrical isomers only', 'enantiomers only'], 1, 'Structural (constitutional) isomers share the same molecular formula but differ in how their atoms are bonded together.'),
     ]),
     ('Hydrocarbons', [
         ('The simplest alkane, with the formula CH4, is called', ['ethane', 'methane', 'propane', 'butane'], 1, 'Methane (CH4) is the simplest and smallest alkane.'),
@@ -242,12 +319,17 @@ CHEMISTRY = [
         ('The general molecular formula for alkenes is', ['CnH2n+2', 'CnH2n', 'CnH2n-2', 'CnH2n+1'], 1, 'Alkenes, with one double bond, follow the general formula CnH2n.'),
         ('Benzene is a classic example of a(n)', ['saturated alkane', 'aromatic hydrocarbon', 'noble gas', 'ionic compound'], 1, 'Benzene (C6H6) is the simplest aromatic hydrocarbon, featuring a stable ring of alternating bonds.'),
         ('Natural gas consists mainly of', ['ethanol', 'methane', 'benzene', 'acetic acid'], 1, 'Natural gas is composed primarily of methane, with smaller amounts of other light hydrocarbons.'),
+        ('The hybridization of the carbon atoms in ethyne (acetylene, HC≡CH) is', ['sp', 'sp2', 'sp3', 'sp3d'], 0, 'Each carbon in ethyne forms one sigma bond to hydrogen and one sigma bond to the other carbon along with two pi bonds, requiring sp hybridization.'),
+        ("Markovnikov's rule is used to predict the major product of HX addition to", ['symmetrical alkenes', 'unsymmetrical alkenes', 'alkanes', 'aromatic rings'], 1, "Markovnikov's rule predicts that in an unsymmetrical alkene, the hydrogen of HX attaches to the carbon already bearing more hydrogen atoms, forming the more stable carbocation intermediate."),
+        ("Which of the following rings satisfies Huckel's rule of aromaticity?", ['Cyclobutadiene', 'Benzene', 'Cyclooctatetraene', 'Cyclopropane'], 1, 'Benzene has 6 delocalized pi electrons, satisfying the Huckel rule (4n+2) for n = 1, making it aromatic; the other rings listed do not satisfy this rule.'),
     ]),
     ('Haloalkanes', [
         ('Haloalkanes are hydrocarbons in which a halogen atom is bonded to a', ['nitrogen atom', 'carbon atom', 'oxygen atom', 'sulfur atom'], 1, 'Haloalkanes have a halogen (F, Cl, Br, I) bonded directly to a carbon atom.'),
         ('The molecular formula of chloroform is', ['CCl4', 'CHCl3', 'CH2Cl2', 'CH3Cl'], 1, 'Chloroform has the formula CHCl3, one hydrogen and three chlorines on a carbon.'),
         ('The functional group of haloalkanes is best described as', ['a hydroxyl group', 'a halogen atom', 'a carbonyl group', 'a carboxyl group'], 1, 'The defining feature of haloalkanes is a halogen atom attached to an alkyl carbon.'),
         ('A nucleophilic substitution reaction that proceeds with inversion of configuration at the carbon center is typically called', ['SN1', 'SN2', 'E1', 'E2'], 1, 'The SN2 mechanism is a single-step, backside attack that inverts the stereochemistry at carbon.'),
+        ('The SN1 reaction mechanism proceeds through the formation of a', ['carbanion intermediate', 'carbocation intermediate', 'free radical intermediate', 'transition state with no intermediate'], 1, 'In an SN1 mechanism, the leaving group departs first to form a carbocation intermediate, which the nucleophile then attacks.'),
+        ('Which of the following haloalkanes undergoes SN1 substitution most readily?', ['A primary haloalkane', 'A secondary haloalkane', 'A tertiary haloalkane', 'Methyl halide'], 2, 'Tertiary haloalkanes form the most stable carbocation intermediates due to maximum alkyl group hyperconjugation and inductive stabilization, favoring the SN1 pathway.'),
     ]),
     ('Alcohols, phenols, ethers', [
         ('The functional group that defines alcohols is', ['-COOH', '-CHO', '-OH', '-O-'], 2, 'Alcohols are defined by a hydroxyl (-OH) group attached to a saturated carbon.'),
@@ -255,6 +337,8 @@ CHEMISTRY = [
         ('The functional group that defines ethers is', ['-OH', '-O- linking two carbon groups', '-COOH', '-CHO'], 1, 'Ethers are characterized by an oxygen atom bonded to two separate carbon-containing groups.'),
         ('Ethanol is the type of alcohol commonly found in', ['gasoline only', 'alcoholic beverages', 'plastic', 'rubber'], 1, 'Ethanol (C2H5OH) is the alcohol present in beer, wine, and spirits.'),
         ('Oxidising a primary alcohol typically produces, as the first product, a(n)', ['alkane', 'aldehyde', 'ether', 'alkene'], 1, 'Primary alcohols are oxidised first to aldehydes, and further to carboxylic acids.'),
+        ('Phenol is significantly more acidic than ethanol mainly because', ['phenol has a higher molecular weight', 'the phenoxide ion formed is stabilized by resonance', 'phenol is more soluble in water', 'ethanol is a stronger base'], 1, 'When phenol loses a proton, the resulting phenoxide ion is stabilized by delocalization of the negative charge into the aromatic ring, unlike the ethoxide ion from ethanol.'),
+        ("Williamson's synthesis is an important method for preparing", ['alcohols from alkenes', 'ethers from an alkyl halide and a sodium alkoxide', 'aldehydes from alcohols', 'esters from carboxylic acids'], 1, "Williamson's ether synthesis involves an SN2 reaction between an alkyl halide and a sodium alkoxide to form an ether."),
     ]),
     ('Aldehydes, ketones, carboxylic acids', [
         ('The functional group of aldehydes is', ['-COOH', '-CHO', '-OH', '>C=O between two carbons'], 1, 'Aldehydes feature a terminal carbonyl group, -CHO, with a hydrogen attached.'),
@@ -262,6 +346,8 @@ CHEMISTRY = [
         ('The functional group of carboxylic acids is', ['-CHO', '-OH', '-COOH', '-O-'], 2, 'Carboxylic acids are defined by the -COOH functional group.'),
         ('Acetic acid is also known by its systematic (IUPAC) name', ['methanoic acid', 'ethanoic acid', 'propanoic acid', 'butanoic acid'], 1, "Acetic acid's IUPAC name is ethanoic acid."),
         ('Formalin is an aqueous solution primarily of', ['acetone', 'formaldehyde', 'acetic acid', 'ethanol'], 1, 'Formalin is a water-based solution of formaldehyde (methanal), often used as a preservative.'),
+        ("Tollens' test distinguishes aldehydes from ketones by the formation of a", ['silver mirror', 'red precipitate', 'yellow precipitate', 'blue color'], 0, "Aldehydes reduce Tollens' reagent (ammoniacal silver nitrate), depositing metallic silver as a bright mirror on the test tube, whereas ketones generally do not react."),
+        ('Carboxylic acids react with sodium bicarbonate solution to liberate', ['hydrogen gas', 'carbon dioxide gas', 'oxygen gas', 'chlorine gas'], 1, 'Carboxylic acids are acidic enough to react with sodium bicarbonate, displacing carbon dioxide gas with effervescence, a common test for the -COOH group.'),
     ]),
     ('Biomolecules', [
         ('Proteins are built from repeating monomer units called', ['nucleotides', 'amino acids', 'monosaccharides', 'fatty acids'], 1, 'Proteins are polymers of amino acids linked by peptide bonds.'),
@@ -269,24 +355,34 @@ CHEMISTRY = [
         ('DNA is an abbreviation for', ['deoxyribonucleic acid', 'dinitrogen acid', 'diribose nucleic acid', 'deoxyribose amino acid'], 0, 'DNA stands for deoxyribonucleic acid, the molecule carrying genetic information.'),
         ('The basic repeating unit of a nucleic acid such as DNA is called a', ['amino acid', 'fatty acid', 'nucleotide', 'monosaccharide'], 2, 'Nucleic acids are polymers of nucleotides, each made of a sugar, phosphate, and nitrogenous base.'),
         ('Glucose is a well-known example of a', ['disaccharide', 'monosaccharide', 'polysaccharide', 'protein'], 1, 'Glucose is a simple sugar, or monosaccharide, with the formula C6H12O6.'),
+        ('Enzymes, which act as biological catalysts, are chemically composed mostly of', ['carbohydrates', 'proteins', 'lipids', 'nucleic acids'], 1, 'Almost all enzymes are globular proteins whose specific three-dimensional folding creates an active site for catalysis.'),
+        ('The covalent linkage joining two amino acid units in a protein chain is called a', ['glycosidic bond', 'peptide bond', 'phosphodiester bond', 'hydrogen bond'], 1, 'A peptide bond is the amide linkage formed between the carboxyl group of one amino acid and the amino group of another, with loss of water.'),
+        ('Which of the following carbohydrates is classified as a disaccharide?', ['Glucose', 'Fructose', 'Sucrose', 'Starch'], 2, 'Sucrose is made of one glucose unit and one fructose unit joined by a glycosidic bond, making it a disaccharide, unlike the monosaccharides glucose and fructose or the polysaccharide starch.'),
     ]),
     ('Polymers', [
         ('Polymers are large molecules made up of repeating structural units called', ['isomers', 'monomers', 'isotopes', 'ions'], 1, 'Polymers are built from many repeating smaller units called monomers.'),
         ('Natural rubber is a polymer primarily made from the monomer', ['ethylene', 'isoprene', 'styrene', 'vinyl chloride'], 1, 'Natural rubber is a polymer of isoprene (2-methyl-1,3-butadiene) units.'),
         ('Polythene (polyethylene) is formed by the polymerization of', ['propylene', 'ethylene (ethene)', 'styrene', 'vinyl chloride'], 1, 'Polythene is produced by polymerizing ethylene (ethene) monomers.'),
         ('Nylon is best classified as a', ['natural polymer', 'synthetic polymer', 'simple monomer', 'metal alloy'], 1, 'Nylon is a man-made (synthetic) polyamide polymer.'),
+        ('A polymer formed by the repeated condensation of a dicarboxylic acid with a diol, releasing small molecules such as water, is an example of a', ['addition polymer', 'condensation polymer', 'elastomer only', 'natural polymer'], 1, 'Condensation polymers form through repeated condensation reactions between bifunctional monomers, with elimination of small molecules like water, as seen in polyesters.'),
+        ('The polyester Terylene (PET) is formed by the condensation of ethylene glycol with', ['adipic acid', 'terephthalic acid', 'phthalic anhydride', 'formaldehyde'], 1, 'Terylene (polyethylene terephthalate) is produced by the condensation polymerization of ethylene glycol and terephthalic acid.'),
     ]),
     ('Environmental chemistry', [
         ('The atmospheric layer that absorbs most harmful ultraviolet radiation is the', ['troposphere', 'ozone layer', 'ionosphere', 'mesosphere'], 1, "The ozone layer in the stratosphere absorbs most of the sun's harmful UV radiation."),
         ('Which gas is most commonly associated with enhanced global warming?', ['Nitrogen', 'Oxygen', 'Carbon dioxide', 'Argon'], 2, 'Carbon dioxide is a major greenhouse gas linked to global warming.'),
         ('Acid rain is primarily caused by atmospheric oxides of', ['carbon and hydrogen', 'sulfur and nitrogen', 'sodium and potassium', 'silicon and aluminum'], 1, 'Sulfur dioxide and nitrogen oxides react with atmospheric moisture to form acid rain.'),
         ('BOD, a measure of water pollution, stands for', ['biological oxidation degree', 'biochemical oxygen demand', 'basic organic density', 'bacterial oxygen dilution'], 1, 'BOD (biochemical oxygen demand) measures the oxygen required by microorganisms to break down organic matter in water.'),
+        ("The trapping of heat within Earth's atmosphere by gases such as CO2 and methane is known as the", ['photochemical smog', 'greenhouse effect', 'eutrophication', 'ozone depletion'], 1, "The greenhouse effect describes how certain atmospheric gases absorb and re-radiate infrared radiation, trapping heat near Earth's surface."),
+        ('Eutrophication of lakes and rivers is primarily caused by an excess of', ['dissolved oxygen', 'nutrients such as nitrates and phosphates', 'heavy metals', 'dissolved chlorine'], 1, 'Excess nutrients, especially nitrates and phosphates from fertilizer runoff, promote excessive algal growth that depletes dissolved oxygen, a process called eutrophication.'),
     ]),
     ('p-block elements', [
         ('Group 17 elements of the periodic table are known as the', ['noble gases', 'alkali metals', 'halogens', 'alkaline earth metals'], 2, 'Group 17 elements (F, Cl, Br, I, At) are collectively called halogens.'),
         ('Group 18 elements of the periodic table are known as the', ['halogens', 'noble gases', 'transition metals', 'lanthanides'], 1, 'Group 18 elements (He, Ne, Ar, Kr, Xe, Rn) are the noble gases.'),
         ("The most abundant gas in Earth's atmosphere is", ['oxygen', 'carbon dioxide', 'nitrogen', 'argon'], 2, "Nitrogen makes up about 78% of Earth's atmosphere by volume."),
         ('Carbon belongs to which group of the periodic table?', ['Group 13', 'Group 14', 'Group 15', 'Group 16'], 1, 'Carbon is the first element of Group 14.'),
+        ("Which of the following is the most abundant element by mass in the Earth's crust?", ['Silicon', 'Oxygen', 'Aluminium', 'Carbon'], 1, "Oxygen makes up about 46 percent of the Earth's crust by mass, more than any other element, followed by silicon."),
+        ('The bonding in diborane (B2H6) is best described as involving', ['only normal two-center two-electron covalent bonds', 'three-center two-electron bridge bonds', 'purely ionic bonds', 'metallic bonding'], 1, 'Diborane has an electron-deficient structure with two bridging hydrogen atoms held by unusual three-center two-electron bonds connecting both boron atoms.'),
+        ('Which allotrope of phosphorus is highly reactive, pyrophoric in air, and therefore stored under water?', ['Red phosphorus', 'White phosphorus', 'Black phosphorus', 'Violet phosphorus'], 1, 'White phosphorus is a reactive, waxy, poisonous allotrope that ignites spontaneously in air and is therefore kept submerged in water.'),
     ]),
     ('d- and f-block elements', [
         ('Transition elements are also commonly referred to as', ['s-block elements', 'p-block elements', 'd-block elements', 'f-block elements'], 2, 'Transition metals occupy the d-block of the periodic table.'),
@@ -294,6 +390,8 @@ CHEMISTRY = [
         ('Iron, in its common elemental form, is classified as a', ['noble gas', 'transition metal', 'halogen', 'metalloid'], 1, 'Iron is a well-known transition metal found in the d-block.'),
         ('Lanthanides and actinides are together known as the', ['s-block elements', 'p-block elements', 'd-block elements', 'f-block elements'], 3, 'The two rows usually placed below the main table, lanthanides and actinides, make up the f-block.'),
         ('Transition metal compounds are often notable for being', ['colorless', 'colored', 'non-reactive', 'always gases'], 1, 'Many transition metal compounds show distinctive colors due to d-electron transitions.'),
+        ('Transition metals commonly act as effective catalysts mainly because of their ability to', ['show only one fixed oxidation state', 'exhibit variable oxidation states and provide a large surface area for adsorption', 'have very high melting points', 'be strongly magnetic'], 1, 'Variable oxidation states allow transition metals to form intermediate complexes with reactants, while their surface can adsorb reactant molecules, both of which aid catalysis.'),
+        ('The lanthanide contraction refers to the steady decrease in atomic and ionic radii observed across the', ['d-block transition series', 'lanthanide series', 'actinide series', 'alkali metal group'], 1, 'Lanthanide contraction is the gradual decrease in atomic and ionic size across the lanthanide series, caused by poor shielding of nuclear charge by the 4f electrons.'),
     ]),
     ('Coordination compounds', [
         ('A coordination compound consists of a central metal atom or ion surrounded by', ['isotopes', 'ligands', 'isomers', 'allotropes'], 1, 'In coordination chemistry, ligands bond to a central metal atom or ion to form a complex.'),
@@ -301,6 +399,8 @@ CHEMISTRY = [
         ('A ligand that donates a single pair of electrons to the central metal is called', ['bidentate', 'polydentate', 'monodentate', 'ambidentate only'], 2, 'Monodentate ligands bind through just one donor atom/electron pair.'),
         ('EDTA, widely used in coordination chemistry, is an example of a', ['monodentate ligand', 'bidentate ligand', 'polydentate ligand', 'non-ligand molecule'], 2, 'EDTA can bind through six donor atoms, making it a classic polydentate (hexadentate) ligand.'),
         ('The central metal atom found in the heme group of hemoglobin is', ['copper', 'zinc', 'iron', 'magnesium'], 2, "Hemoglobin's heme group has an iron atom at its center, which binds oxygen."),
+        ('In the coordination compound [Co(NH3)6]Cl3, the coordination number of cobalt is', ['3', '4', '6', '8'], 2, 'Cobalt is directly bonded to six ammonia ligands within the coordination sphere, giving it a coordination number of 6.'),
+        ('Which of the following ligands is classified as ambidentate, able to bind to a metal through either of two different donor atoms?', ['Ammonia (NH3)', 'Chloride ion (Cl-)', 'Nitrite ion (NO2-)', 'Water (H2O)'], 2, 'The nitrite ion is ambidentate because it can coordinate to a metal either through its nitrogen atom (nitro) or through an oxygen atom (nitrito).'),
     ]),
 ]
 
@@ -311,6 +411,8 @@ MATHEMATICS = [
         ('The union of two sets A and B contains elements that are', ['in both A and B only', 'in A or in B (or both)', 'in A but not B', 'in neither A nor B'], 1, 'The union A u B contains every element that belongs to A, to B, or to both.'),
         ('The intersection of two sets A and B contains elements that are', ['in A or B', 'in neither set', 'in both A and B', 'in A only'], 2, 'The intersection A n B contains only the elements common to both sets.'),
         ('A relation that is reflexive, symmetric, and transitive is called a(n)', ['function', 'equivalence relation', 'bijection', 'ordered pair'], 1, 'A relation with all three properties -- reflexive, symmetric, and transitive -- is an equivalence relation.'),
+        ('For two finite sets A and B, |A ∪ B| is given by', ['|A| + |B|', '|A| + |B| - |A ∩ B|', '|A| + |B| + |A ∩ B|', '|A| × |B|'], 1, 'Elements common to both sets get counted twice in |A|+|B|, so |A∩B| must be subtracted once by the inclusion-exclusion principle.'),
+        ('A relation R on a set is called symmetric if', ['aRb implies bRa', 'aRa holds for every a', 'aRb and bRc imply aRc', 'aRb implies a = b'], 0, 'Symmetry requires that whenever a is related to b, b is also related to a.'),
     ]),
     ('Complex numbers', [
         ('The imaginary unit i is defined so that i^2 equals', ['1', '-1', '0', 'i'], 1, 'By definition, i is the square root of -1, so i^2 = -1.'),
@@ -318,6 +420,9 @@ MATHEMATICS = [
         ('The complex conjugate of a + bi is', ['a + bi', '-a - bi', 'a - bi', 'b + ai'], 2, 'The conjugate flips the sign of the imaginary part: a + bi becomes a - bi.'),
         ('What does i^4 equal?', ['i', '-1', '-i', '1'], 3, 'i^2 = -1, so i^4 = (i^2)^2 = (-1)^2 = 1.'),
         ('What is (2 + 3i) + (1 - i)?', ['3 + 2i', '1 + 4i', '3 + 4i', '1 + 2i'], 0, 'Adding real and imaginary parts separately: (2+1) + (3-1)i = 3 + 2i.'),
+        ('If z = 3 - 4i, then |z| equals', ['5', '7', '1', '25'], 0, '|z| = sqrt(3^2 + (-4)^2) = sqrt(9+16) = sqrt(25) = 5.'),
+        ('The product of a complex number and its own conjugate is always', ['a non-negative real number', 'a purely imaginary number', 'zero', 'an irrational number'], 0, 'z·z̄ = (a+bi)(a-bi) = a^2+b^2, which is a non-negative real number equal to |z|^2.'),
+        ('The argument of the complex number 1 + i is', ['45°', '30°', '60°', '90°'], 0, 'arg(1+i) = tan^-1(1/1) = 45°, since both real and imaginary parts are equal and positive.'),
     ]),
     ('Quadratic equations', [
         ('For the equation ax^2 + bx + c = 0, the quadratic formula gives x equal to', ['-b/2a', '(-b + sqrt(b^2-4ac))/2a only', '(-b +/- sqrt(b^2-4ac))/2a', '(b +/- sqrt(b^2-4ac))/a'], 2, 'The quadratic formula is x = (-b +/- sqrt(b^2 - 4ac)) / (2a).'),
@@ -325,6 +430,9 @@ MATHEMATICS = [
         ('If the discriminant of a quadratic equation is negative, the roots are', ['real and equal', 'real and distinct', 'complex (non-real)', 'always zero'], 2, 'A negative discriminant means the square root involves a negative number, giving complex roots.'),
         ('For ax^2+bx+c=0, the sum of the roots equals', ['c/a', '-b/a', 'b/a', '-c/a'], 1, 'For a quadratic, the sum of the roots is always -b/a.'),
         ('For ax^2+bx+c=0, the product of the roots equals', ['-b/a', 'b/a', 'c/a', '-c/a'], 2, 'For a quadratic, the product of the roots is always c/a.'),
+        ('If one root of x^2 - 5x + 6 = 0 is 2, the other root is', ['3', '2', '-3', '-2'], 0, 'The product of roots equals c/a = 6, so the other root is 6/2 = 3.'),
+        ('For x^2 + px + p = 0 to have equal roots, p must satisfy', ['p = 0 or p = 4', 'p = 1', 'p = -4', 'p = 2'], 0, 'Equal roots require discriminant zero: p^2 - 4p = 0, giving p(p-4) = 0, so p = 0 or p = 4.'),
+        ('If the roots of a quadratic equation are reciprocals of each other, then', ['the product of the roots is 1', 'the sum of the roots is 0', 'the coefficient of x^2 is 0', 'the discriminant is 0'], 0, 'If roots are r and 1/r, their product is 1, which means c/a = 1 for the equation ax^2+bx+c=0.'),
     ]),
     ('Sequences & series', [
         ('In the arithmetic progression 2, 5, 8, 11, ..., the common difference is', ['2', '3', '5', '8'], 1, 'Each term increases by 3 compared to the previous one.'),
@@ -332,6 +440,9 @@ MATHEMATICS = [
         ('In the geometric progression 2, 4, 8, 16, ..., the common ratio is', ['2', '4', '6', '8'], 0, 'Each term is obtained by multiplying the previous term by 2.'),
         ('The sum of the first n natural numbers (1+2+...+n) is given by', ['n^2', 'n(n+1)/2', 'n(n-1)/2', 'n(n+1)'], 1, 'This is the well-known formula for the sum of the first n natural numbers, n(n+1)/2.'),
         ('For a geometric series with first term a and common ratio r (where |r| < 1), the sum to infinity is', ['a/(1-r)', 'a/(1+r)', 'a(1-r)', 'ar'], 0, 'An infinite geometric series with |r| < 1 converges to a/(1-r).'),
+        ('The sum of the first 10 terms of the AP 3, 7, 11, ... is', ['210', '200', '220', '190'], 0, 'With a=3, d=4, n=10: S = (n/2)(2a+(n-1)d) = 5(6+36) = 5(42) = 210.'),
+        ('The 5th term of a GP whose first term is 3 and common ratio is 2 is', ['48', '24', '96', '32'], 0, 'The 5th term is a·r^4 = 3 × 2^4 = 3 × 16 = 48.'),
+        ('Three numbers in AP have a sum of 15. The middle term of these three numbers is', ['5', '3', '7', '15'], 0, 'For three terms in AP (a-d, a, a+d), the sum is 3a = 15, so the middle term a = 5.'),
     ]),
     ('Permutations & combinations', [
         ('The number of distinct ways to arrange 4 different objects in a row is', ['12', '16', '20', '24'], 3, 'The number of arrangements of 4 distinct objects is 4! = 24.'),
@@ -339,6 +450,9 @@ MATHEMATICS = [
         ('nCr represents the number of', ['permutations of n items taken r at a time', 'combinations of n items taken r at a time', 'ways to arrange all n items', 'prime factors of n'], 1, 'nCr counts unordered selections (combinations) of r items chosen from n.'),
         ('What is the value of 5C2?', ['5', '10', '15', '20'], 1, '5C2 = 5! / (2! x 3!) = 10.'),
         ('What is the value of 0! (zero factorial)?', ['0', '1', 'undefined', '-1'], 1, 'By mathematical convention, 0! is defined to equal 1.'),
+        ('The number of ways to select a committee of 3 people from a group of 6 people is', ['20', '18', '15', '120'], 0, 'The number of ways is C(6,3) = 6!/(3!3!) = 20.'),
+        ("The number of distinct arrangements of the letters of the word 'LEVEL' is", ['30', '60', '120', '20'], 0, 'LEVEL has 5 letters with L repeated twice and E repeated twice, so arrangements = 5!/(2!2!) = 30.'),
+        ('How many 3-digit numbers can be formed using the digits 1 to 5 without repetition?', ['60', '125', '20', '15'], 0, 'This is a permutation of 5 digits taken 3 at a time: P(5,3) = 5×4×3 = 60.'),
     ]),
     ('Binomial theorem', [
         ('The expansion of (a+b)^2 is', ['a^2 + b^2', 'a^2 + 2ab + b^2', 'a^2 - 2ab + b^2', '2a + 2b'], 1, '(a+b)^2 expands to a^2 + 2ab + b^2 by the binomial theorem (or direct multiplication).'),
@@ -346,6 +460,8 @@ MATHEMATICS = [
         ('The sum of all binomial coefficients in the expansion of (1+x)^n, found by setting x=1, equals', ['n', 'n^2', '2^n', 'n!'], 2, 'Setting x=1 in (1+x)^n gives 2^n, the sum of all the binomial coefficients.'),
         ('The number of terms in the binomial expansion of (a+b)^n is', ['n', 'n+1', 'n-1', '2n'], 1, 'A binomial expansion of power n always has exactly n+1 terms.'),
         ('What is the coefficient of x^2 in the expansion of (1+x)^4?', ['4', '6', '8', '12'], 1, 'The coefficient of x^2 is 4C2 = 6.'),
+        ('The middle term in the expansion of (x+y)^6 is', ['the 4th term', 'the 3rd term', 'the 5th term', 'the 6th term'], 0, 'For an even power n=6, there is a single middle term given by the ((n/2)+1)th term, which is the 4th term.'),
+        ('The coefficient of x^3 in the expansion of (1+x)^5 is', ['10', '5', '20', '15'], 0, 'The coefficient of x^3 is C(5,3) = 10.'),
     ]),
     ('Trigonometry', [
         ('What is the value of sin(90 degrees)?', ['0', '1/2', '1', 'undefined'], 2, 'sin(90 degrees) equals 1, its maximum value.'),
@@ -353,6 +469,8 @@ MATHEMATICS = [
         ('What is the value of tan(45 degrees)?', ['0', '1/2', '1', 'undefined'], 2, 'Since sin(45) = cos(45), their ratio tan(45 degrees) equals 1.'),
         ('The identity sin^2(theta) + cos^2(theta) always equals', ['0', '1', '2', 'tan(theta)'], 1, 'This is the fundamental Pythagorean trigonometric identity.'),
         ('What is the value of sin(30 degrees)?', ['0', '1/2', 'sqrt(3)/2', '1'], 1, 'sin(30 degrees) is a standard value equal to 1/2.'),
+        ('The value of sin(60°)cos(30°) + cos(60°)sin(30°) is', ['1', '1/2', 'sqrt3/2', '0'], 0, 'By the angle addition formula this equals sin(60°+30°) = sin(90°) = 1.'),
+        ('If tanθ = 3/4 and θ is acute, the value of secθ is', ['5/4', '4/5', '3/5', '5/3'], 0, 'Using a 3-4-5 right triangle, the hypotenuse is 5, so secθ = hypotenuse/adjacent = 5/4.'),
     ]),
     ('Straight lines', [
         ('What is the slope of the line passing through (0,0) and (2,4)?', ['1', '2', '4', '1/2'], 1, 'Slope = (4-0)/(2-0) = 2.'),
@@ -360,6 +478,8 @@ MATHEMATICS = [
         ('Two lines in a plane are parallel if their slopes are', ['negative reciprocals', 'equal', 'both zero', 'undefined'], 1, 'Parallel lines never meet and share exactly the same slope.'),
         ('Two lines are perpendicular if the product of their slopes equals', ['0', '1', '-1', 'undefined'], 2, 'For perpendicular lines, the product of their slopes is always -1 (assuming neither is vertical).'),
         ("The slope-intercept form of a straight line's equation is written as", ['y = mx + c', 'x = my + c', 'ax + by = 0', 'y^2 = mx'], 0, 'In slope-intercept form, m is the slope and c is the y-intercept: y = mx + c.'),
+        ('The distance between the parallel lines 3x+4y=5 and 3x+4y=15 is', ['2', '1', '10', '5'], 0, 'Distance = |c2-c1|/sqrt(a^2+b^2) = |15-5|/sqrt(9+16) = 10/5 = 2.'),
+        ('The equation of the line passing through (1,2) and (3,6) is', ['y = 2x', 'y = 2x+1', 'y = 3x-1', 'y = x+1'], 0, 'Slope = (6-2)/(3-1) = 2, and using point (1,2): y-2 = 2(x-1), which simplifies to y = 2x.'),
     ]),
     ('Circles', [
         ('The equation of a circle with center (h,k) and radius r is', ['x^2+y^2=r^2', '(x-h)^2+(y-k)^2=r^2', '(x+h)^2+(y+k)^2=r', 'x^2+y^2=2r'], 1, "This is the standard form of a circle's equation centered at (h,k) with radius r."),
@@ -367,6 +487,8 @@ MATHEMATICS = [
         ('The area of a circle with radius r is given by', ['2 pi r', 'pi r^2', 'pi d', '4 pi r'], 1, 'Area = pi x radius squared.'),
         ('A straight line that touches a circle at exactly one point is called a', ['chord', 'secant', 'tangent', 'diameter'], 2, 'A tangent line touches a circle at exactly one point without crossing into its interior.'),
         ('A line segment joining any two points on a circle is called a', ['radius', 'tangent', 'chord', 'arc'], 2, "A chord is a straight segment connecting two points on a circle's circumference."),
+        ('The circle given by x^2+y^2-6x-8y=0 has radius', ['5', '3', '4', '25'], 0, 'Completing the square gives center (3,4) and radius sqrt(3^2+4^2) = 5.'),
+        ('A circle of radius r that touches both coordinate axes while lying in the first quadrant has its center at', ['(r, r)', '(0, r)', '(r, 0)', '(2r, 2r)'], 0, 'To be tangent to both axes in the first quadrant, the center must be equidistant (by r) from each axis, giving (r,r).'),
     ]),
     ('Conic sections', [
         ('A parabola is defined as the set of points equidistant from a fixed point and a fixed line, called respectively the', ['center and radius', 'focus and directrix', 'vertex and axis only', 'asymptotes'], 1, "A parabola's defining points are called the focus (a point) and the directrix (a line)."),
@@ -374,6 +496,9 @@ MATHEMATICS = [
         ('How many foci does a standard ellipse have?', ['1', '2', '3', '4'], 1, 'An ellipse has exactly two foci located along its major axis.'),
         ('For any point on an ellipse, the sum of its distances to the two foci is', ['always zero', 'constant', 'equal to the minor axis only', 'always increasing'], 1, 'This constant-sum property of distances to the foci is the defining feature of an ellipse.'),
         ('How many separate branches does a standard hyperbola have?', ['1', '2', '3', '4'], 1, 'A hyperbola consists of two separate, mirror-image branches.'),
+        ('The eccentricity of a parabola is', ['1', '0', 'between 0 and 1', 'greater than 1'], 0, 'A parabola is defined by the conic with eccentricity exactly equal to 1.'),
+        ('For the ellipse x^2/25 + y^2/9 = 1, the length of the major axis is', ['10', '5', '6', '3'], 0, 'Here a^2=25, so a=5, and the major axis length is 2a = 10.'),
+        ('The eccentricity of a rectangular hyperbola is', ['sqrt(2)', '1', '2', '1/2'], 0, 'A rectangular hyperbola has equal transverse and conjugate axes, giving eccentricity e = sqrt(2).'),
     ]),
     ('Limits & continuity', [
         ('What is the limit of (sin x)/x as x approaches 0?', ['0', '1', 'infinity', 'undefined'], 1, 'This is a standard limit in calculus: lim(x->0) sin(x)/x = 1.'),
@@ -381,6 +506,9 @@ MATHEMATICS = [
         ('The limit of a constant function f(x) = c as x approaches any value is', ['0', 'c', 'infinity', 'undefined'], 1, 'A constant function always equals c, so its limit anywhere is simply c.'),
         ('What is the limit of x^2 as x approaches 2?', ['2', '4', '8', 'undefined'], 1, 'Substituting x=2 directly (since x^2 is continuous) gives 2^2 = 4.'),
         ('A removable discontinuity occurs when the limit exists at a point but does not equal the', ['derivative there', "function's value at that point", 'limit from the left', 'second derivative there'], 1, "A removable discontinuity is a 'hole' where the limit exists but differs from (or is undefined at) the actual function value."),
+        ('The value of lim(x→0) (1-cosx)/x^2 is', ['1/2', '1', '0', '2'], 0, 'Using 1-cosx = 2sin^2(x/2), the limit simplifies to 2(1/2)^2 = 1/2 as x→0.'),
+        ('The function f(x) = 1/x is discontinuous at x =', ['0', '1', '-1', '2'], 0, 'f(x)=1/x is undefined at x=0, so it has a discontinuity there.'),
+        ('The value of lim(x→∞) (1 + 1/x)^x is', ['e', '1', '0', 'infinity'], 0, "This is the standard limit definition of Euler's number e."),
     ]),
     ('Differentiation', [
         ('The derivative of x^n with respect to x is', ['n x^n', 'n x^(n-1)', 'x^(n-1)', 'x^(n+1)/(n+1)'], 1, 'The power rule states d/dx(x^n) = n x^(n-1).'),
@@ -388,6 +516,9 @@ MATHEMATICS = [
         ('The derivative of cos(x) with respect to x is', ['sin(x)', '-sin(x)', 'cos(x)', '-cos(x)'], 1, 'd/dx(cos x) = -sin x is a standard derivative.'),
         ('The derivative of any constant with respect to x is', ['1', 'the constant itself', '0', 'undefined'], 2, 'A constant does not change, so its rate of change (derivative) is always 0.'),
         ('The derivative of e^x with respect to x is', ['x e^(x-1)', 'e^x', 'x e^x', '1/e^x'], 1, 'e^x is unique in that it is its own derivative: d/dx(e^x) = e^x.'),
+        ('If y = x^2 sinx, then dy/dx equals', ['2x sinx + x^2 cosx', '2x cosx', 'x^2 cosx', '2x sinx'], 0, 'By the product rule, d/dx(x^2 sinx) = 2x·sinx + x^2·cosx.'),
+        ('The derivative of ln(x) with respect to x is', ['1/x', 'x', 'ln x', '1'], 0, 'The standard derivative formula for the natural logarithm is d/dx[ln x] = 1/x.'),
+        ('If y = (3x+1)^4, then dy/dx equals', ['12(3x+1)^3', '4(3x+1)^3', '3(3x+1)^3', '12(3x+1)^4'], 0, 'By the chain rule, dy/dx = 4(3x+1)^3 × 3 = 12(3x+1)^3.'),
     ]),
     ('Applications of derivatives', [
         ('The derivative of a function at a point gives the slope of the', ['normal to the curve', 'tangent to the curve at that point', 'chord joining two points', 'x-axis'], 1, 'The derivative at a point equals the slope of the tangent line to the curve there.'),
@@ -395,6 +526,8 @@ MATHEMATICS = [
         ('The second derivative test for identifying maxima and minima relies on the sign of the', ['first derivative', 'second derivative', 'original function', 'integral'], 1, "If f''(x) is negative at a critical point, it's a local max; if positive, a local min."),
         ("If f'(x) > 0 throughout an interval, the function f is", ['decreasing on that interval', 'increasing on that interval', 'constant on that interval', 'undefined there'], 1, 'A positive first derivative throughout an interval means the function is increasing there.'),
         ('The rate of change of displacement with respect to time is called', ['acceleration', 'velocity', 'force', 'momentum'], 1, 'Velocity is defined as the derivative of displacement with respect to time.'),
+        ('The function f(x) = x^3 - 3x has a local maximum at x =', ['-1', '1', '0', '3'], 0, "f'(x)=3x^2-3=0 gives x=±1; since f''(x)=6x is negative at x=-1, it is a local maximum there."),
+        ('The slope of the tangent to the curve y = x^2 at the point (2,4) is', ['4', '2', '8', '16'], 0, 'dy/dx = 2x, which at x=2 gives a slope of 4.'),
     ]),
     ('Integration', [
         ('The indefinite integral of x^n dx (for n not equal to -1) is', ['n x^(n-1) + C', 'x^(n+1)/(n+1) + C', 'x^(n-1)/(n-1) + C', 'n x^n + C'], 1, 'The power rule for integration: integral of x^n dx = x^(n+1)/(n+1) + C.'),
@@ -402,6 +535,9 @@ MATHEMATICS = [
         ('The indefinite integral of cos(x) dx is', ['sin(x) + C', '-sin(x) + C', 'cos(x) + C', '-cos(x) + C'], 0, 'Since d/dx(sin x) = cos x, the integral of cos x is sin x + C.'),
         ('The indefinite integral of sin(x) dx is', ['cos(x) + C', '-cos(x) + C', 'sin(x) + C', '-sin(x) + C'], 1, 'Since d/dx(cos x) = -sin x, the integral of sin x is -cos x + C.'),
         ('A definite integral of a non-negative function over an interval represents the', ['slope of the curve', 'area under the curve over that interval', 'value of the derivative', 'y-intercept'], 1, 'A definite integral computes the net area between a curve and the x-axis over the interval.'),
+        ('The value of the definite integral of 2x from 0 to 1 is', ['1', '2', '0', '1/2'], 0, '∫2x dx = x^2, so evaluating from 0 to 1 gives 1^2 - 0^2 = 1.'),
+        ('The integral ∫ sec^2x dx equals', ['tan x + C', 'sec x tan x + C', '-cot x + C', 'cot x + C'], 0, 'The derivative of tan x is sec^2x, so the integral of sec^2x is tan x + C.'),
+        ('The integral ∫ e^x dx equals', ['e^x + C', 'xe^x + C', 'e^x/x + C', 'ln x + C'], 0, 'The exponential function e^x is its own derivative, so its integral is e^x + C.'),
     ]),
     ('Differential equations', [
         ('The order of a differential equation is determined by its', ['number of terms', 'highest derivative present', 'number of variables', 'degree of the function'], 1, 'The order is defined as the order of the highest derivative appearing in the equation.'),
@@ -409,6 +545,8 @@ MATHEMATICS = [
         ('A first-order differential equation that can be rearranged into the form f(x)dx = g(y)dy is called', ['linear', 'homogeneous', 'variable separable', 'exact'], 2, 'Such equations are called variable separable because the variables can be isolated on each side.'),
         ('The general solution of a differential equation typically contains', ['no constants', 'an arbitrary constant (or constants)', 'only specific numeric values', 'imaginary numbers only'], 1, 'A general solution includes arbitrary constant(s) that are fixed once initial/boundary conditions are applied.'),
         ('In a linear differential equation, the dependent variable and its derivatives appear', ['raised to the power 1, not multiplied together', 'raised to any power', 'only as products of each other', 'only as trigonometric functions'], 0, 'Linearity requires the dependent variable and its derivatives to appear to the first power, without products of each other.'),
+        ('The differential equation d^2y/dx^2 + y = 0 has order', ['2', '1', '0', '3'], 0, 'The order of a differential equation is the order of its highest derivative, which is 2 here.'),
+        ('The general solution of the differential equation dy/dx = 2x is', ['y = x^2 + C', 'y = 2x^2 + C', 'y = x^2', 'y = 2x + C'], 0, 'Integrating both sides with respect to x gives y = x^2 + C, where C is an arbitrary constant.'),
     ]),
     ('Vectors', [
         ('What is the magnitude of the vector (3,4)?', ['3', '4', '5', '7'], 2, 'Magnitude = sqrt(3^2+4^2) = sqrt(25) = 5.'),
@@ -416,6 +554,8 @@ MATHEMATICS = [
         ('The dot product of two vectors results in a', ['vector', 'scalar', 'matrix', 'complex number'], 1, 'The dot (scalar) product of two vectors produces a single scalar value.'),
         ('The cross product of two vectors in 3D results in a', ['scalar', 'vector', 'matrix', 'angle only'], 1, 'The cross product produces a new vector perpendicular to both original vectors.'),
         ('A unit vector is defined as a vector with magnitude equal to', ['0', '1', 'its own direction', 'infinity'], 1, 'By definition, a unit vector always has a magnitude of exactly 1.'),
+        ('If a = 2i + 3j and b = i - j, then a·b equals', ['-1', '5', '1', '-5'], 0, 'a·b = (2)(1) + (3)(-1) = 2 - 3 = -1.'),
+        ('The vector i × j equals', ['k', '-k', '0', 'i'], 0, 'By the standard right-hand rule for unit vectors, i × j = k.'),
     ]),
     ('3D geometry', [
         ('A point in three-dimensional space is represented using how many coordinates?', ['1', '2', '3', '4'], 2, 'A 3D point needs three coordinates, commonly written as (x, y, z).'),
@@ -423,6 +563,8 @@ MATHEMATICS = [
         ('The general equation of a plane in three-dimensional space is', ['ax+by=c', 'ax+by+cz+d=0', 'x^2+y^2+z^2=r^2', 'y=mx+c'], 1, 'A plane in 3D is represented by the linear equation ax + by + cz + d = 0.'),
         ('Two lines in 3D space that neither intersect nor are parallel are called', ['perpendicular lines', 'coincident lines', 'skew lines', 'collinear lines'], 2, 'Skew lines are non-intersecting, non-parallel lines that exist in different planes.'),
         ('The distance formula between two points in 3D space is an extension of the', ['quadratic formula', 'Pythagorean theorem', 'binomial theorem', 'law of cosines only'], 1, 'The 3D distance formula extends the Pythagorean theorem to three dimensions.'),
+        ('The distance between the points (1,2,3) and (4,6,3) is', ['5', '7', '25', '10'], 0, 'Distance = sqrt((4-1)^2+(6-2)^2+(3-3)^2) = sqrt(9+16+0) = sqrt(25) = 5.'),
+        ('The direction ratios of the line joining the points (1,0,0) and (0,1,0) are', ['(-1, 1, 0)', '(1, 1, 0)', '(1, 0, 1)', '(0, 1, 1)'], 0, 'Direction ratios are obtained by subtracting coordinates: (0-1, 1-0, 0-0) = (-1, 1, 0).'),
     ]),
     ('Probability', [
         ('The probability of a certain (guaranteed) event is', ['0', '0.5', '1', 'undefined'], 2, 'An event that is certain to happen has a probability of exactly 1.'),
@@ -430,6 +572,9 @@ MATHEMATICS = [
         ('The probability of an event and the probability of its complement always sum to', ['0', '0.5', '1', '2'], 2, "An event either happens or doesn't, so P(event) + P(not event) = 1."),
         ('For a fair six-sided die, what is the probability of rolling a 4?', ['1/4', '1/6', '1/3', '1/2'], 1, 'There is exactly one favorable outcome (rolling a 4) out of six equally likely outcomes.'),
         ('For two independent events A and B, P(A and B) equals', ['P(A) + P(B)', 'P(A) - P(B)', 'P(A) x P(B)', 'P(A) / P(B)'], 2, 'For independent events, the probability of both occurring is the product of their individual probabilities.'),
+        ('Two fair dice are rolled. The probability of getting a sum of 7 is', ['1/6', '1/12', '1/36', '5/36'], 0, 'There are 6 favorable outcomes (e.g., (1,6),(2,5),...) out of 36 total, giving 6/36 = 1/6.'),
+        ('A bag has 4 red and 6 blue balls. The probability of drawing a red ball is', ['2/5', '3/5', '2/3', '1/3'], 0, 'There are 10 balls in total, so the probability is 4/10 = 2/5.'),
+        ('If P(A)=0.4 and P(B)=0.5 and A, B are mutually exclusive events, then P(A or B) equals', ['0.9', '0.2', '0.1', '1.0'], 0, 'For mutually exclusive events, P(A or B) = P(A) + P(B) = 0.4 + 0.5 = 0.9.'),
     ]),
     ('Statistics', [
         ('The average of a set of data values is called the', ['median', 'mode', 'mean', 'range'], 2, 'The mean is the sum of all values divided by the number of values -- the familiar average.'),
@@ -437,6 +582,8 @@ MATHEMATICS = [
         ('The value that occurs most frequently in a data set is called the', ['mean', 'median', 'mode', 'standard deviation'], 2, 'The mode is simply the most frequently occurring value in a data set.'),
         ('The average of the squared deviations of data values from the mean is called the', ['standard deviation', 'variance', 'median', 'range'], 1, 'Variance is defined as the mean of the squared differences from the mean.'),
         ('The standard deviation of a data set is defined as the', ['square of the variance', 'square root of the variance', 'mean of the data', 'range divided by 2'], 1, 'Standard deviation is the square root of the variance, expressed in the same units as the data.'),
+        ('The variance of a data set is', ['the square of the standard deviation', 'the square root of the standard deviation', 'the mean of the data', 'the median of the data'], 0, 'Standard deviation is defined as the square root of variance, so variance equals the square of the standard deviation.'),
+        ('For the data set 2, 4, 6, 8, 10, the mean is', ['6', '5', '8', '4'], 0, 'The mean is the sum of values divided by their count: 30/5 = 6.'),
     ]),
     ('Matrices & determinants', [
         ('A matrix that has the same number of rows as columns is called a', ['rectangular matrix', 'square matrix', 'diagonal matrix', 'zero matrix'], 1, 'A matrix with equal rows and columns (n x n) is called a square matrix.'),
@@ -444,6 +591,9 @@ MATHEMATICS = [
         ('A matrix in which every element is zero is called a', ['identity matrix', 'zero (null) matrix', 'diagonal matrix', 'symmetric matrix'], 1, 'A matrix with all entries equal to zero is called the zero matrix or null matrix.'),
         ('A square matrix that is equal to its own transpose is called', ['skew-symmetric', 'symmetric', 'orthogonal', 'singular'], 1, 'A symmetric matrix satisfies A = A^T, meaning it mirrors across its main diagonal.'),
         ('For any square matrix A and the identity matrix I of the same size, A times I equals', ['I', '0', 'A', 'A^2'], 2, 'The identity matrix acts as the multiplicative identity, so A x I = A.'),
+        ('If A is a 3×3 matrix, the number of elements in A is', ['9', '6', '3', '12'], 0, 'A 3×3 matrix has 3 rows and 3 columns, giving 3×3 = 9 elements.'),
+        ('The determinant of a diagonal matrix equals', ['the product of its diagonal elements', 'the sum of its diagonal elements', 'zero always', 'one always'], 0, 'For a diagonal matrix, all off-diagonal entries are zero, so the determinant reduces to the product of the diagonal entries.'),
+        ('A square matrix that has a multiplicative inverse is called', ['invertible (non-singular)', 'singular', 'symmetric', 'diagonal'], 0, 'A matrix is called invertible or non-singular precisely when its inverse exists, which requires a nonzero determinant.'),
     ]),
 ]
 
@@ -456,6 +606,9 @@ BIOLOGY = [
         ('A cell without a true, membrane-bound nucleus is called a(n)', ['eukaryotic cell', 'prokaryotic cell', 'plant cell', 'animal cell'], 1, 'Prokaryotic cells (e.g. bacteria) lack a membrane-enclosed nucleus.'),
         ("ATP is best described as the cell's", ['genetic material', 'main energy currency', 'structural protein', 'waste product'], 1, 'ATP (adenosine triphosphate) stores and transfers energy for cellular processes.'),
         ('The type of cell division that produces two genetically identical daughter cells is called', ['meiosis', 'mitosis', 'fertilization', 'mutation'], 1, 'Mitosis produces two daughter cells genetically identical to the parent cell.'),
+        ('Which organelle modifies, sorts, and packages proteins before they are sent out of the cell or to other organelles?', ['Golgi apparatus', 'Lysosome', 'Peroxisome', 'Centriole'], 0, 'The Golgi apparatus receives proteins from the endoplasmic reticulum, modifies them, and packages them into vesicles for transport or secretion.'),
+        ("Lysosomes are sometimes called the 'suicide bags' of the cell because they contain:", ['Digestive enzymes that can break down cell components', 'Pigments that give the cell color', 'Hormones that trigger cell division', 'DNA repair proteins'], 0, 'Lysosomes contain hydrolytic enzymes capable of digesting cell debris, and if released into the cytoplasm they can break down the entire cell.'),
+        ('The cell membrane is best described by which model, in which proteins are embedded within a flexible phospholipid bilayer?', ['Fluid mosaic model', 'Lock and key model', 'Endosymbiotic model', 'Central dogma model'], 0, 'The fluid mosaic model describes the cell membrane as a dynamic bilayer of phospholipids with proteins floating within or across it.'),
     ]),
     ('Genetics', [
         ('DNA is best described as a molecule shaped like a', ['single strand', 'double helix', 'flat sheet', 'sphere'], 1, "DNA's structure is a double helix, two strands wound around each other."),
@@ -465,6 +618,9 @@ BIOLOGY = [
         ('Gregor Mendel is best known for his foundational work in', ['cell theory', 'genetics and heredity', 'evolution by natural selection', 'the germ theory of disease'], 1, "Mendel's pea plant experiments established the basic laws of inheritance."),
         ('The observable physical traits of an organism are referred to as its', ['genotype', 'phenotype', 'karyotype', 'genome'], 1, 'Phenotype refers to the visible/measurable characteristics resulting from genotype and environment.'),
         ("A sudden, heritable change in an organism's DNA sequence is called a", ['mutation', 'mitosis', 'meiosis', 'fertilization'], 0, 'Mutations are changes in the DNA sequence that can be passed on to offspring.'),
+        ('In a cross between two heterozygous pea plants (Aa x Aa), what fraction of the offspring is expected to show the recessive phenotype?', ['1/4', '1/2', '3/4', 'All of them'], 0, 'An Aa x Aa cross produces a 1:2:1 genotype ratio (AA:Aa:aa), so only the 1/4 that are aa show the recessive phenotype.'),
+        ('An organism carrying two different alleles for a particular gene, such as Aa, is described as:', ['Homozygous dominant', 'Homozygous recessive', 'Heterozygous', 'Hemizygous'], 2, 'Heterozygous individuals carry two different alleles (one dominant, one recessive) for a given gene.'),
+        ('In humans, whether a child is born male or female is determined by the sex chromosome contributed by:', ['The mother only', 'The father only', 'Both parents equally', 'Neither parent'], 1, "Mothers always contribute an X chromosome, while fathers contribute either an X or a Y, so the father's gamete determines the offspring's sex."),
     ]),
     ('Circulatory system', [
         ('How many chambers does a typical human heart have?', ['2', '3', '4', '5'], 2, 'The human heart has four chambers: two atria and two ventricles.'),
@@ -473,6 +629,9 @@ BIOLOGY = [
         ('Which blood vessels carry blood back towards the heart?', ['Arteries', 'Veins', 'Aorta', 'Capillaries only'], 1, 'Veins return blood to the heart, generally carrying deoxygenated blood (except pulmonary veins).'),
         ('The protein in red blood cells that binds oxygen is called', ['insulin', 'hemoglobin', 'collagen', 'keratin'], 1, 'Hemoglobin is the iron-containing protein that binds oxygen in red blood cells.'),
         ('Platelets in the blood primarily function in', ['oxygen transport', 'fighting infection', 'blood clotting', 'digestion'], 2, 'Platelets help form clots to stop bleeding at the site of an injury.'),
+        ('A resting blood pressure reading of 120/80 mm Hg represents which two values?', ['Systolic over diastolic pressure', 'Pulse rate over respiration rate', 'Oxygen saturation over heart rate', 'Diastolic over systolic pressure'], 0, 'The upper number (120) is systolic pressure, generated when the ventricles contract, and the lower number (80) is diastolic pressure during ventricular relaxation.'),
+        ('The largest artery in the human body, which carries oxygenated blood away from the left ventricle, is the:', ['Pulmonary artery', 'Vena cava', 'Aorta', 'Coronary artery'], 2, "The aorta is the body's main artery, branching off from the left ventricle to distribute oxygenated blood throughout the body."),
+        ("The heart's natural pacemaker, which initiates the electrical impulse for each heartbeat, is the:", ['AV node', 'SA node', 'Bundle of His', 'Purkinje fibers'], 1, "The sinoatrial (SA) node, located in the right atrium, generates the electrical signal that sets the heart's rhythm."),
     ]),
     ('Respiratory system', [
         ('The primary organs of gas exchange in humans are the', ['kidneys', 'lungs', 'liver', 'stomach'], 1, 'Lungs are where oxygen is taken in and carbon dioxide is expelled.'),
@@ -480,6 +639,9 @@ BIOLOGY = [
         ('Air travels to the lungs through a tube called the', ['esophagus', 'trachea', 'ureter', 'aorta'], 1, 'The trachea (windpipe) carries air from the throat down to the bronchi and lungs.'),
         ('During human respiration, the gas absorbed into the blood is mainly', ['nitrogen', 'oxygen', 'carbon dioxide', 'hydrogen'], 1, "Oxygen diffuses from inhaled air into the blood within the lungs' alveoli."),
         ('During human respiration, the gas released from the blood into exhaled air is mainly', ['oxygen', 'nitrogen', 'carbon dioxide', 'helium'], 2, 'Carbon dioxide, a waste product of cellular respiration, diffuses from blood into the lungs to be exhaled.'),
+        ('Gas exchange between air and blood in the lungs occurs across tiny, thin-walled sacs called:', ['Bronchioles', 'Alveoli', 'Trachea', 'Pleura'], 1, 'Alveoli are microscopic air sacs with thin walls and a rich capillary supply, allowing efficient diffusion of oxygen and carbon dioxide.'),
+        ('During inhalation, contraction of the diaphragm causes it to:', ['Rise and become more dome-shaped', 'Move downward and flatten', 'Move sideways only', 'Remain stationary'], 1, 'When the diaphragm contracts, it flattens and moves downward, increasing the volume of the thoracic cavity and drawing air into the lungs.'),
+        ('The maximum amount of air a person can forcibly exhale after taking the deepest possible breath is called the:', ['Tidal volume', 'Residual volume', 'Vital capacity', 'Dead space volume'], 2, 'Vital capacity is the total volume of air that can be exhaled after maximal inhalation, used as a measure of lung function.'),
     ]),
     ('Digestive system', [
         ('Which organ primarily breaks down food using strong acid and enzymes?', ['Liver', 'Stomach', 'Pancreas', 'Gallbladder'], 1, 'The stomach uses hydrochloric acid and enzymes to begin protein digestion.'),
@@ -488,6 +650,9 @@ BIOLOGY = [
         ('Biological catalysts that speed up digestion of food are called', ['hormones', 'enzymes', 'antibodies', 'vitamins'], 1, 'Digestive enzymes break down large food molecules into smaller, absorbable units.'),
         ('Starch digestion begins in the mouth due to the enzyme', ['pepsin', 'amylase', 'lipase', 'trypsin'], 1, 'Salivary amylase starts breaking down starch into simpler sugars in the mouth.'),
         ('The main function of the large intestine is to', ['digest proteins', 'absorb water from undigested food', 'produce bile', 'produce insulin'], 1, 'The large intestine mainly absorbs water and compacts waste into feces.'),
+        ('Bile, which helps emulsify fats for digestion, is produced by the liver and stored in the:', ['Pancreas', 'Gallbladder', 'Duodenum', 'Spleen'], 1, 'Bile is synthesized by liver cells and stored and concentrated in the gallbladder until it is released into the small intestine.'),
+        ('The pancreas releases digestive enzymes such as trypsin and lipase into which part of the small intestine?', ['Ileum', 'Jejunum', 'Duodenum', 'Caecum'], 2, 'Pancreatic secretions, carried by the pancreatic duct, enter the small intestine at the duodenum, the first and shortest segment.'),
+        ('Finger-like projections lining the small intestine that greatly increase its surface area for absorption are called:', ['Villi', 'Cilia', 'Microtubules', 'Rugae'], 0, 'Villi are tiny, finger-like folds of the intestinal lining that dramatically increase the surface area available for nutrient absorption.'),
     ]),
     ('Nervous system', [
         ('The basic functional unit of the nervous system is the', ['neuron', 'nephron', 'myocyte', 'osteocyte'], 0, 'Neurons are specialized cells that transmit electrical and chemical signals.'),
@@ -496,6 +661,9 @@ BIOLOGY = [
         ("A quick, automatic response to a stimulus that doesn't involve conscious brain processing is called a", ['reflex action', 'voluntary action', 'hormonal response', 'digestive response'], 0, 'Reflex actions are rapid, involuntary responses often mediated by the spinal cord alone.'),
         ('The nervous system is broadly divided into the central nervous system and the', ['digestive nervous system', 'peripheral nervous system', 'circulatory nervous system', 'endocrine nervous system'], 1, 'The central nervous system (brain and spinal cord) works alongside the peripheral nervous system (nerves throughout the body).'),
         ('The junction where one neuron communicates with another is called a', ['synapse', 'dendrite', 'axon', 'node'], 0, 'A synapse is the specialized junction where a nerve impulse passes from one neuron to the next.'),
+        ('In a reflex arc, which type of neuron carries the impulse from a receptor toward the central nervous system?', ['Motor neuron', 'Sensory neuron', 'Relay (inter)neuron', 'Effector neuron'], 1, 'Sensory neurons detect stimuli at receptors and transmit impulses toward the central nervous system for processing.'),
+        ('The chemical messenger released at a synapse to pass a nerve signal from one neuron to the next is called a:', ['Hormone', 'Neurotransmitter', 'Enzyme', 'Antigen'], 1, 'Neurotransmitters are chemicals released from the presynaptic neuron that diffuse across the synaptic gap to stimulate the next neuron.'),
+        ("Which division of the nervous system prepares the body for 'fight or flight' by increasing heart rate and dilating airways?", ['Parasympathetic nervous system', 'Sympathetic nervous system', 'Somatic nervous system', 'Enteric nervous system'], 1, 'The sympathetic nervous system triggers physiological changes, such as increased heart rate, that prepare the body for stressful or emergency situations.'),
     ]),
     ('Skeletal & muscular system', [
         ('Which of the following is NOT a commonly cited function of the human skeleton?', ['Support', 'Protection of organs', 'Production of hormones that digest food', 'Mineral storage'], 2, 'The skeleton supports the body, protects organs, and stores minerals, but it does not produce digestive hormones.'),
@@ -503,6 +671,9 @@ BIOLOGY = [
         ('Which type of muscle is found in the walls of the heart?', ['Skeletal muscle', 'Smooth muscle', 'Cardiac muscle', 'Voluntary muscle'], 2, 'Cardiac muscle is the specialized, involuntary muscle unique to the heart.'),
         ('Which type of muscle is typically under voluntary control, such as in the arms and legs?', ['Cardiac muscle', 'Smooth muscle', 'Skeletal muscle', 'Involuntary muscle only'], 2, 'Skeletal muscles are attached to bones and are generally under conscious control.'),
         ('Which mineral is especially important for bone strength?', ['Iron', 'Calcium', 'Sodium', 'Potassium'], 1, 'Calcium is a key structural component of bones and teeth.'),
+        ('A joint that permits movement in almost every direction, such as the shoulder joint, is classified as a:', ['Hinge joint', 'Ball-and-socket joint', 'Pivot joint', 'Fixed (fibrous) joint'], 1, 'Ball-and-socket joints, where a rounded bone end fits into a cup-shaped socket, allow a wide range of movement in multiple directions.'),
+        ('The adult human skeleton typically contains how many bones?', ['106', '206', '306', '26'], 1, 'An adult human skeleton normally consists of 206 bones, fewer than the number present at birth because some bones fuse during growth.'),
+        ('The biceps and triceps of the upper arm, which produce opposite movements at the elbow, form a pair of muscles described as:', ['Synergistic muscles', 'Antagonistic muscles', 'Cardiac muscles', 'Smooth muscles'], 1, 'Antagonistic muscle pairs work against each other; as the biceps contracts to bend the arm, the triceps relaxes, and vice versa to straighten it.'),
     ]),
     ('Plant biology', [
         ('Photosynthesis primarily takes place in which plant organelle?', ['Mitochondria', 'Nucleus', 'Chloroplast', 'Vacuole'], 2, 'Chloroplasts contain chlorophyll and are the site of photosynthesis.'),
@@ -512,6 +683,9 @@ BIOLOGY = [
         ("Small pores on a leaf's surface that allow gas exchange are called", ['stomata', 'lenticels', 'trichomes', 'nodes'], 0, 'Stomata open and close to regulate gas exchange and water loss in leaves.'),
         ("The loss of water vapor from a plant's leaves is called", ['photosynthesis', 'respiration', 'transpiration', 'germination'], 2, 'Transpiration is the evaporation of water from plant leaves, mainly through stomata.'),
         ('The transfer of pollen from the male part of a flower to the female part is called', ['fertilization', 'pollination', 'germination', 'transpiration'], 1, 'Pollination is the transfer of pollen, a necessary step before fertilization can occur.'),
+        ('The opening and closing of stomata is controlled by changes in turgor pressure within a pair of specialized cells called:', ['Mesophyll cells', 'Guard cells', 'Root hair cells', 'Xylem vessel cells'], 1, 'Guard cells surrounding each stoma change shape as water moves in or out, opening or closing the pore depending on their turgor pressure.'),
+        ('The growth of a plant shoot toward a source of light is an example of:', ['Geotropism', 'Hydrotropism', 'Phototropism', 'Thigmotropism'], 2, 'Phototropism is the directional growth response of a plant toward or away from light, with shoots typically growing toward it.'),
+        ('Root hairs greatly increase the surface area of roots mainly to assist in:', ['Photosynthesis', 'Absorption of water and minerals', 'Gas exchange only', 'Structural support of the stem'], 1, 'Root hairs are slender extensions of root epidermal cells that increase surface area, enhancing the uptake of water and dissolved minerals from soil.'),
     ]),
     ('Ecology', [
         ('A sequence showing who eats whom in an ecosystem is called a', ['food chain', 'water cycle', 'nitrogen cycle', 'carbon footprint'], 0, 'A food chain traces the transfer of energy from one organism to the next through feeding relationships.'),
@@ -521,6 +695,9 @@ BIOLOGY = [
         ('The variety of life in a given area is referred to as', ['biodiversity', 'biomass', 'biogenesis', 'bioaccumulation'], 0, 'Biodiversity describes the range of species and genetic variety within an ecosystem.'),
         ('A relationship in which two different species live closely together, often to mutual benefit, is called', ['predation', 'symbiosis', 'competition', 'extinction'], 1, 'Symbiosis describes close, long-term interactions between different species, including mutualism.'),
         ('The process by which carbon moves between the atmosphere, living organisms, and the earth is called the', ['water cycle', 'nitrogen cycle', 'carbon cycle', 'rock cycle'], 2, 'The carbon cycle describes how carbon is exchanged among the atmosphere, organisms, oceans, and soil.'),
+        ('Organisms that feed directly on producers, such as plant-eating animals, are classified as:', ['Primary consumers', 'Secondary consumers', 'Tertiary consumers', 'Decomposers'], 0, 'Primary consumers, or herbivores, occupy the second trophic level and obtain energy by eating producers directly.'),
+        ("According to the general 'ten percent law' of energy transfer, approximately what percentage of energy passes from one trophic level to the next?", ['1%', '10%', '50%', '90%'], 1, 'On average, only about 10% of the energy stored at one trophic level is transferred to the next; the rest is lost mainly as heat through respiration.'),
+        ('The increasing concentration of a toxic, non-biodegradable substance in organisms at successively higher trophic levels is known as:', ['Eutrophication', 'Biomagnification', 'Bioremediation', 'Desertification'], 1, 'Biomagnification occurs when toxins accumulate in tissues and become more concentrated as they pass up the food chain to top predators.'),
     ]),
     ('Evolution', [
         ('The theory that species evolve over time through differential survival and reproduction is called', ['cell theory', 'natural selection', 'germ theory', 'the central dogma'], 1, 'Natural selection favors traits that improve survival and reproduction, driving evolutionary change.'),
@@ -528,6 +705,9 @@ BIOLOGY = [
         ('A trait that helps an organism survive and reproduce in its environment is called a(n)', ['mutation only', 'adaptation', 'vestige', 'allele only'], 1, 'Adaptations are traits shaped by natural selection that improve fitness in a given environment.'),
         ('Preserved remains or traces of ancient organisms are called', ['cells', 'fossils', 'genes', 'spores'], 1, 'Fossils provide physical evidence of organisms that lived in the past.'),
         ('A group of organisms that can interbreed and produce fertile offspring is generally defined as a', ['genus', 'species', 'kingdom', 'phylum'], 1, 'The biological species concept defines a species by the ability to interbreed and produce fertile offspring.'),
+        ("A bat's wing and a human arm share the same basic bone arrangement due to common ancestry but are used for different functions. Such structures are called:", ['Analogous structures', 'Homologous structures', 'Vestigial structures', 'Convergent structures'], 1, 'Homologous structures have a similar underlying anatomy inherited from a common ancestor, even though they may serve different functions today.'),
+        ('The wings of insects and the wings of birds serve a similar function but evolved independently from different ancestral structures. These are examples of:', ['Homologous structures', 'Analogous structures', 'Vestigial organs', 'Index fossils'], 1, 'Analogous structures perform similar functions but arose independently in unrelated lineages through convergent evolution, not shared ancestry.'),
+        ('The evolutionary process by which a new species forms, often after a population becomes geographically isolated and stops interbreeding with the original group, is called:', ['Adaptation', 'Speciation', 'Mutation', 'Extinction'], 1, 'Speciation occurs when populations diverge genetically, typically after isolation, until they can no longer interbreed and are recognized as separate species.'),
     ]),
     ('Microbiology', [
         ('Bacteria are generally classified as', ['eukaryotic organisms', 'prokaryotic organisms', 'viruses', 'fungi'], 1, 'Bacteria are single-celled prokaryotes, lacking a membrane-bound nucleus.'),
@@ -535,6 +715,8 @@ BIOLOGY = [
         ('Antibiotics are medicines primarily used to treat infections caused by', ['bacteria', 'viruses', 'the common cold', 'all microorganisms equally'], 0, 'Antibiotics target bacterial infections and are not effective against viruses.'),
         ('A vaccine works mainly by', ['directly killing an existing infection', 'training the immune system to recognize a pathogen in advance', 'replacing damaged cells', 'increasing red blood cell count'], 1, 'Vaccines prime the immune system to respond quickly if the real pathogen is encountered later.'),
         ('Yeasts and molds are examples of organisms belonging to the kingdom', ['Animalia', 'Plantae', 'Fungi', 'Monera'], 2, 'Yeasts and molds are classified within the Fungi kingdom.'),
+        ('Bacteria most commonly reproduce asexually through a simple process called:', ['Budding', 'Binary fission', 'Conjugation', 'Spore germination'], 1, 'In binary fission, a bacterial cell duplicates its DNA and divides into two genetically identical daughter cells.'),
+        ('A staining technique used to classify bacteria as Gram-positive or Gram-negative based on differences in their cell wall is called:', ['Gram staining', 'Acid-fast staining', 'Negative staining', 'Flagella staining'], 0, 'Gram staining differentiates bacteria by how their cell walls retain or lose a violet dye, distinguishing thick-walled Gram-positive from thin-walled Gram-negative bacteria.'),
     ]),
     ('Reproduction', [
         ('Reproduction that involves a single parent and produces genetically identical offspring is called', ['sexual reproduction', 'asexual reproduction', 'fertilization', 'meiosis'], 1, 'Asexual reproduction, such as budding or binary fission, needs only one parent and yields clones.'),
@@ -543,6 +725,9 @@ BIOLOGY = [
         ('The approximate typical duration of a full-term human pregnancy is', ['6 months', '9 months', '12 months', '3 months'], 1, 'A typical full-term human pregnancy lasts about 9 months (around 40 weeks).'),
         ("The stage of life during which a person's body matures and becomes capable of reproduction is called", ['infancy', 'puberty', 'menopause', 'senescence'], 1, 'Puberty is the developmental stage marking sexual maturation.'),
         ('The technique of producing a genetically identical copy of an organism is called', ['mutation', 'cloning', 'pollination', 'fermentation'], 1, 'Cloning produces an organism that is a genetic copy of another.'),
+        ('The periodic shedding of the uterine lining when fertilization has not occurred is known as:', ['Ovulation', 'Menstruation', 'Implantation', 'Fertilization'], 1, 'Menstruation is the shedding of the thickened uterine lining (endometrium) roughly once a month when pregnancy has not occurred.'),
+        ('The structure that allows exchange of nutrients, gases, and waste products between mother and developing fetus is the:', ['Amnion', 'Placenta', 'Umbilical vein alone', 'Chorionic villi alone'], 1, "The placenta is the organ that connects the developing fetus to the uterine wall, allowing nutrient and gas exchange via the mother's blood supply."),
+        ('Fertilization that takes place outside the body of the female, as commonly seen in fish and amphibians, is called:', ['Internal fertilization', 'External fertilization', 'Self-fertilization', 'Parthenogenesis'], 1, 'In external fertilization, eggs and sperm are released into the surrounding environment, usually water, where fusion occurs outside the body.'),
     ]),
     ('Health & disease', [
         ('A disease that can spread from one person to another is called', ['non-communicable', 'communicable', 'genetic', 'degenerative'], 1, 'Communicable (infectious) diseases can be transmitted between individuals, unlike non-communicable diseases.'),
@@ -551,18 +736,25 @@ BIOLOGY = [
         ('A diet that provides appropriate amounts of all necessary nutrients is called a', ['balanced diet', 'fasting diet', 'liquid diet', 'mono diet'], 0, 'A balanced diet supplies the right proportions of carbohydrates, proteins, fats, vitamins, and minerals.'),
         ('A deficiency of vitamin C is classically associated with the disease', ['rickets', 'scurvy', 'night blindness', 'beriberi'], 1, 'Scurvy results from a prolonged lack of vitamin C in the diet.'),
         ('The ABO blood group system classifies human blood into groups including A, B, AB, and', ['C', 'D', 'O', 'E'], 2, 'The four main ABO blood groups are A, B, AB, and O.'),
+        ('Malaria is transmitted to humans through the bite of an infected:', ['Aedes mosquito', 'Anopheles mosquito', 'Culex mosquito', 'Tsetse fly'], 1, 'The female Anopheles mosquito transmits the Plasmodium parasite responsible for malaria when it bites a human host.'),
+        ("Diabetes mellitus results primarily from the body's inability to properly produce or respond to which hormone?", ['Insulin', 'Thyroxine', 'Adrenaline', 'Growth hormone'], 0, 'Diabetes mellitus is characterized by insufficient insulin production or insulin resistance, leading to abnormally high blood glucose levels.'),
+        ('Conditions such as heart disease and diabetes, which are not transmitted from one person to another, are classified as:', ['Communicable diseases', 'Non-communicable diseases', 'Vector-borne diseases', 'Zoonotic diseases'], 1, 'Non-communicable diseases develop due to genetic, lifestyle, or environmental factors and cannot be spread between individuals like infections can.'),
     ]),
     ('Taxonomy', [
         ('The modern classification system that groups living things into broad kingdoms includes categories such as Animalia, Plantae, and', ['Fungi', 'Virus', 'Mineral', 'Synthetic'], 0, 'Fungi is one of the recognized kingdoms of life, alongside Animalia, Plantae, and others.'),
         ('The two-part naming system for species (e.g. Homo sapiens) is called', ['taxonomy only', 'binomial nomenclature', 'phylogenetics', 'cladistics'], 1, 'Binomial nomenclature names species using a genus and species epithet, e.g. Homo sapiens.'),
         ('In the classification hierarchy, which group is more specific?', ['Genus', 'Species', 'Family', 'Order'], 1, 'Species is the most specific, narrowly defined taxonomic rank among those listed.'),
         ('The scientist credited with developing the modern system of biological classification is', ['Charles Darwin', 'Carl Linnaeus', 'Gregor Mendel', 'Louis Pasteur'], 1, 'Carl Linnaeus developed the binomial nomenclature system still used in biology today.'),
+        ('In the standard taxonomic hierarchy (Kingdom, Phylum, Class, Order, Family, Genus, Species), which rank lies directly above Class?', ['Order', 'Phylum', 'Family', 'Genus'], 1, 'The hierarchy proceeds from broad to narrow as Kingdom, Phylum, Class, Order, Family, Genus, Species, so Phylum sits directly above Class.'),
+        ('The five-kingdom system of classification, which separates Fungi from Plantae based on nutrition and cell structure, was proposed by:', ['Carl Linnaeus', 'R.H. Whittaker', 'Charles Darwin', 'Gregor Mendel'], 1, 'R.H. Whittaker proposed the five-kingdom classification system in 1969, grouping organisms into Monera, Protista, Fungi, Plantae, and Animalia.'),
     ]),
     ('Biotechnology', [
         ("The deliberate modification of an organism's genetic material using biotechnology is called", ['natural selection', 'genetic engineering', 'pollination', 'digestion'], 1, "Genetic engineering directly alters an organism's DNA, often to introduce a desired trait."),
         ('A technique used to identify individuals based on unique patterns in their DNA is called', ['DNA fingerprinting', 'cell culturing', 'pollination analysis', 'fermentation'], 0, 'DNA fingerprinting compares unique DNA sequence patterns, commonly used in forensics and paternity testing.'),
         ('Growing cells or tissues in a controlled, artificial environment outside an organism is called', ['fermentation', 'tissue culture', 'pollination', 'digestion'], 1, 'Tissue culture involves growing cells in a nutrient medium under sterile, controlled conditions.'),
         ('Crops whose genetic material has been altered using biotechnology are commonly known as', ['hybrid crops', 'genetically modified organisms (GMOs)', 'organic crops', 'wild crops'], 1, 'GMOs have had their DNA directly modified using genetic engineering techniques.'),
+        ('Which laboratory technique is used to rapidly produce millions of copies of a specific DNA segment?', ['Gel electrophoresis', 'Polymerase chain reaction (PCR)', 'DNA ligation', 'Restriction mapping'], 1, 'PCR uses a heat-stable DNA polymerase and repeated temperature cycles to exponentially amplify a targeted region of DNA.'),
+        ('Enzymes that cut DNA molecules at specific recognition sequences, widely used tools in genetic engineering, are called:', ['DNA polymerases', 'Restriction enzymes', 'DNA ligases', 'Helicases'], 1, 'Restriction enzymes recognize specific DNA sequences and cut the DNA at those sites, allowing scientists to isolate or insert genes of interest.'),
     ]),
     ('Senses', [
         ('The part of the eye that contains light-sensitive cells is the', ['cornea', 'retina', 'iris', 'pupil'], 1, 'The retina contains photoreceptor cells (rods and cones) that detect light.'),
@@ -570,12 +762,18 @@ BIOLOGY = [
         ('The spiral, fluid-filled structure in the inner ear responsible for hearing is called the', ['cochlea', 'pinna', 'eardrum', 'ear canal'], 0, 'The cochlea converts sound vibrations into nerve signals the brain interprets as sound.'),
         ('Taste is primarily detected by receptors called', ['taste buds', 'olfactory cells', 'rods', 'cones'], 0, 'Taste buds on the tongue detect different taste qualities such as sweet, salty, and sour.'),
         ('The skin functions as a sense organ primarily by detecting', ['light', 'sound', 'touch, pressure, and temperature', 'taste'], 2, 'Skin contains receptors for touch, pressure, temperature, and pain.'),
+        ("The transparent, curved front part of the eye that provides most of the eye's focusing power by refracting incoming light is the:", ['Retina', 'Cornea', 'Iris', 'Lens'], 1, 'The cornea is the clear outer layer covering the front of the eye and performs most of the initial bending (refraction) of light entering it.'),
+        ('Receptors responsible for detecting smell are located in the epithelium of the:', ['Outer ear', 'Nasal cavity', 'Tongue papillae', 'Skin dermis'], 1, 'Olfactory receptor cells are found in a specialized patch of epithelium high in the nasal cavity and detect airborne chemical molecules.'),
+        ('Structures within the inner ear that help maintain balance by detecting rotational head movement are the:', ['Cochlea', 'Semicircular canals', 'Eardrum', 'Eustachian tube'], 1, 'The three fluid-filled semicircular canals detect rotational movements of the head, sending signals to the brain that help maintain balance.'),
     ]),
     ('Excretory system', [
         ('The primary organs responsible for filtering waste from the blood and producing urine are the', ['lungs', 'kidneys', 'liver', 'pancreas'], 1, 'Kidneys filter blood to remove waste products and excess water, forming urine.'),
         ('The functional filtering unit within a kidney is called a', ['neuron', 'nephron', 'alveolus', 'villus'], 1, 'Nephrons are the microscopic structures in kidneys responsible for filtering blood.'),
         ('The liquid waste produced by the kidneys, containing water and dissolved waste, is called', ['bile', 'urine', 'sweat', 'saliva'], 1, 'Urine is the waste fluid produced by the kidneys and expelled from the body.'),
         ('The biological process of removing metabolic waste products from the body is called', ['digestion', 'excretion', 'respiration', 'circulation'], 1, "Excretion is specifically the removal of waste products generated by the body's metabolism."),
+        ('The cup-shaped structure at the start of a nephron that collects the initial filtrate from the surrounding blood capillaries is the:', ['Loop of Henle', "Bowman's capsule", 'Collecting duct', 'Renal pelvis'], 1, "Bowman's capsule surrounds the glomerulus and collects the fluid filtered out of the blood, which becomes the first step in urine formation."),
+        ('Urea, the main nitrogenous waste product excreted by humans, is produced mainly in the:', ['Kidney', 'Liver', 'Pancreas', 'Spleen'], 1, 'The liver converts toxic ammonia, generated from the breakdown of excess amino acids, into less toxic urea, which the kidneys then excrete.'),
+        ("Which hormone increases water reabsorption in the kidney's collecting ducts, resulting in more concentrated urine?", ['Insulin', 'Antidiuretic hormone (ADH)', 'Adrenaline', 'Thyroxine'], 1, 'Antidiuretic hormone (ADH) acts on the collecting ducts of the nephron to increase water reabsorption, reducing urine volume and conserving body water.'),
     ]),
     ('Enzymes & homeostasis', [
         ('Enzymes are best described as biological', ['hormones', 'catalysts', 'vitamins', 'antibodies'], 1, 'Enzymes are proteins that speed up biochemical reactions without being consumed themselves.'),
@@ -583,6 +781,8 @@ BIOLOGY = [
         ('The process by which water moves across a membrane from an area of lower solute concentration to higher is called', ['diffusion', 'osmosis', 'active transport', 'filtration'], 1, 'Osmosis is the movement of water across a selectively permeable membrane towards a higher solute concentration.'),
         ('The movement of particles from an area of higher concentration to an area of lower concentration, without using energy, is called', ['active transport', 'diffusion', 'osmosis only', 'excretion'], 1, 'Diffusion is the passive movement of particles down their concentration gradient.'),
         ('A process that requires the cell to use energy to move substances against their concentration gradient is called', ['diffusion', 'osmosis', 'active transport', 'filtration'], 2, 'Active transport moves substances against their concentration gradient and requires energy (ATP).'),
+        ('Enzymes are highly specific to their substrates mainly because of the precise three-dimensional shape of their:', ['Active site', 'Cell membrane', 'Nucleus', 'Cytoplasm'], 0, "An enzyme's active site has a shape complementary to a particular substrate, as described by the lock-and-key model, giving enzymes their specificity."),
+        ('Most human enzymes function most efficiently at an optimum temperature of approximately:', ['0°C', '37°C', '70°C', '100°C'], 1, 'Human enzymes are adapted to normal body temperature, around 37°C; much higher temperatures denature them and lower temperatures slow their activity.'),
     ]),
 ]
 
@@ -595,6 +795,9 @@ COMPUTER_SCIENCE = [
         ('The number system that uses only 0s and 1s is called', ['decimal', 'binary', 'hexadecimal', 'octal'], 1, 'Binary is a base-2 number system using only the digits 0 and 1, the foundation of digital computing.'),
         ('Software that manages computer hardware and provides services for other programs is called the', ['compiler', 'operating system', 'web browser', 'firewall'], 1, 'The operating system manages hardware resources and provides a platform for running applications.'),
         ('The physical, tangible parts of a computer system are collectively called', ['software', 'hardware', 'firmware updates', 'data'], 1, 'Hardware refers to the physical components of a computer, such as the CPU, RAM, and disk drives.'),
+        ('Which component of the CPU performs arithmetic and logical operations?', ['Arithmetic Logic Unit (ALU)', 'Control Unit', 'Cache memory', 'Register file'], 0, 'The ALU is the part of the CPU responsible for carrying out arithmetic calculations and logical comparisons.'),
+        ('What is the primary advantage of an SSD (Solid State Drive) over a traditional HDD?', ['Faster data access since it has no moving parts', 'Lower cost per gigabyte', 'Always has larger maximum storage capacity', 'Requires no electrical power to operate'], 0, 'SSDs use flash memory with no mechanical parts, allowing much faster read/write speeds than spinning hard disks.'),
+        ('Which type of memory retains its contents when the computer is powered off and commonly stores startup firmware such as the BIOS?', ['RAM', 'ROM', 'Cache', 'Register'], 1, 'ROM (Read-Only Memory) is non-volatile, so it keeps its stored data without power, making it suitable for firmware.'),
     ]),
     ('Programming fundamentals', [
         ('In programming, a named storage location that can hold a changeable value is called a', ['function', 'variable', 'loop', 'comment'], 1, 'A variable is a named container used to store data that can change during program execution.'),
@@ -604,6 +807,9 @@ COMPUTER_SCIENCE = [
         ('A data structure that stores a fixed-size, ordered collection of elements is called a(n)', ['array', 'function', 'loop', 'class'], 0, 'An array stores multiple values of (typically) the same type in a fixed, ordered sequence.'),
         ('A step-by-step set of instructions designed to solve a problem is called a(n)', ['algorithm', 'compiler', 'variable', 'interface'], 0, 'An algorithm is a well-defined sequence of steps used to solve a problem or complete a task.'),
         ("A mistake that violates a programming language's grammar rules is called a", ['logic error', 'syntax error', 'runtime exception only', 'compiler feature'], 1, "Syntax errors occur when code doesn't follow the rules of the programming language."),
+        ('In programming, a value that is fixed and cannot be changed while the program runs is called a:', ['Variable', 'Constant', 'Function', 'Parameter'], 1, 'A constant is assigned a value once and that value remains unchanged throughout program execution.'),
+        ("What does 'type casting' mean in programming?", ['Converting a value from one data type to another', 'Declaring a new variable', 'Repeating a block of code multiple times', 'Naming a function'], 0, 'Type casting explicitly converts a value from one data type, such as an integer, into another, such as a float or string.'),
+        ('A switch/case statement is primarily used to:', ["Select one of several code paths based on a variable's value", 'Store multiple values in a single variable', 'Repeat a loop indefinitely', 'Define a new class'], 0, 'Switch/case lets a program branch into different blocks of code depending on which value a variable matches.'),
     ]),
     ('Data structures', [
         ('A data structure that follows the Last-In-First-Out (LIFO) principle is called a', ['queue', 'stack', 'array', 'tree'], 1, 'A stack removes the most recently added item first, following LIFO order.'),
@@ -613,6 +819,9 @@ COMPUTER_SCIENCE = [
         ('Compared to an array, a linked list generally makes it easier to', ['access an element by its index instantly', 'insert or delete elements without shifting others', 'guarantee contiguous memory layout', 'avoid using any memory'], 1, 'Linked lists allow efficient insertion/deletion by simply updating pointers, unlike arrays.'),
         ('In a binary search tree, for any node, values in its left subtree are generally', ["greater than the node's value", "less than the node's value", "equal to the node's value", "unrelated to the node's value"], 1, 'A binary search tree keeps smaller values to the left and larger values to the right of each node.'),
         ('The term "Big O notation" is primarily used to describe a', ["program's visual interface", "algorithm's efficiency or complexity", "variable's data type", "computer's physical size"], 1, "Big O notation expresses how an algorithm's running time or space grows with input size."),
+        ('Which data structure uses a key that maps directly to a storage location, enabling very fast lookups?', ['Array', 'Hash table', 'Stack', 'Queue'], 1, 'A hash table applies a hash function to a key to compute an index, allowing average constant-time retrieval.'),
+        ('In a tree data structure, a node that has no children is called a:', ['Root', 'Leaf', 'Parent', 'Edge'], 1, 'A leaf node is a terminal node at the bottom of a tree with no child nodes beneath it.'),
+        ('The operation that adds an element to the top of a stack is called:', ['Enqueue', 'Dequeue', 'Push', 'Poll'], 2, "Push adds a new element onto the top of a stack, following the stack's Last-In-First-Out behavior."),
     ]),
     ('Algorithms', [
         ('The main purpose of a sorting algorithm is to', ['search for a specific value', 'arrange data in a particular order', 'compress data', 'encrypt data'], 1, 'Sorting algorithms rearrange elements of a collection into a defined order (e.g. ascending).'),
@@ -621,6 +830,9 @@ COMPUTER_SCIENCE = [
         ('An algorithmic strategy that always makes the locally optimal choice at each step is called a', ['greedy algorithm', 'divide and conquer algorithm', 'brute force algorithm', 'dynamic algorithm only'], 0, 'Greedy algorithms choose the best option at each step without reconsidering previous choices.'),
         ('An algorithm described as O(n) is expected to take time that grows', ['independently of input size', 'linearly with input size', 'exponentially with input size', 'logarithmically with input size only'], 1, 'O(n) complexity means running time increases roughly proportionally to the size of the input.'),
         ('An algorithmic approach that breaks a problem into smaller subproblems, solves them, and combines the results is called', ['greedy algorithm', 'divide and conquer', 'brute force', 'linear search'], 1, 'Divide and conquer algorithms (e.g. merge sort) split problems into smaller pieces solved independently.'),
+        ('What is the time complexity of binary search on a sorted array of n elements?', ['O(n)', 'O(log n)', 'O(n^2)', 'O(1)'], 1, 'Binary search halves the search range at each step, giving it logarithmic time complexity.'),
+        ('Bubble sort arranges data by:', ['Repeatedly swapping adjacent elements that are out of order', 'Recursively splitting the array in half and merging', 'Selecting the minimum once and placing it at the start', 'Hashing elements into buckets'], 0, 'Bubble sort repeatedly steps through the list, swapping adjacent elements if they are in the wrong order, until the list is sorted.'),
+        ('An algorithmic technique that solves a problem by breaking it into overlapping subproblems and storing their results to avoid recomputation is called:', ['Greedy approach', 'Dynamic programming', 'Divide and conquer', 'Brute force'], 1, 'Dynamic programming saves (memoizes) the results of subproblems so they are computed only once, improving efficiency.'),
     ]),
     ('Networking', [
         ('A unique numerical label assigned to a device on a network is called its', ['MAC address only', 'IP address', 'URL', 'domain name'], 1, 'An IP address uniquely identifies a device for communication over a network.'),
@@ -629,6 +841,9 @@ COMPUTER_SCIENCE = [
         ('A network that spans a large geographic area, connecting multiple smaller networks, is called a', ['LAN', 'WAN', 'PAN', 'VLAN only'], 1, 'A WAN (Wide Area Network) connects devices across large distances, with the internet being the largest example.'),
         ('The system that translates human-readable domain names into IP addresses is called', ['HTTP', 'DNS', 'FTP', 'SMTP'], 1, 'DNS (Domain Name System) resolves domain names like example.com into numeric IP addresses.'),
         ('In the client-server model, a device that requests services or resources is called the', ['server', 'client', 'router', 'switch'], 1, 'In this model, clients send requests and servers respond by providing the requested resource or service.'),
+        ("In networking, 'bandwidth' refers to:", ['The maximum rate of data transfer over a connection', 'The physical length of a network cable', 'The number of devices connected to a router', 'The strength of encryption used'], 0, 'Bandwidth measures how much data can be transmitted over a network connection in a given amount of time.'),
+        ('Which transport layer protocol guarantees reliable, ordered delivery of data between devices?', ['UDP', 'IP', 'TCP', 'HTTP'], 2, 'TCP (Transmission Control Protocol) establishes a connection and ensures data arrives reliably and in order.'),
+        ('A network device that forwards data only to the specific device it is addressed to, instead of broadcasting to every connected device, is a:', ['Hub', 'Switch', 'Repeater', 'Cable'], 1, 'A switch reads device addresses and sends data only to the intended port, unlike a hub which broadcasts to all ports.'),
     ]),
     ('Databases', [
         ('SQL is primarily used to', ['design user interfaces', 'manage and query relational databases', 'compile programs', 'render web pages'], 1, 'SQL (Structured Query Language) is used to create, read, update, and delete data in relational databases.'),
@@ -637,6 +852,9 @@ COMPUTER_SCIENCE = [
         ('A field in one table that references the primary key of another table is called a', ['primary key', 'foreign key', 'composite key', 'candidate key only'], 1, "A foreign key links two tables together by referencing another table's primary key."),
         ('A database that does not rely on the traditional table-based relational model is often called a', ['SQL database', 'NoSQL database', 'flat-file database only', 'spreadsheet'], 1, 'NoSQL databases use alternative data models (document, key-value, graph, etc.) instead of fixed tables.'),
         ('The term used to describe the structure and organization of a database is its', ['query', 'schema', 'index only', 'transaction'], 1, 'A database schema defines its tables, fields, and the relationships between them.'),
+        ('The process of organizing database tables to reduce data redundancy is called:', ['Normalization', 'Indexing', 'Replication', 'Aggregation'], 0, 'Normalization restructures tables and relationships to minimize duplicate data and improve data integrity.'),
+        ('In SQL, a JOIN operation is used to:', ['Delete rows from a table', 'Combine rows from two or more tables based on a related column', 'Create a new empty database', 'Encrypt data stored in a table'], 1, 'JOIN combines related rows from multiple tables using a common column, such as a foreign key matching a primary key.'),
+        ('What does adding an index to a database table primarily improve?', ['Data encryption', 'Query and search speed', 'Storage redundancy', 'Table normalization'], 1, 'An index creates a fast lookup structure for a column, significantly speeding up search and query operations.'),
     ]),
     ('Web development', [
         ('HTML is primarily used to', ['style the appearance of a webpage', 'define the structure and content of a webpage', "handle a server's database", 'compile code'], 1, 'HTML (HyperText Markup Language) defines the structural content of webpages.'),
@@ -644,6 +862,9 @@ COMPUTER_SCIENCE = [
         ('JavaScript is primarily used to', ['style webpages', 'add interactivity and dynamic behavior to webpages', 'store files permanently', 'design databases'], 1, 'JavaScript enables interactive, dynamic behavior within web pages.'),
         ("A web browser's main function is to", ['compile source code', 'request and render web pages for users', 'manage a local database', 'encrypt network traffic only'], 1, 'Browsers request web resources and render them for the user to view and interact with.'),
         ('A URL typically includes a protocol, a domain name, and a', ['path to a resource', 'password', 'binary number', 'MAC address'], 0, 'A URL generally has a protocol (e.g. https), a domain, and often a path identifying a specific resource.'),
+        ("In web development, code that runs in the user's browser to handle things like button clicks is called:", ['Back-end code', 'Front-end code', 'Database layer code', 'Server administration code'], 1, 'Front-end code executes client-side in the browser and manages the user interface and interactivity.'),
+        ('Which HTTP method is typically used to submit form data to a server for processing?', ['GET', 'POST', 'HEAD', 'OPTIONS'], 1, 'POST sends data in the request body to the server, commonly used for submitting forms that create or update data.'),
+        ('An API (Application Programming Interface) primarily allows:', ['Different software systems to communicate with each other', 'A browser to render CSS styles', 'A database to store image files', 'A compiler to translate source code'], 0, 'An API defines a set of rules that lets one piece of software request services or data from another.'),
     ]),
     ('Operating systems', [
         ('The difference between a program and a process is that a process is', ['a program stored on disk only', 'a program currently being executed', 'always written in machine code', 'the same thing as a program'], 1, 'A process is an instance of a program that is actively running, with its own memory and state.'),
@@ -651,12 +872,18 @@ COMPUTER_SCIENCE = [
         ('The part of an operating system responsible for direct interaction with hardware is called the', ['shell', 'kernel', 'browser', 'compiler'], 1, 'The kernel is the core of the OS that manages hardware resources directly.'),
         ('A system for organizing and storing files on a storage device is called a', ['file system', 'network protocol', 'compiler', 'cache only'], 0, 'A file system organizes how data is stored and retrieved on a storage device.'),
         ('Using disk space to simulate additional RAM is known as', ['caching', 'virtual memory', 'defragmentation', 'compression'], 1, 'Virtual memory lets an OS use disk space as an extension of physical RAM when memory is limited.'),
+        ('A small program that lets the operating system communicate with a specific piece of hardware is called a:', ['Compiler', 'Device driver', 'Scheduler', 'Shell'], 1, 'A device driver translates OS commands into instructions a specific hardware device can understand.'),
+        ('In operating systems, a deadlock occurs when:', ['Two or more processes wait indefinitely for resources held by each other', 'A program finishes execution successfully', 'The CPU idles because no processes are running', 'A file is accidentally deleted'], 0, 'Deadlock happens when processes are stuck waiting on resources that are held by each other, so none can proceed.'),
+        ('Which of the following is an example of an operating system?', ['Microsoft Word', 'Windows', 'Google Chrome', 'MySQL'], 1, 'Windows is system software that manages hardware and resources, making it an operating system, unlike the other application examples.'),
     ]),
     ('Software engineering', [
         ('The process of finding and fixing errors in a program is called', ['compiling', 'debugging', 'formatting', 'encrypting'], 1, 'Debugging is the process of identifying and correcting defects in software.'),
         ('A system for tracking and managing changes to source code over time is called', ['an IDE', 'version control', 'a firewall', 'an operating system'], 1, 'Version control systems (like Git) track code changes and support collaboration over time.'),
         ('The overall structured process of planning, building, testing, and maintaining software is often called the', ['software development life cycle', 'hardware life cycle', 'network protocol stack', 'binary tree traversal'], 0, 'The software development life cycle (SDLC) describes the stages software typically goes through.'),
         ('Running a program with sample inputs to check whether it behaves correctly is called', ['compiling', 'testing', 'formatting', 'archiving'], 1, 'Testing verifies that software behaves as expected under various conditions.'),
+        ('Which software development methodology emphasizes iterative progress through short cycles called sprints?', ['Waterfall model', 'Agile', 'Big bang model', 'Ad hoc development'], 1, 'Agile methodology breaks development into short, repeatable iterations (sprints) with frequent feedback.'),
+        ('Testing an individual function or module in isolation from the rest of the program is known as:', ['Integration testing', 'System testing', 'Unit testing', 'Acceptance testing'], 2, 'Unit testing checks the smallest testable parts of an application, such as a single function, independently.'),
+        ('The early phase of software development where user needs are collected and documented is called:', ['Requirements gathering', 'Deployment', 'Maintenance', 'Coding'], 0, 'Requirements gathering involves identifying and documenting what the software must do before design and coding begin.'),
     ]),
     ('Number systems', [
         ('The decimal (base-10) equivalent of the binary number 101 is', ['3', '5', '7', '10'], 1, '101 in binary = 1x4 + 0x2 + 1x1 = 5 in decimal.'),
@@ -664,6 +891,9 @@ COMPUTER_SCIENCE = [
         ('The octal number system uses a base of', ['2', '8', '10', '16'], 1, 'Octal is a base-8 number system, using digits 0-7.'),
         ('The smallest unit of data in computing, representing a single binary digit, is called a', ['byte', 'bit', 'nibble', 'word'], 1, 'A bit is the most basic unit of data, representing either a 0 or a 1.'),
         ('A byte is most commonly made up of how many bits?', ['4', '8', '16', '32'], 1, 'A byte conventionally consists of 8 bits.'),
+        ('What is the decimal equivalent of the hexadecimal number 1A?', ['16', '26', '27', '10'], 1, '1A in hexadecimal equals (1 x 16) + (A=10 x 1) = 26 in decimal.'),
+        ('What is the number 2 expressed in binary?', ['10', '11', '100', '2'], 0, 'In binary, 10 represents (1 x 2^1) + (0 x 2^0) = 2 in decimal.'),
+        ('Converting the decimal number 9 to binary gives:', ['1001', '1010', '1100', '1011'], 0, '9 in decimal equals 1001 in binary, since 8 + 1 = 9 corresponds to bits set at the 2^3 and 2^0 positions.'),
     ]),
     ('Security', [
         ("A secret string used to verify a user's identity when logging in is called a", ['username', 'password', 'cookie', 'cache'], 1, "A password is used alongside a username to authenticate a user's identity."),
@@ -671,6 +901,9 @@ COMPUTER_SCIENCE = [
         ('A system designed to monitor and control incoming and outgoing network traffic based on security rules is called a', ['router', 'firewall', 'modem', 'switch'], 1, 'A firewall filters network traffic to block unauthorized or harmful connections.'),
         ('Software specifically designed to damage, disrupt, or gain unauthorized access to a system is called', ['firmware', 'malware', 'middleware', 'freeware'], 1, 'Malware is a general term for malicious software, including viruses, worms, and ransomware.'),
         ('An attempt to trick someone into revealing sensitive information by pretending to be a trustworthy source is called', ['phishing', 'hashing', 'caching', 'compiling'], 0, 'Phishing attacks impersonate legitimate entities to steal sensitive data like passwords.'),
+        ('Two-factor authentication increases account security by:', ['Requiring a second independent verification step beyond the password', 'Encrypting all files stored on the device', 'Blocking all incoming network traffic automatically', "Changing the user's password every day"], 0, 'Two-factor authentication adds a second check, such as a code sent to a phone, so a stolen password alone is not enough to log in.'),
+        ('A Distributed Denial-of-Service (DDoS) attack primarily aims to:', ['Trick a user into revealing a password via a fake website', 'Overwhelm a server with traffic so it becomes unavailable', "Encrypt a victim's files and demand payment", 'Secretly intercept and read private emails'], 1, 'A DDoS attack floods a target server with traffic from many sources, exhausting its resources so legitimate users cannot access it.'),
+        ('A VPN (Virtual Private Network) is primarily used to:', ["Speed up a computer's processor", 'Create a secure, encrypted connection over a public network', 'Store files remotely in the cloud', 'Compile source code into machine language'], 1, 'A VPN encrypts internet traffic and routes it through a secure tunnel, protecting data sent over public networks.'),
     ]),
     ('AI & data', [
         ('A field of computer science focused on building systems that learn patterns from data is called', ['networking', 'machine learning', 'compiling', 'version control'], 1, 'Machine learning develops algorithms that improve their performance based on data, rather than explicit rules.'),
@@ -678,12 +911,18 @@ COMPUTER_SCIENCE = [
         ('The term "big data" generally refers to', ['small, simple spreadsheets', 'extremely large and complex data sets', 'a type of computer virus', 'a programming language'], 1, 'Big data describes data sets so large or complex that traditional tools struggle to process them.'),
         ('Delivering computing services (servers, storage, software) over the internet is known as', ['cloud computing', 'quantum computing', 'edge printing', 'local hosting only'], 0, 'Cloud computing provides on-demand computing resources over the internet rather than locally.'),
         ('Raw, unprocessed facts and figures are generally referred to as', ['information', 'data', 'knowledge', 'wisdom'], 1, 'Data refers to raw facts, which become information once processed and given context.'),
+        ('In machine learning, a model trained using labeled input-output pairs is using which approach?', ['Unsupervised learning', 'Supervised learning', 'No training at all', 'Manual rule programming'], 1, 'Supervised learning trains a model on data where the correct output is already known, so it can learn to predict future outputs.'),
+        ('A neural network is a computing model loosely inspired by:', ['The structure of biological brains', 'Relational database schemas', 'Network routers and switches', 'Binary logic gates alone'], 0, 'Neural networks consist of interconnected nodes (artificial neurons) modeled loosely on how biological neurons connect and signal.'),
+        ('The process of discovering useful patterns and relationships within large datasets is known as:', ['Data mining', 'Data entry', 'Data backup', 'Data formatting'], 0, 'Data mining analyzes large volumes of data to uncover hidden patterns, trends, and useful insights.'),
     ]),
     ('History / general computing concepts', [
         ('Programming languages such as Python, Java, and C++ are examples of', ['operating systems', 'high-level programming languages', 'network protocols', 'hardware components'], 1, 'Python, Java, and C++ are high-level languages, more human-readable than machine code.'),
         ('A program that translates an entire high-level program into machine code before it runs is called a', ['interpreter', 'compiler', 'debugger', 'browser'], 1, 'A compiler translates all source code into machine code in advance, producing an executable file.'),
         ('A program that translates and executes code line-by-line, rather than compiling it all beforehand, is called a(n)', ['compiler', 'interpreter', 'assembler only', 'linker'], 1, 'An interpreter processes and runs source code directly, one statement at a time.'),
         ("Moore's Law is a historical observation about the rate at which", ['internet speed decreases', 'the number of transistors on a chip roughly doubles over time', 'software bugs increase', 'hard drives shrink to zero size'], 1, "Moore's Law observed that transistor density on chips tends to double roughly every couple of years."),
+        ("Who designed the Analytical Engine and is often called the 'father of the computer'?", ['Alan Turing', 'Charles Babbage', 'Tim Berners-Lee', 'John von Neumann'], 1, 'Charles Babbage designed the Analytical Engine in the 19th century, a mechanical general-purpose computer concept.'),
+        ('First-generation computers primarily relied on which technology for processing?', ['Transistors', 'Vacuum tubes', 'Integrated circuits', 'Microprocessors'], 1, 'First-generation computers, built in the 1940s-50s, used vacuum tubes for switching and amplification before transistors existed.'),
+        ('Who is credited with inventing the World Wide Web?', ['Bill Gates', 'Steve Jobs', 'Tim Berners-Lee', 'Alan Turing'], 2, 'Tim Berners-Lee created the World Wide Web in 1989 while working at CERN, introducing HTML, HTTP, and URLs.'),
     ]),
     ('Logic, software types, applications', [
         ('In Boolean logic, the AND operator returns true only when', ['at least one input is true', 'both inputs are true', 'both inputs are false', 'exactly one input is true'], 1, 'The AND operator is true only if every input condition is true.'),
@@ -696,6 +935,8 @@ COMPUTER_SCIENCE = [
         ('A document-creation program used to write and format text, such as letters or reports, is commonly called a', ['spreadsheet', 'word processor', 'web browser', 'compiler'], 1, 'A word processor is application software for creating and formatting text documents.'),
         ('A program organized into a grid of rows and columns, often used for calculations, is called a', ['word processor', 'spreadsheet', 'web browser', 'presentation program'], 1, 'Spreadsheet software (like Excel) organizes data into rows and columns and supports calculations.'),
         ('A program used to search for information across the World Wide Web is called a', ['web browser', 'search engine', 'spreadsheet', 'compiler'], 1, 'A search engine indexes web content and helps users find relevant pages.'),
+        ('A logic gate that inverts its single input, producing true when the input is false, is called a:', ['AND gate', 'OR gate', 'NOT gate', 'XOR gate'], 2, 'A NOT gate is a one-input gate that outputs the opposite (inverse) of its input value.'),
+        ('Software whose source code is freely available for anyone to view, modify, and distribute is called:', ['Freeware', 'Open-source software', 'Shareware', 'Firmware'], 1, 'Open-source software publishes its source code publicly, allowing anyone to inspect, modify, and redistribute it.'),
     ]),
     ('File formats & measurement', [
         ('A file with the extension .jpg is most likely a', ['text document', 'image file', 'audio file', 'spreadsheet'], 1, '.jpg (JPEG) is a common compressed image file format.'),
@@ -703,6 +944,9 @@ COMPUTER_SCIENCE = [
         ('A file with the extension .pdf is most likely a', ['a portable document format file', 'an image format only', 'a programming language', 'a type of virus'], 0, 'PDF (Portable Document Format) is a file format for presenting documents consistently across devices.'),
         ('Approximately how many bytes are in one kilobyte, using the common binary convention?', ['100', '1000', '1024', '10000'], 2, 'In the binary convention, 1 kilobyte equals 2^10 = 1024 bytes.'),
         ('Which unit represents a larger amount of digital storage: a gigabyte or a megabyte?', ['Megabyte', 'Gigabyte', 'They are equal', 'Neither measures storage'], 1, 'A gigabyte (GB) is about 1024 megabytes (MB), making it the larger unit.'),
+        ('A file with the .csv extension most likely contains:', ['Compressed audio data', 'Comma-separated plain text values', 'Executable program code', 'Vector graphics'], 1, 'CSV stands for Comma-Separated Values, a plain text format used to store tabular data.'),
+        ('A .zip file typically represents:', ['An image file format', 'A compressed archive containing one or more files', 'A video codec', 'A database schema file'], 1, 'ZIP is a compressed archive format that bundles and reduces the size of one or more files.'),
+        ('Using the common 1000-based convention, how many bytes are in one terabyte?', ['1,000 bytes', '1,000,000 bytes', '1,000,000,000 bytes', '1,000,000,000,000 bytes'], 3, 'A terabyte equals 1,000 gigabytes, which is 1,000,000,000,000 (one trillion) bytes under the decimal convention.'),
     ]),
     ('Internet & email', [
         ('A system that allows users to send and receive digital messages over a network is called', ['FTP', 'email', 'a compiler', 'a firewall'], 1, 'Email (electronic mail) allows users to exchange digital messages over a network like the internet.'),
@@ -710,6 +954,9 @@ COMPUTER_SCIENCE = [
         ("A small piece of data stored by a website on a user's browser to remember information is called a", ['cache', 'cookie', 'firewall', 'plugin'], 1, 'Cookies store small bits of data in the browser, often used to remember login state or preferences.'),
         ('The process of copying a file from a server to your own computer is called', ['uploading', 'downloading', 'streaming only', 'compiling'], 1, 'Downloading transfers a file from a remote server to the local device.'),
         ('The process of copying a file from your own computer to a server is called', ['downloading', 'uploading', 'formatting', 'debugging'], 1, 'Uploading transfers a file from the local device to a remote server.'),
+        ("In an email address like 'user@example.com', the part after the '@' symbol identifies the:", ['Username', 'Domain or mail server', 'Subject line', 'Attachment type'], 1, "The portion after the '@' symbol specifies the domain name of the mail server that handles the recipient's email."),
+        ('An Internet Service Provider (ISP) is a company that primarily:', ['Provides users with access to the Internet', 'Manufactures computer hardware', 'Writes web browser software', 'Hosts video streaming content exclusively'], 0, 'An ISP supplies the infrastructure and service that connects homes and businesses to the Internet.'),
+        ('Unsolicited, often irrelevant bulk email sent to large numbers of recipients is commonly called:', ['Phishing', 'Spam', 'A cookie', 'A cache'], 1, 'Spam refers to unwanted bulk messages sent indiscriminately to many email addresses, often for advertising.'),
     ]),
     ('Programming concepts (extra)', [
         ('A collection of related functions and data bundled together, central to object-oriented programming, is called a', ['loop', 'class', 'variable', 'comment'], 1, 'In object-oriented programming, a class bundles data (attributes) and behavior (methods) together.'),
@@ -717,6 +964,9 @@ COMPUTER_SCIENCE = [
         ('A comment in source code is primarily used to', ['execute faster code', 'explain code to human readers; it is ignored by the computer', 'store user data', 'connect to a network'], 1, 'Comments are notes for programmers and are ignored when the code actually runs.'),
         ('A programming error that causes a program to crash or behave unexpectedly while running is called a', ['syntax error', 'runtime error', 'compile-time error only', 'cosmetic error'], 1, 'A runtime error occurs while the program is executing, as opposed to a syntax error caught beforehand.'),
         ('The process of converting human-readable source code into a form the computer can execute is broadly called', ['debugging', 'compiling or interpreting', 'formatting', 'uploading'], 1, "Compiling or interpreting translates source code into instructions a computer's processor can execute."),
+        ('In object-oriented programming, the mechanism that lets a class acquire properties and behaviors of another class is called:', ['Encapsulation', 'Inheritance', 'Polymorphism', 'Abstraction'], 1, 'Inheritance allows a subclass to reuse and extend the fields and methods of a parent class.'),
+        ('Encapsulation in object-oriented programming refers to:', ['Bundling data and methods together while restricting direct access to internal details', 'Allowing one method name to behave differently depending on input', 'Creating multiple objects from a single class', 'Converting source code into machine language'], 0, "Encapsulation hides an object's internal state and exposes only controlled access through methods, protecting data integrity."),
+        ('Polymorphism in object-oriented programming allows:', ['A single method name to behave differently depending on the object calling it', 'A class to have only one possible instance', 'Variables to be converted between data types automatically', 'Code to run without being compiled'], 0, 'Polymorphism lets different classes implement the same method name in their own way, so the correct behavior is chosen at runtime based on the object.'),
     ]),
     ('Misc practical computing', [
         ('A device that connects multiple networks and directs data packets between them is called a', ['modem', 'router', 'scanner', 'monitor'], 1, 'A router forwards data packets between different networks, such as a home network and the internet.'),
@@ -735,6 +985,9 @@ ENGLISH = [
         ('Which part of speech joins words, phrases, or clauses together?', ['Pronoun', 'Adjective', 'Conjunction', 'Interjection'], 2, 'Conjunctions (and, but, or) connect words, phrases, or clauses.'),
         ('Which word is an example of a pronoun?', ['Run', 'Quickly', 'She', 'Happy'], 2, '"She" is a pronoun, used in place of a specific noun.'),
         ('Which part of speech expresses sudden emotion and is often followed by an exclamation mark?', ['Interjection', 'Conjunction', 'Preposition', 'Adjective'], 0, 'Interjections (Wow! Ouch!) express strong or sudden emotion.'),
+        ("Which word in the sentence 'The tall boy quickly finished his homework' is an adjective?", ['Tall', 'Quickly', 'Finished', 'Homework'], 0, "'Tall' describes the noun 'boy', making it an adjective."),
+        ("Identify the verb in the sentence: 'The children played happily in the garden.'", ['Children', 'Played', 'Happily', 'Garden'], 1, "'Played' shows the action performed by the children, so it is the verb."),
+        ("Which word is a pronoun in the sentence 'She gave her book to him'?", ['Gave', 'Book', 'She', 'To'], 2, "'She' replaces a noun (a person's name) and therefore functions as a pronoun."),
     ]),
     ('Tenses', [
         ('Which sentence correctly uses the present simple tense?', ['She is running every day.', 'She run every day.', 'She runs every day.', 'She running every day.'], 2, 'The present simple for third-person singular adds -s: "She runs every day."'),
@@ -745,6 +998,9 @@ ENGLISH = [
         ('Which sentence correctly uses the past continuous tense?', ['She was reading a book when I called.', 'She reads a book when I called.', 'She read a book when I calling.', 'She will read a book when I called.'], 0, 'Past continuous uses "was/were + verb-ing" for an action in progress in the past: "She was reading..."'),
         ('Which sentence correctly uses the past perfect tense?', ['She had left before I arrived.', 'She has left before I arrived.', 'She leaves before I arrived.', 'She leaving before I arrived.'], 0, 'Past perfect uses "had + past participle" for an action completed before another past action.'),
         ('Which sentence correctly uses the future continuous tense?', ['She will be studying at 8 pm tonight.', 'She is studying at 8 pm tonight.', 'She studied at 8 pm tonight.', 'She studies at 8 pm tonight.'], 0, 'Future continuous uses "will be + verb-ing" for an action expected to be in progress at a future time.'),
+        ('Which sentence is written in the future perfect tense?', ['She will have completed the project by Friday.', 'She is completing the project.', 'She completed the project.', 'She has completed the project.'], 0, "'Will have completed' indicates an action that will be finished before a specific future time, which is the future perfect tense."),
+        ('Which sentence is an example of the present perfect continuous tense?', ['He has been studying for two hours.', 'He studies every day.', 'He studied yesterday.', 'He will study tomorrow.'], 0, "'Has been studying' shows an action that started in the past and is still continuing, which is the present perfect continuous tense."),
+        ('Which sentence shows the past perfect continuous tense?', ['They had been waiting for an hour when the bus arrived.', 'They waited for an hour.', 'They have waited for an hour.', 'They were waiting for an hour.'], 0, "'Had been waiting' describes an ongoing action that continued up to another point in the past, marking the past perfect continuous tense."),
     ]),
     ('Sentence structure', [
         ('In the sentence "The dog barked loudly," what is the subject?', ['barked', 'loudly', 'The dog', 'There is no subject'], 2, '"The dog" is who/what the sentence is about -- the subject.'),
@@ -753,6 +1009,9 @@ ENGLISH = [
         ('A clause that can stand alone as a complete sentence is called a(n)', ['dependent clause', 'independent clause', 'phrase only', 'fragment'], 1, 'An independent clause expresses a complete thought and can stand alone as a sentence.'),
         ('A clause that cannot stand alone and depends on another clause to complete its meaning is called a(n)', ['independent clause', 'dependent clause', 'simple sentence', 'compound sentence'], 1, 'A dependent (subordinate) clause needs an independent clause to form a complete sentence.'),
         ('A sentence that asks a question is called', ['declarative', 'interrogative', 'imperative', 'exclamatory'], 1, 'Interrogative sentences ask questions and typically end with a question mark.'),
+        ('What is a sentence called that contains one independent clause and at least one dependent clause?', ['Simple sentence', 'Compound sentence', 'Complex sentence', 'Compound-complex sentence'], 2, 'A complex sentence joins one independent clause with one or more dependent clauses.'),
+        ('What is a sentence called that has at least two independent clauses and one dependent clause?', ['Simple sentence', 'Compound sentence', 'Complex sentence', 'Compound-complex sentence'], 3, 'A compound-complex sentence combines two or more independent clauses with at least one dependent clause.'),
+        ('Which of the following is a declarative sentence?', ['Close the door.', 'The sun sets in the west.', 'What time is it?', 'What a wonderful view!'], 1, "A declarative sentence simply states a fact or opinion, as in 'The sun sets in the west.'"),
     ]),
     ('Punctuation', [
         ('Which punctuation mark is commonly used to separate items in a list?', ['Apostrophe', 'Comma', 'Colon only', 'Hyphen'], 1, 'Commas are used to separate items in a list, among other uses.'),
@@ -761,6 +1020,9 @@ ENGLISH = [
         ('Which punctuation mark ends a sentence asking a direct question?', ['Full stop', 'Question mark', 'Comma', 'Semicolon'], 1, 'A question mark is used at the end of a direct question.'),
         ('Which punctuation mark is used to express strong emotion or emphasis?', ['Comma', 'Colon', 'Exclamation mark', 'Apostrophe'], 2, 'An exclamation mark conveys strong feeling or emphasis.'),
         ('Which punctuation marks are used to enclose a direct quotation?', ['Parentheses', 'Quotation marks', 'Brackets', 'Hyphens'], 1, 'Quotation marks enclose the exact words someone said or wrote.'),
+        ('Which punctuation mark is used to join two closely related independent clauses without a conjunction?', ['Comma', 'Semicolon', 'Colon', 'Hyphen'], 1, 'A semicolon connects two closely related independent clauses without needing a coordinating conjunction.'),
+        ('Which punctuation mark is used to introduce a list or explanation?', ['Colon', 'Apostrophe', 'Hyphen', 'Semicolon'], 0, 'A colon is used after an independent clause to introduce a list, explanation, or quotation.'),
+        ("Which punctuation mark is used to join two words into a single compound word, such as 'mother-in-law'?", ['Hyphen', 'Dash', 'Colon', 'Semicolon'], 0, 'A hyphen joins words together to form compound words.'),
     ]),
     ('Synonyms', [
         ('Which word is a synonym of "happy"?', ['Sad', 'Joyful', 'Angry', 'Tired'], 1, '"Joyful" means feeling or showing happiness, making it a synonym of "happy".'),
@@ -773,6 +1035,10 @@ ENGLISH = [
         ('Which word is a synonym of "angry"?', ['Calm', 'Furious', 'Content', 'Peaceful'], 1, '"Furious" means extremely angry.'),
         ('Which word is a synonym of "tiny"?', ['Huge', 'Enormous', 'Small', 'Wide'], 2, '"Small" means little in size, similar to "tiny".'),
         ('Which word is a synonym of "beautiful"?', ['Ugly', 'Pretty', 'Dull', 'Plain'], 1, '"Pretty" describes something pleasing to look at, similar to "beautiful".'),
+        ("Which word is a synonym of 'diligent'?", ['Lazy', 'Hardworking', 'Careless', 'Forgetful'], 1, "'Diligent' means showing persistent effort, which matches 'hardworking'."),
+        ("Which word is a synonym of 'abundant'?", ['Scarce', 'Plentiful', 'Limited', 'Rare'], 1, "'Abundant' means existing in large quantities, the same meaning as 'plentiful'."),
+        ("Which word is a synonym of 'genuine'?", ['Fake', 'Authentic', 'Doubtful', 'Artificial'], 1, "'Genuine' means real or true, which is synonymous with 'authentic'."),
+        ("Which word is a synonym of 'candid'?", ['Secretive', 'Frank', 'Shy', 'Confused'], 1, "'Candid' means being open and honest in speech, which matches 'frank'."),
     ]),
     ('Antonyms', [
         ('Which word is an antonym of "hot"?', ['Warm', 'Cold', 'Burning', 'Mild'], 1, '"Cold" is the direct opposite of "hot".'),
@@ -785,6 +1051,10 @@ ENGLISH = [
         ('Which word is an antonym of "increase"?', ['Grow', 'Expand', 'Decrease', 'Multiply'], 2, '"Decrease" is the opposite of "increase".'),
         ('Which word is an antonym of "polite"?', ['Courteous', 'Rude', 'Gracious', 'Respectful'], 1, '"Rude" is the opposite of "polite".'),
         ('Which word is an antonym of "transparent"?', ['Clear', 'Opaque', 'See-through', 'Glassy'], 1, '"Opaque" means not able to be seen through, the opposite of "transparent".'),
+        ("Which word is an antonym of 'flexible'?", ['Rigid', 'Adaptable', 'Elastic', 'Supple'], 0, "'Flexible' means easily bent or adaptable, while 'rigid' means stiff and unyielding, its opposite."),
+        ("Which word is an antonym of 'humble'?", ['Modest', 'Arrogant', 'Polite', 'Shy'], 1, "'Humble' means not proud, so its opposite is 'arrogant', meaning excessively proud."),
+        ("Which word is an antonym of 'optimistic'?", ['Hopeful', 'Pessimistic', 'Confident', 'Cheerful'], 1, "'Optimistic' means expecting good outcomes, whereas 'pessimistic' means expecting bad outcomes, its opposite."),
+        ("Which word is an antonym of 'cautious'?", ['Careful', 'Reckless', 'Alert', 'Wary'], 1, "'Cautious' means careful to avoid danger, so its opposite is 'reckless', meaning careless of consequences."),
     ]),
     ('Spelling / common errors', [
         ('Which spelling of this word for "to get or be given something" is correct?', ['Recieve', 'Receive', 'Receeve', 'Receve'], 1, 'The correct spelling follows "i before e except after c": r-e-c-e-i-v-e.'),
@@ -793,6 +1063,9 @@ ENGLISH = [
         ('Which spelling of this word meaning "to provide suitable space or lodging for" is correct?', ['Accommodate', 'Acommodate', 'Accomodate', 'Acomodate'], 0, 'The correct spelling is "accommodate", with double c and double m.'),
         ('Which spelling of this word meaning "happened" (past tense) is correct?', ['Occured', 'Occurred', 'Ocurred', 'Occureed'], 1, 'The correct spelling is "occurred", with double r.'),
         ('Which spelling of this word meaning "to feel ashamed or awkward" is correct?', ['Embarass', 'Embarrass', 'Embarras', 'Embbarass'], 1, 'The correct spelling is "embarrass", with double r and double s.'),
+        ('Which of the following is the correctly spelled word meaning "essential or required"?', ['Neccessary', 'Necessary', 'Necessery', 'Neccesary'], 1, "The correct spelling is 'necessary', with one 'c' and one 's' followed by 'ary'."),
+        ('Which of the following is the correctly spelled word meaning "a particular event or time"?', ['Ocassion', 'Occassion', 'Occasion', 'Occasoin'], 2, "The correct spelling is 'occasion', with double 'c' and a single 's'."),
+        ('Which of the following is the correctly spelled word meaning "to suggest favorably"?', ['Recomend', 'Reccomend', 'Recommend', 'Recommand'], 2, "The correct spelling is 'recommend', with double 'm' and the ending '-mend'."),
     ]),
     ('Idioms', [
         ('What does the idiom "break the ice" mean?', ['To literally break ice', 'To start a conversation in a social setting', 'To end a friendship', 'To make someone angry'], 1, '"Break the ice" means to initiate conversation and ease tension in a social situation.'),
@@ -801,36 +1074,54 @@ ENGLISH = [
         ('What does the idiom "piece of cake" mean?', ['A dessert', 'Something very easy to do', 'Something very difficult', 'A small amount'], 1, '"Piece of cake" describes a task that is very easy to accomplish.'),
         ('What does the idiom "under the weather" mean?', ['Standing outside in bad weather', 'Feeling unwell', 'Feeling very happy', 'Traveling abroad'], 1, '"Under the weather" is an informal way of saying someone feels slightly ill.'),
         ('What does the idiom "spill the beans" mean?', ['To cook a meal', 'To reveal a secret', 'To make a mess', 'To lose something'], 1, '"Spill the beans" means to reveal secret or confidential information.'),
+        ("What does the idiom 'burn the midnight oil' mean?", ['To waste money', 'To work late into the night', 'To cause a fire', 'To relax completely'], 1, "'Burn the midnight oil' means to work or study late at night."),
+        ("What does the idiom 'let the cat out of the bag' mean?", ['To adopt a pet', 'To reveal a secret accidentally', 'To cause confusion', 'To escape danger'], 1, "'Let the cat out of the bag' means to accidentally reveal a secret."),
+        ("What does the idiom 'a blessing in disguise' mean?", ['A hidden danger', 'Something that seems bad but turns out good', 'A religious ceremony', 'An obvious gift'], 1, "'A blessing in disguise' describes something that initially appears unfortunate but eventually results in a good outcome."),
     ]),
     ('Active/passive voice', [
         ('Which sentence is written in the passive voice?', ['The chef cooked the meal.', 'The meal was cooked by the chef.', 'The chef is cooking the meal.', 'The chef will cook the meal.'], 1, 'In passive voice, the subject (the meal) receives the action rather than performing it.'),
         ('Which sentence is written in the active voice?', ['The ball was thrown by John.', 'The window was broken by the storm.', 'Maria wrote the letter.', 'The cake was eaten by the children.'], 2, 'In active voice, the subject (Maria) performs the action directly.'),
         ('What is the passive voice version of "The teacher explains the lesson"?', ['The lesson explains the teacher.', 'The lesson is explained by the teacher.', 'The teacher is explained by the lesson.', 'The lesson was explaining the teacher.'], 1, 'In passive voice, the object (the lesson) becomes the subject: "The lesson is explained by the teacher."'),
         ('What is the active voice version of "The book was read by Sarah"?', ['Sarah was read by the book.', 'Sarah reads the book.', 'Sarah read the book.', 'The book reads Sarah.'], 2, 'Active voice puts the doer first: "Sarah read the book."'),
+        ("Convert to passive voice: 'The chef is cooking dinner.'", ['Dinner is cooked by the chef.', 'Dinner is being cooked by the chef.', 'Dinner was cooked by the chef.', 'Dinner has been cooked by the chef.'], 1, "The present continuous tense 'is cooking' becomes 'is being cooked' in the passive voice."),
+        ("Convert to active voice: 'The letter was written by Maria.'", ['Maria writes the letter.', 'Maria wrote the letter.', 'Maria has written the letter.', 'The letter writes Maria.'], 1, "The passive 'was written by Maria' converts to the active past simple form 'Maria wrote the letter.'"),
+        ('Which of the following sentences is written in the passive voice?', ['The workers built the bridge.', 'The bridge was built by the workers.', 'The workers are building the bridge.', 'The workers will build the bridge.'], 1, "In 'The bridge was built by the workers,' the subject (bridge) receives the action, which is the structure of a passive sentence."),
     ]),
     ('Direct/indirect speech', [
         ('Which of the following is an example of direct speech?', ['He said that he was tired.', 'He said, "I am tired."', 'He mentioned he felt tired.', 'He claimed to be tired.'], 1, "Direct speech quotes a speaker's exact words, usually within quotation marks."),
         ('Which of the following is an example of indirect (reported) speech?', ['She said, "I am happy."', 'She exclaimed, "What a day!"', 'She said that she was happy.', 'She asked, "Are you happy?"'], 2, 'Indirect speech reports what was said without quoting the exact original words.'),
         ('Convert to indirect speech: She said, "I will come tomorrow."', ['She said that she will come tomorrow.', 'She said that she would come the next day.', 'She says she is coming tomorrow.', 'She said, I will come tomorrow.'], 1, 'Reporting shifts tense and time references: "will" becomes "would" and "tomorrow" becomes "the next day".'),
         ('Convert to direct speech the sentence: He said that he was reading a book.', ['He said, "I am reading a book."', 'He said, "He is reading a book."', 'He said, "I was reading a book."', 'He says, "I read a book."'], 0, 'Converting back to direct speech restores the first-person, present-tense wording: "I am reading a book."'),
+        ("Convert to indirect speech: She said, 'I am happy.'", ['She said that she is happy.', 'She said that she was happy.', 'She says that she was happy.', 'She said I am happy.'], 1, "In indirect speech, the present tense 'am' shifts back to the past tense 'was', and the pronoun changes to 'she'."),
+        ('Convert to direct speech: He said that he had finished his work.', ["He said, 'I finished my work.'", "He said, 'I have finished my work.'", "He said, 'I had finished my work.'", "He said, 'I am finishing my work.'"], 1, "The past perfect 'had finished' in indirect speech corresponds to the present perfect 'have finished' in the original direct speech."),
+        ('Which of the following sentences is an example of indirect (reported) speech?', ["Raj said, 'I am tired.'", 'Raj said that he was tired.', "Raj asked, 'Are you tired?'", "Raj exclaimed, 'How tired I am!'"], 1, "Indirect speech reports what someone said without quoting their exact words, as in 'Raj said that he was tired.'"),
     ]),
     ('Articles', [
         ('Choose the correct article: "___ apple a day keeps the doctor away."', ['A', 'An', 'The', 'No article needed'], 1, '"An" is used before words that begin with a vowel sound, like "apple".'),
         ('Choose the correct article: "She is ___ honest person."', ['a', 'an', 'the', 'no article needed'], 1, '"An" is used before "honest" because the "h" is silent, making the word start with a vowel sound.'),
         ('Choose the correct article: "He plays ___ guitar every evening."', ['a', 'an', 'the', 'no article needed'], 2, '"The" is commonly used before musical instruments when talking about playing them.'),
         ('Choose the correct article: "I saw ___ unicorn in my dream."', ['a', 'an', 'the', 'no article needed'], 0, '"A" is used before "unicorn" because, despite starting with the letter u, it begins with a consonant sound ("yoo-ni-corn").'),
+        ("Choose the correct article: '___ university near my house offers evening classes.'", ['A', 'An', 'The (only)', 'No article needed'], 0, "'University' begins with a consonant sound ('yoo'), so the article 'a' is used, not 'an'."),
+        ("Choose the correct article: 'We waited for ___ hour before the train arrived.'", ['A', 'An', 'The (only)', 'No article needed'], 1, "'Hour' begins with a silent 'h', so it starts with a vowel sound and takes the article 'an'."),
+        ("Choose the correct article: 'She works as ___ MBA graduate at a top firm.'", ['A', 'An', 'The (only)', 'No article needed'], 1, "'MBA' is pronounced starting with the vowel sound 'em', so it takes the article 'an' even though 'M' is a consonant letter."),
     ]),
     ('Prepositions', [
         ('Choose the correct preposition: "The cat is sitting ___ the table."', ['in', 'on', 'at', 'into'], 1, '"On" correctly describes the cat\'s position on top of the table\'s surface.'),
         ('Choose the correct preposition: "She arrived ___ 9 o\'clock."', ['in', 'on', 'at', 'by only'], 2, '"At" is used with specific clock times, such as "at 9 o\'clock".'),
         ('Choose the correct preposition: "We will meet ___ Monday."', ['in', 'on', 'at', 'by'], 1, '"On" is used with specific days of the week, such as "on Monday".'),
         ('Choose the correct preposition: "He has lived here ___ 2010."', ['since', 'for', 'at', 'on'], 0, '"Since" is used with a specific starting point in time, such as a year.'),
+        ("Choose the correct preposition: 'She hid ___ the table during the game.'", ['on', 'under', 'between', 'from'], 1, "'Under' correctly indicates a position beneath the table."),
+        ("Choose the correct preposition: 'He has been working at this company ___ five years.'", ['since', 'for', 'from', 'at'], 1, "'For' is used with a duration of time, such as 'five years', while 'since' is used with a starting point in time."),
+        ("Choose the correct preposition: 'The cat jumped ___ the fence to escape the dog.'", ['over', 'into', 'at', 'on'], 0, "'Over' describes movement from one side of an obstacle to the other, matching the action of jumping across the fence."),
     ]),
     ('Subject-verb agreement', [
         ('Choose the correct verb: "Each of the students ___ a book."', ['have', 'has', 'having', 'haves'], 1, '"Each" is singular, so it takes the singular verb "has".'),
         ('Choose the correct verb: "The group of students ___ studying together."', ['is', 'are', 'were (plural only)', 'be'], 0, '"Group" is treated as a singular collective noun here, taking the singular verb "is".'),
         ('Choose the correct verb: "Neither of the answers ___ correct."', ['is', 'are', 'were', 'be'], 0, '"Neither" is singular, so it takes the singular verb "is".'),
         ('Choose the correct verb: "The news ___ surprising."', ['was', 'were', 'are', 'have been'], 0, '"News" is treated as singular in English, taking the singular verb "was".'),
+        ("Choose the correct verb: 'Everyone in the class ___ required to submit the assignment.'", ['is', 'are', 'were', 'have'], 0, "'Everyone' is an indefinite pronoun that takes a singular verb, so 'is' is correct."),
+        ("Choose the correct verb: 'Either of the two roads ___ to the railway station.'", ['lead', 'leads', 'leading', 'are leading'], 1, "'Either' is singular, so it takes the singular verb 'leads'."),
+        ("Choose the correct verb: 'Mathematics ___ a challenging subject for many students.'", ['is', 'are', 'were', 'have been'], 0, "Although 'Mathematics' ends in 's', it is treated as a singular subject and takes the singular verb 'is'."),
     ]),
     ('Figures of speech', [
         ('A comparison using "like" or "as" is called a', ['metaphor', 'simile', 'personification', 'hyperbole'], 1, 'A simile explicitly compares two things using "like" or "as" (e.g. "brave as a lion").'),
@@ -839,6 +1130,9 @@ ENGLISH = [
         ('The repetition of the same initial consonant sound in nearby words is called', ['simile', 'alliteration', 'hyperbole', 'onomatopoeia'], 1, 'Alliteration repeats initial consonant sounds, as in "Peter Piper picked..."'),
         ('An extreme exaggeration used for emphasis, not meant to be taken literally, is called', ['hyperbole', 'simile', 'personification', 'alliteration'], 0, 'Hyperbole uses deliberate exaggeration for emphasis or effect (e.g. "I\'ve told you a million times").'),
         ('A word that imitates the sound it describes, such as "buzz" or "clap," is an example of', ['simile', 'metaphor', 'onomatopoeia', 'personification'], 2, 'Onomatopoeia refers to words that phonetically mimic the sound they describe.'),
+        ("Which figure of speech is used in the sentence 'The silence was deafening'?", ['Simile', 'Oxymoron', 'Metaphor', 'Onomatopoeia'], 1, "An oxymoron combines two contradictory terms, such as 'silence' and 'deafening', for effect."),
+        ("Identify the figure of speech in: 'Time is a thief that steals our youth.'", ['Simile', 'Personification', 'Metaphor', 'Alliteration'], 2, "The sentence directly compares 'time' to 'a thief' without using 'like' or 'as', which is a metaphor."),
+        ('Which figure of speech means saying the opposite of what is actually meant, often humorously or sarcastically?', ['Hyperbole', 'Irony', 'Simile', 'Personification'], 1, 'Irony involves expressing meaning through language that signifies the opposite, typically for humorous or emphatic effect.'),
     ]),
     ('Commonly confused words', [
         ('Choose the correct word: "___ going to the store later."', ['Their', 'There', "They're", 'Them'], 2, '"They\'re" is the contraction of "they are", fitting this sentence.'),
@@ -849,12 +1143,18 @@ ENGLISH = [
         ('Choose the correct word: "Is this ___ umbrella?"', ['your', "you're", 'yore', 'yours is'], 0, '"Your" shows possession here, as opposed to "you\'re" (you are).'),
         ('Choose the correct word: "The weather did not ___ our plans."', ['effect', 'affect', 'affects only', 'effecting'], 1, '"Affect" is typically used as a verb meaning to influence something.'),
         ('Choose the correct word: "The medicine had a positive ___ on her health."', ['affect', 'effect', 'affecting', 'affects'], 1, '"Effect" is typically used as a noun meaning a result or outcome.'),
+        ("Choose the correct word: 'This cake tastes better ___ the one I had yesterday.'", ['then', 'than', 'that', "than's"], 1, "'Than' is used for comparisons, while 'then' refers to time or sequence."),
+        ("Choose the correct word: '___ coat is this on the chair?'", ["Who's", 'Whose', 'Who', 'Whom'], 1, "'Whose' shows possession, while 'who's' is a contraction of 'who is'."),
+        ("Choose the correct word: 'If you don't tighten the screw, it will become ___.'", ['lose', 'loose', 'loss', 'loosen'], 1, "'Loose' means not firmly fixed, which fits the context, whereas 'lose' means to misplace or fail to win."),
     ]),
     ('More vocabulary (synonyms/antonyms)', [
         ('Which word is a synonym of "enormous"?', ['Tiny', 'Huge', 'Narrow', 'Short'], 1, '"Huge" means extremely large, similar in meaning to "enormous".'),
         ('Which word is a synonym of "ancient"?', ['Modern', 'Old', 'New', 'Recent'], 1, '"Old" is close in meaning to "ancient", referring to something from long ago.'),
         ('Which word is an antonym of "arrive"?', ['Reach', 'Depart', 'Enter', 'Land'], 1, '"Depart" (to leave) is the opposite of "arrive".'),
         ('Which word is an antonym of "permit"?', ['Allow', 'Forbid', 'Grant', 'Approve'], 1, '"Forbid" is the opposite of "permit" (to allow).'),
+        ("Which word is a synonym of 'meticulous'?", ['Careless', 'Precise', 'Hasty', 'Confused'], 1, "'Meticulous' means showing great attention to detail, which matches 'precise'."),
+        ("Which word is an antonym of 'obsolete'?", ['Outdated', 'Modern', 'Ancient', 'Useless'], 1, "'Obsolete' means no longer in use or out of date, so its opposite is 'modern'."),
+        ("Which word is a synonym of 'frugal'?", ['Wasteful', 'Thrifty', 'Generous', 'Extravagant'], 1, "'Frugal' means being economical with money or resources, which matches 'thrifty'."),
     ]),
     ('More sentence types', [
         ('A sentence that gives a command or makes a request is called', ['declarative', 'interrogative', 'imperative', 'exclamatory'], 2, 'Imperative sentences give commands or make requests, e.g. "Close the door."'),
@@ -907,7 +1207,6 @@ def add_chapter_questions(
     for text, options, correct_index, explanation in items:
         existing = existing_questions.get(text)
         if existing:
-            # Backfill chapter_id on rows seeded before chapters existed.
             if existing.chapter_id is None:
                 existing.chapter_id = chapter.id
                 db.add(existing)
